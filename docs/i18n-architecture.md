@@ -72,15 +72,15 @@ families — just widen the loaded weight/subset range when a locale goes from
 - No `hreflang` / `alternates.languages` entries in metadata — they would
   point at URLs that don't exist yet, which is a real SEO error, not a
   neutral placeholder.
-- No middleware-based automatic locale redirect — this is a static export
-  (`output: 'export'`), and Next.js Middleware does not run under static
-  export. A manual language-switcher link (as used today) is sufficient and
-  fully static-export-compatible; automatic `Accept-Language` redirection
-  isn't a hard requirement here.
+- No middleware-based automatic locale redirect for now — not a hard
+  requirement while there's only one live locale. This site runs on Vercel
+  (not a static export), so Next.js Middleware is actually available if
+  automatic `Accept-Language` redirection is wanted later; a manual
+  language-switcher link (as used today) is sufficient until then.
 
 ## Deployment note
 
-Adding `[locale]` routes is fully compatible with the existing GitHub Pages
-static export pipeline — it's mechanically the same `generateStaticParams`
-pattern already used for `/visa-types/[slug]` and `/blog/[slug]`. No changes
-to `next.config.ts` or `.github/workflows/deploy.yml` are needed.
+This site deploys to Vercel with no static-export constraints, so adding
+`[locale]` routes is a normal `generateStaticParams` addition — mechanically
+the same pattern already used for `/visa-types/[slug]` and `/blog/[slug]`.
+No changes to `next.config.ts` or the Vercel project config are needed.

@@ -1,23 +1,22 @@
 # VisaPrepper marketing site
 
 The public marketing website for VisaPrepper — an AI visa mock-interview
-platform. Next.js (App Router), fully static export, deployed to GitHub
-Pages via GitHub Actions.
+platform. Next.js (App Router), deployed on Vercel.
 
 ## Stack
 
-- Next.js 16 (App Router), TypeScript, `output: 'export'` — fully static, no server
+- Next.js 16 (App Router), TypeScript
 - Tailwind CSS v4 (CSS-first `@theme` tokens in `app/globals.css`)
 - `motion` (Framer Motion's successor) for the homepage hero scroll animation
 - Blog: plain `.mdx` files + `gray-matter` + `next-mdx-remote/rsc`
-- Deploy: GitHub Actions → GitHub Pages (`.github/workflows/deploy.yml`)
+- Deploy: Vercel, connected to this GitHub repo — every push to `main` deploys automatically
 
 ## Local development
 
 ```bash
 npm install
 npm run dev       # http://localhost:3000
-npm run build     # production build, outputs static site to ./out
+npm run build     # production build
 npm run lint
 ```
 
@@ -72,44 +71,16 @@ typed content object in `content/visa-types/*.ts` (see `types.ts` for the
 shape). Add a new file + register it in `lib/content/visa-types.ts`'s
 `ALL_VISA_TYPES` array to add a new visa type.
 
-## Deploying (GitHub Pages)
+## Deploying (Vercel)
 
-The GitHub Actions workflow (`.github/workflows/deploy.yml`) is already
-written and will auto-deploy on every push to `main` — but this repo hasn't
-been pushed to GitHub yet. To go live:
+This repo is already connected to Vercel — pushing to `main` triggers a
+production deployment automatically, no config file needed (Vercel
+zero-configs Next.js).
 
-1. **Create the GitHub repo** (from this directory):
-   ```bash
-   gh repo create visaprepper --public --source=. --remote=origin
-   ```
-   (No `gh` CLI? Create an empty repo named `visaprepper` at
-   github.com/new, then: `git remote add origin <the repo's URL>`.)
+**Custom domain (visaprepper.com):** add it under the Vercel project's
+Settings → Domains, then point your DNS at Vercel per the records shown
+there. No code changes needed — `metadataBase` in `app/layout.tsx` already
+points at `https://visaprepper.com`, so canonical/OG tags are correct from
+the first deploy regardless of the interim `*.vercel.app` URL.
 
-2. **Push:**
-   ```bash
-   git add -A
-   git commit -m "Initial VisaPrepper marketing site"
-   git push -u origin main
-   ```
-
-3. **Turn on Pages**: repo Settings → Pages → Source → **GitHub Actions**
-   (not "Deploy from a branch"). The workflow will run automatically on the
-   push above — check the Actions tab for progress. Once it finishes, your
-   site is live at `https://<your-username>.github.io/visaprepper/`.
-
-4. **Custom domain (visaprepper.com), when DNS is ready:**
-   - Add a `public/CNAME` file containing exactly `visaprepper.com` (no
-     protocol), commit, and push. Don't add this before DNS is actually
-     pointed at GitHub Pages — GitHub acts on this file's presence
-     immediately, which can break the interim `github.io` URL in the
-     meantime.
-   - Point your DNS at GitHub Pages per
-     [GitHub's custom domain docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
-   - Once DNS has propagated, enable "Enforce HTTPS" in the same repo
-     Settings → Pages screen.
-   - No code changes needed beyond the `CNAME` file — `next.config.ts`
-     already reads its `basePath` from what the deploy workflow detects, so
-     the site adapts automatically once a custom domain is attached.
-
-After the initial push, every future `git push` to `main` redeploys the site
-automatically — that's the whole point of the Actions workflow.
+**Environment**: no environment variables are required for a working build.
