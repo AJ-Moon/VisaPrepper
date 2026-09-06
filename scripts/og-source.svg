@@ -1,0 +1,44 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FBF7F1" />
+      <stop offset="1" stop-color="#F3EDE4" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- soft decorative blobs -->
+  <circle cx="1080" cy="80" r="220" fill="#E7EDE3" opacity="0.7" />
+  <circle cx="1150" cy="520" r="160" fill="#E1EEEC" opacity="0.7" />
+  <circle cx="60" cy="560" r="140" fill="#E7EDE3" opacity="0.5" />
+
+  <!-- logo mark -->
+  <rect x="90" y="96" width="86" height="86" rx="24" fill="#3F6B52" />
+  <path d="M115 142 L145 170 L200 108" stroke="#FBF7F1" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+  <text x="196" y="160" font-family="Helvetica, Arial, sans-serif" font-size="46" font-weight="700" fill="#262624">
+    Visa<tspan fill="#3F6B52">Prepper</tspan>
+  </text>
+
+  <text x="90" y="290" font-family="Georgia, 'Times New Roman', serif" font-size="66" font-weight="600" fill="#262624">
+    <tspan x="90" dy="0">Your visa application.</tspan>
+    <tspan x="90" dy="78">Your mock interview.</tspan>
+  </text>
+
+  <text x="90" y="470" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#5B564A">
+    <tspan x="90" dy="0">Realistic AI mock interviews built around your own case —</tspan>
+    <tspan x="90" dy="42">not a generic question bank.</tspan>
+  </text>
+
+  <g font-family="Helvetica, Arial, sans-serif" font-size="23" font-weight="600" fill="#2F6E6B">
+    <rect x="88" y="548" width="148" height="46" rx="23" fill="#E1EEEC" />
+    <text x="162" y="577" text-anchor="middle">B1/B2 &#183; F1</text>
+
+    <rect x="252" y="548" width="204" height="46" rx="23" fill="#E1EEEC" />
+    <text x="354" y="577" text-anchor="middle">H1B &#183; H4 &#183; J1</text>
+
+    <rect x="472" y="548" width="292" height="46" rx="23" fill="#E7EDE3" />
+    <text x="618" y="577" text-anchor="middle" fill="#3F6B52">Pakistan &#183; India &#183; Bangladesh</text>
+  </g>
+</svg>
