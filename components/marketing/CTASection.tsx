@@ -22,7 +22,7 @@ export function CTASection({
         <div className="mt-2 flex flex-col gap-3 sm:flex-row">
           <CtaButton size="lg" className="bg-primary-foreground text-primary hover:bg-white" />
           <LinkButton
-            href="/how-it-works"
+            href="/#pricing"
             variant="outline"
             size="lg"
             className="border-primary-foreground/40 text-primary-foreground hover:bg-white/10"

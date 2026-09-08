@@ -1,10 +1,11 @@
 import { SITE_NAME, SITE_URL } from "@/lib/config/site";
+import { PLANS, SOCIAL_LINKS } from "@/lib/config/offering";
 
 export function JsonLd({ data }: { data: Record<string, unknown> }) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
     />
   );
 }
@@ -15,9 +16,24 @@ export function buildOrganizationJsonLd() {
     "@type": "Organization",
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/images/og/visaprepper-mark.png`,
+    "@id": `${SITE_URL}/#organization`,
+    logo: `${SITE_URL}/icon.svg`,
+    sameAs: SOCIAL_LINKS.map((link) => link.href),
     description:
       "VisaPrepper is an independent visa interview preparation platform. It is not affiliated with the U.S. Department of State, USCIS, or any embassy or consulate.",
+  };
+}
+
+export function buildWebsiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: SITE_NAME,
+    alternateName: "Visa Prepper",
+    url: SITE_URL,
+    inLanguage: "en",
+    publisher: { "@id": `${SITE_URL}/#organization` },
   };
 }
 
@@ -29,12 +45,20 @@ export function buildSoftwareApplicationJsonLd() {
     applicationCategory: "EducationalApplication",
     operatingSystem: "Web",
     description:
-      "AI-powered mock visa interview practice built around each applicant's own visa application, with adaptive follow-up questions and detailed feedback.",
+      "U.S. visa interview preparation for applicants in Pakistan, with English and Urdu interviews, document checks, and personal feedback in paid packages.",
     url: SITE_URL,
-    offers: {
+    inLanguage: ["en", "ur"],
+    offers: PLANS.map((plan) => ({
       "@type": "Offer",
-      category: "Preparation and practice tool",
-    },
+      name: plan.name,
+      description: plan.price === 0
+        ? "One free document check and preparation tips. No interviews."
+        : `${plan.practice} practice interviews, ${plan.realistic} realistic interviews, ${plan.checks ?? "unlimited"} document checks, and personal feedback. One-time payment.`,
+      price: plan.price,
+      priceCurrency: "USD",
+      url: `${SITE_URL}/#pricing`,
+      eligibleRegion: { "@type": "Country", name: "Pakistan" },
+    })),
   };
 }
 
@@ -92,7 +116,7 @@ export function buildArticleJsonLd(post: {
     datePublished: post.publishDate,
     dateModified: post.updatedDate ?? post.publishDate,
     author: {
-      "@type": "Person",
+      "@type": post.author === "VisaPrepper Editorial Team" ? "Organization" : "Person",
       name: post.author,
     },
     publisher: {
@@ -100,7 +124,7 @@ export function buildArticleJsonLd(post: {
       name: SITE_NAME,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/images/og/visaprepper-mark.png`,
+        url: `${SITE_URL}/icon.svg`,
       },
     },
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,

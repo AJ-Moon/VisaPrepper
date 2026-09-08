@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/config/site";
+import { SITE_URL, SITE_CONTENT_UPDATED } from "@/lib/config/site";
 import { getAllVisaTypeSlugs } from "@/lib/content/visa-types";
 import { getAllPosts } from "@/lib/content/posts";
 
@@ -32,5 +32,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...visaTypeRoutes, ...blogRoutes];
+  return [
+    ...staticRoutes.map((route) => ({ ...route, lastModified: SITE_CONTENT_UPDATED })),
+    ...visaTypeRoutes.map((route) => ({ ...route, lastModified: SITE_CONTENT_UPDATED })),
+    ...blogRoutes,
+  ];
 }

@@ -4,12 +4,12 @@ export const h1b: VisaTypeContent = {
   slug: "h1b",
   code: "H1B",
   name: "Work Visa",
-  metaTitle: "H1B Visa Interview Practice — Employer, Job & Petition Mock Interviews",
+  metaTitle: "H1B Visa Interview Practice — Employer, Job & Petition Practice Interviews",
   metaDescription:
-    "Practice your H1B work visa interview with AI mock interviews built around your employer, job role, and petition details — with adaptive follow-ups and detailed feedback.",
+    "Practice your H1B work visa interview with practice interviews built around your employer, job role, and petition details — with adaptive follow-ups and detailed feedback.",
   h1: "Practice your H1B work visa interview around your own role and petition",
   intro:
-    "H1B interviews focus on your job, your employer, and whether your role genuinely requires your specific qualifications. VisaPrepper builds your mock interview around your actual petition and role, so you can explain your own job clearly and confidently.",
+    "H1B interviews focus on your job, your employer, and whether your role genuinely requires your specific qualifications. VisaPrepper builds your practice interview around your actual petition and role, so you can explain your own job clearly and confidently.",
   whoItsFor: [
     "First-time H1B applicants with an approved petition",
     "Applicants renewing or extending an existing H1B",
@@ -65,7 +65,7 @@ export const h1b: VisaTypeContent = {
     {
       question: "I changed employers on my H1B. Does that change my practice interview?",
       answer:
-        "Yes. Tell VisaPrepper about your current employer and role, and your mock interview will be built around that — not your previous position.",
+        "Yes. Tell VisaPrepper about your current employer and role, and your practice interview will be built around that — not your previous position.",
     },
     {
       question: "Does VisaPrepper review my actual I-129 petition?",

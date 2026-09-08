@@ -28,11 +28,21 @@ export async function generateMetadata({
   const post = getPostBySlug(slug);
   if (!post) return {};
 
-  return buildPageMetadata({
+  const metadata = buildPageMetadata({
     title: post.title,
     description: post.description,
     path: `/blog/${post.slug}`,
   });
+  return {
+    ...metadata,
+    openGraph: {
+      ...metadata.openGraph,
+      type: "article",
+      publishedTime: post.publishDate,
+      modifiedTime: post.updatedDate ?? post.publishDate,
+      authors: [post.author],
+    },
+  };
 }
 
 export default async function BlogPostPage({
@@ -45,6 +55,7 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const related = getRelatedPosts(post.slug, post.tags);
+  const comingSoon = ["us-visa-interview-questions-india", "us-visa-interview-questions-bangladesh"].includes(post.slug);
 
   return (
     <>
@@ -73,6 +84,7 @@ export default async function BlogPostPage({
         <div className="grid gap-10 lg:grid-cols-[1fr_260px]">
           <article>
             <BlogPostHeader post={post} />
+            {comingSoon && <p className="mt-6 rounded-xl border border-border bg-sage-soft p-4 text-sm leading-relaxed">This free guide is available to everyone. VisaPrepper interview practice for India and Bangladesh is coming soon. We currently support Pakistan in English and Urdu.</p>}
 
             <div className="prose-vp mt-8">
               <MDXRemote
@@ -113,10 +125,10 @@ export default async function BlogPostPage({
         )}
       </Container>
 
-      <CTASection
+      {!comingSoon && <CTASection
         title="Ready to practice your own answers?"
-        description="Reading about interview topics is a start. Build a mock interview around your own application to see where you actually stand."
-      />
+        description="Start with a free document check, or choose a paid package to practice your visa interview."
+      />}
     </>
   );
 }

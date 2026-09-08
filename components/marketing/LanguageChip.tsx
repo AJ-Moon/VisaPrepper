@@ -37,7 +37,7 @@ export function LanguageChip({
       {locale.status === "coming-soon" ? (
         <Badge tone={onCharcoal ? "on-charcoal" : "neutral"}>Coming soon</Badge>
       ) : (
-        <Badge tone="primary">Live</Badge>
+        <Badge tone="primary">Available</Badge>
       )}
     </span>
   );

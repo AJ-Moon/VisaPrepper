@@ -4,12 +4,12 @@ export const f1: VisaTypeContent = {
   slug: "f1",
   code: "F1",
   name: "Student Visa",
-  metaTitle: "F1 Student Visa Interview Practice — Adaptive AI Mock Interviews",
+  metaTitle: "F1 Student Visa Interview Practice — Adaptive AI Practice Interviews",
   metaDescription:
-    "Practice your F1 student visa interview with AI mock interviews built around your school, program, funding, and academic background — with adaptive follow-ups and detailed feedback.",
+    "Practice your F1 student visa interview with practice interviews built around your school, program, funding, and academic background — with adaptive follow-ups and detailed feedback.",
   h1: "Practice your F1 student visa interview around your own application",
   intro:
-    "F1 interviews focus on your school, your program, how you'll fund your studies, and your plans after graduation. VisaPrepper builds your mock interview around those specifics — your I-20, your university, and your circumstances — instead of a generic student-visa question list.",
+    "F1 interviews focus on your school, your program, how you'll fund your studies, and your plans after graduation. VisaPrepper builds your practice interview around those specifics — your I-20, your university, and your circumstances — instead of a generic student-visa question list.",
   whoItsFor: [
     "First-time F1 applicants admitted to a U.S. school or university",
     "Applicants transferring schools or programs on an existing F1 status",

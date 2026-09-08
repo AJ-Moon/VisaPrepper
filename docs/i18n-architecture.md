@@ -7,9 +7,10 @@ localized versions later, without restructuring what already exists.
 **Do not build stub `/ur`, `/hi`, `/bn` pages ahead of real content.** Thin or
 placeholder localized pages are an SEO liability if crawled, and the brief
 this site was built from is explicit that unfinished functionality must never
-be presented as available. The homepage/footer language chips reflect this:
-English links to `/`, the other three render as non-linking chips labeled
-"Coming Soon" until real content exists.
+be presented as available. Language chips now describe interview availability:
+English and Urdu are available for Pakistan; Hindi and Bengali are coming soon.
+These chips do not link to translated website routes. Short native-language
+introductions are marketing copy, not full website translations.
 
 ## What's already in place to make this additive, not a rewrite
 

@@ -4,12 +4,12 @@ export const h4: VisaTypeContent = {
   slug: "h4",
   code: "H4",
   name: "Dependent Visa",
-  metaTitle: "H4 Visa Interview Practice — Spouse & Dependent Mock Interviews",
+  metaTitle: "H4 Visa Interview Practice — Spouse & Dependent Practice Interviews",
   metaDescription:
-    "Practice your H4 dependent visa interview with AI mock interviews built around your relationship, your principal applicant's status, and your plans in the U.S.",
+    "Practice your H4 dependent visa interview with practice interviews built around your relationship, your principal applicant's status, and your plans in the U.S.",
   h1: "Practice your H4 dependent visa interview around your own family situation",
   intro:
-    "H4 interviews focus on your relationship to the principal H1B holder and your plans while in the U.S. VisaPrepper builds your mock interview around your actual relationship and circumstances, including staying consistent with your spouse's or parent's answers.",
+    "H4 interviews focus on your relationship to the principal H1B holder and your plans while in the U.S. VisaPrepper builds your practice interview around your actual relationship and circumstances, including staying consistent with your spouse's or parent's answers.",
   whoItsFor: [
     "Spouses of H1B visa holders applying for H4 status",
     "Children applying as H4 dependents",

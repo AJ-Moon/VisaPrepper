@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CheckCircle2, FileText } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTASection } from "@/components/marketing/CTASection";
-import { AdaptiveFollowUpFlow } from "@/components/marketing/AdaptiveFollowUpFlow";
-import { FeedbackExampleCard } from "@/components/marketing/FeedbackExampleCard";
 import { FAQAccordion } from "@/components/faq/FAQAccordion";
 import { getAllVisaTypeSlugs, getVisaTypeBySlug } from "@/lib/content/visa-types";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -15,158 +14,38 @@ export function generateStaticParams() {
   return getAllVisaTypeSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const { slug } = await params;
-  const visaType = getVisaTypeBySlug(slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const visaType = getVisaTypeBySlug((await params).slug);
   if (!visaType) return {};
-
   return buildPageMetadata({
-    title: visaType.metaTitle,
-    description: visaType.metaDescription,
+    title: `${visaType.code} Visa Interview Practice in Pakistan`,
+    description: `Prepare for your U.S. ${visaType.code} visa interview in English or Urdu. Practice answers about your own application and get personal feedback. Packages from $15.`,
     path: `/visa-types/${visaType.slug}`,
   });
 }
 
-export default async function VisaTypePage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const visaType = getVisaTypeBySlug(slug);
+export default async function VisaTypePage({ params }: { params: Promise<{ slug: string }> }) {
+  const visaType = getVisaTypeBySlug((await params).slug);
   if (!visaType) notFound();
-
-  return (
-    <>
-      <Container className="pt-8">
-        <Breadcrumbs
-          entries={[
-            { name: "Home", path: "/" },
-            { name: "Visa Types", path: "/visa-types" },
-            { name: visaType.code, path: `/visa-types/${visaType.slug}` },
-          ]}
-        />
-      </Container>
-
-      <section>
-        <Container className="py-10 sm:py-14">
-          <span className="inline-flex items-center rounded-full bg-sage-soft px-3 py-1 text-xs font-semibold text-primary">
-            {visaType.code} &middot; {visaType.name}
-          </span>
-          <h1 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight text-foreground sm:text-4xl lg:text-5xl">
-            {visaType.h1}
-          </h1>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            {visaType.intro}
-          </p>
-        </Container>
-      </section>
-
-      <section className="bg-surface-muted">
-        <Container className="grid gap-10 py-14 sm:py-16 lg:grid-cols-2">
-          <div>
-            <h2 className="font-display text-xl font-semibold text-foreground">Who this is for</h2>
-            <ul className="mt-4 space-y-3">
-              {visaType.whoItsFor.map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-sm text-foreground">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="font-display text-xl font-semibold text-foreground">
-              What information VisaPrepper uses
-            </h2>
-            <ul className="mt-4 space-y-3">
-              {visaType.informationUsed.map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-sm text-foreground">
-                  <FileText className="mt-0.5 h-4 w-4 shrink-0 text-teal" aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Container>
-      </section>
-
-      <section>
-        <Container className="py-14 sm:py-16">
-          <SectionHeading
-            eyebrow="What the interview may cover"
-            title={`Topics your ${visaType.code} mock interview may explore`}
-            description={`VisaPrepper doesn't know the exact questions your officer will ask — no one can. Instead, it builds realistic, adaptive questions around the topics that typically matter for ${visaType.code} applicants like you.`}
-          />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {visaType.topics.map((topic) => (
-              <div key={topic.title} className="rounded-2xl border border-border bg-surface p-5">
-                <p className="font-semibold text-foreground">{topic.title}</p>
-                <p className="mt-2 text-sm text-muted-foreground">{topic.description}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-surface-muted">
-        <Container className="grid items-center gap-10 py-14 sm:py-16 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-teal">
-              How adaptive mock interviews work
-            </p>
-            <h2 className="mt-3 font-display text-2xl font-semibold text-foreground sm:text-3xl">
-              A conversation built around your answers
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              VisaPrepper asks a question, listens to your answer, and follows up when
-              something is unclear or incomplete — the same way a real interview
-              unfolds. When your answer is clear, it moves on to the next relevant
-              topic.
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <AdaptiveFollowUpFlow />
-          </div>
-        </Container>
-      </section>
-
-      <section>
-        <Container className="grid items-center gap-10 py-14 sm:py-16 lg:grid-cols-2 lg:gap-16">
-          <div className="flex justify-center lg:order-2">
-            <FeedbackExampleCard />
-          </div>
-          <div className="lg:order-1">
-            <p className="text-sm font-semibold uppercase tracking-wide text-teal">How feedback helps</p>
-            <h2 className="mt-3 font-display text-2xl font-semibold text-foreground sm:text-3xl">
-              See exactly what to improve, not just a score
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              After your mock interview, VisaPrepper shows you what you answered
-              well, what was incomplete, and any inconsistencies worth
-              addressing — plus feedback on your pace, pauses, and delivery.
-            </p>
-          </div>
-        </Container>
-      </section>
-
-      <section>
-        <Container className="py-14 sm:py-16">
-          <SectionHeading eyebrow="FAQ" title={`${visaType.code} interview FAQs`} />
-          <div className="mx-auto mt-10 max-w-2xl">
-            <FAQAccordion items={visaType.faqs} />
-          </div>
-        </Container>
-      </section>
-
-      <CTASection
-        title={`Ready to practice your ${visaType.code} interview?`}
-        description="Build a mock interview around your own application and find out what to improve before interview day."
-      />
-    </>
-  );
+  return <>
+    <Container className="pt-8"><Breadcrumbs entries={[{ name: "Home", path: "/" }, { name: "Visa types", path: "/visa-types" }, { name: visaType.code, path: `/visa-types/${visaType.slug}` }]} /></Container>
+    <Container className="py-12 sm:py-16">
+      <p className="text-sm font-semibold text-primary">Available for Pakistan · English & Urdu</p>
+      <h1 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">{visaType.h1}</h1>
+      <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">{visaType.intro}</p>
+      <Link href="/#pricing" className="mt-6 inline-flex items-center gap-2 font-semibold text-primary underline underline-offset-4">See interview packages from $15 <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+    </Container>
+    <section className="bg-surface-muted"><Container className="py-12">
+      <h2 className="font-display text-2xl font-semibold">Who this is for</h2>
+      <ul className="mt-6 grid gap-4 sm:grid-cols-2">{visaType.whoItsFor.map((item) => <li key={item} className="flex items-start gap-3 text-sm"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />{item}</li>)}</ul>
+    </Container></section>
+    <Container className="py-12 sm:py-16">
+      <SectionHeading eyebrow="Your preparation" title="Get comfortable talking about these topics." description="Your questions will depend on the application details you share. These are practice topics, not a prediction of what your officer will ask." />
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">{visaType.topics.map((topic) => <div key={topic.title} className="rounded-2xl border border-border bg-surface p-5"><h3 className="font-semibold">{topic.title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{topic.description}</p></div>)}</div>
+      <h2 className="mt-12 font-display text-2xl font-semibold">Have these details ready</h2>
+      <ul className="mt-5 grid list-disc gap-x-10 gap-y-3 ps-5 text-sm text-muted-foreground sm:grid-cols-2">{visaType.informationUsed.map((item) => <li key={item}>{item}</li>)}</ul>
+      <div className="mt-12"><FAQAccordion items={visaType.faqs} /></div>
+    </Container>
+    <CTASection title={`Feel more prepared for your ${visaType.code} interview.`} description="Start with one free document check. Paid interviews include personal feedback and tips based on your answers." />
+  </>;
 }

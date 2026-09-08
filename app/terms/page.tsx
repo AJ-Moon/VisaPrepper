@@ -6,7 +6,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Terms of Service",
-  description: "The terms that govern your use of the VisaPrepper website and mock interview platform.",
+  description: "The terms that govern your use of the VisaPrepper website and practice interview platform.",
   path: "/terms",
 });
 
@@ -23,14 +23,14 @@ export default function TermsPage() {
         <div className="prose-vp mt-8 max-w-3xl">
           <p>
             These Terms of Service (&ldquo;Terms&rdquo;) govern your use of the{" "}
-            {SITE_NAME} website and mock interview platform (the &ldquo;Service&rdquo;).
+            {SITE_NAME} website and practice interview platform (the &ldquo;Service&rdquo;).
             By using the Service, you agree to these Terms.
           </p>
 
           <h2>What VisaPrepper is</h2>
           <p>
             VisaPrepper is an independent visa interview preparation and
-            practice tool. It helps applicants practice mock interviews built
+            practice tool. It helps applicants practice practice interviews built
             around their own circumstances and provides feedback on their
             answers and communication.
           </p>

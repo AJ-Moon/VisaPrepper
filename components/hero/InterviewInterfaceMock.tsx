@@ -13,7 +13,7 @@ export function InterviewInterfaceMock({ className }: { className?: string }) {
       )}
     >
       <div className="flex items-center justify-between px-1">
-        <p className="text-sm font-semibold text-foreground">Mock Interview</p>
+        <p className="text-sm font-semibold text-foreground">Realistic Interview</p>
         <Badge tone="primary">Live</Badge>
       </div>
 

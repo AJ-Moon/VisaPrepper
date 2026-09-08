@@ -1,5 +1,7 @@
 export const SITE_URL = "https://visaprepper.com";
 export const SITE_NAME = "VisaPrepper";
+// Date of the last substantive marketing content update, not the build time.
+export const SITE_CONTENT_UPDATED = "2026-09-08";
 
 // The external VisaPrepper application (mock interview product itself).
 // Every "Start Practicing" / "Log In" CTA on the marketing site should read
@@ -9,8 +11,8 @@ export const EXTERNAL_LOGIN_URL = "https://app.visaprepper.com/login";
 
 export const CONTACT_EMAIL = "hello@visaprepper.com";
 
-export const CTA_PRIMARY_LABEL = "Start Practicing";
-export const CTA_SECONDARY_LABEL = "See How It Works";
+export const CTA_PRIMARY_LABEL = "Start free";
+export const CTA_SECONDARY_LABEL = "See prices";
 
 export type NavLink = {
   label: string;
@@ -18,15 +20,15 @@ export type NavLink = {
 };
 
 export const PRIMARY_NAV: NavLink[] = [
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "Visa Types", href: "/visa-types" },
-  { label: "Features", href: "/features" },
+  { label: "Destinations", href: "/visa-types" },
+  { label: "Prices", href: "/#pricing" },
   { label: "Languages", href: "/languages" },
-  { label: "Blog", href: "/blog" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "Free tips", href: "/blog" },
 ];
 
 export const FOOTER_PRODUCT_LINKS: NavLink[] = [
+  { label: "Prices", href: "/#pricing" },
+  { label: "What you get", href: "/features" },
   { label: "How It Works", href: "/how-it-works" },
   { label: "Visa Types", href: "/visa-types" },
   { label: "Languages", href: "/languages" },
@@ -47,13 +49,11 @@ export type Locale = {
   status: "live" | "coming-soon";
 };
 
-// English is served unprefixed at "/" today. Urdu/Hindi/Bengali are
-// intentionally not routed yet (see docs/i18n-architecture.md) — they're
-// only ever rendered as "Coming Soon" chips, never as live/linkable pages,
-// so we never misrepresent unfinished functionality as available.
+// Interview language availability; the website uses English routes with
+// short native-language introductions, not full translated pages.
 export const LOCALES: Locale[] = [
   { code: "en", label: "English", nativeLabel: "English", status: "live" },
-  { code: "ur", label: "Urdu", nativeLabel: "اردو", status: "coming-soon" },
+  { code: "ur", label: "Urdu", nativeLabel: "اردو", status: "live" },
   { code: "hi", label: "Hindi", nativeLabel: "हिन्दी", status: "coming-soon" },
   { code: "bn", label: "Bengali", nativeLabel: "বাংলা", status: "coming-soon" },
 ];

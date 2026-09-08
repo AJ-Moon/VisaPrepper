@@ -4,12 +4,12 @@ export const b1b2: VisaTypeContent = {
   slug: "b1-b2",
   code: "B1/B2",
   name: "Tourist & Business Visa",
-  metaTitle: "B1/B2 Visa Interview Practice — Tourist & Business Visa Mock Interviews",
+  metaTitle: "B1/B2 Visa Interview Practice — Tourist & Business Visa Practice Interviews",
   metaDescription:
-    "Practice your B1/B2 tourist or business visa interview with AI mock interviews built around your trip purpose, finances, and ties to home — with adaptive follow-ups and detailed feedback.",
+    "Practice your B1/B2 tourist or business visa interview with practice interviews built around your trip purpose, finances, and ties to home — with adaptive follow-ups and detailed feedback.",
   h1: "Practice your B1/B2 tourist or business visa interview around your own trip",
   intro:
-    "B1/B2 interviews are short, and officers focus on why you're traveling, whether you can afford the trip, and whether you're likely to return home. VisaPrepper builds your mock interview around your actual trip — your purpose, your itinerary, and your circumstances.",
+    "B1/B2 interviews are short, and officers focus on why you're traveling, whether you can afford the trip, and whether you're likely to return home. VisaPrepper builds your practice interview around your actual trip — your purpose, your itinerary, and your circumstances.",
   whoItsFor: [
     "Tourists planning a vacation, family visit, or short trip to the U.S.",
     "Business travelers attending meetings, conferences, or training",
@@ -63,7 +63,7 @@ export const b1b2: VisaTypeContent = {
         "Yes. Many B1/B2 applicants use VisaPrepper after a prior 214(b) refusal to practice explaining their ties to home and trip purpose more clearly and consistently. See our guide on preparing after a 214(b) refusal for more detail.",
     },
     {
-      question: "Will the mock interview match my actual DS-160 answers?",
+      question: "Will the practice interview match my actual DS-160 answers?",
       answer:
         "VisaPrepper builds questions around the trip and background details you share, and checks your interview answers for consistency with what you've told it — the same kind of consistency that matters between your DS-160 and your interview.",
     },

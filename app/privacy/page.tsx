@@ -6,7 +6,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Privacy Policy",
-  description: "How VisaPrepper collects, uses, and protects your information, including application details and mock interview recordings.",
+  description: "How VisaPrepper collects, uses, and protects your information, including application details and practice interview recordings.",
   path: "/privacy",
 });
 
@@ -24,7 +24,7 @@ export default function PrivacyPage() {
           <p>
             This Privacy Policy explains how {SITE_NAME} (&ldquo;VisaPrepper,&rdquo; &ldquo;we,&rdquo;
             &ldquo;us&rdquo;) collects, uses, and protects information when you use our
-            website and mock interview platform (the &ldquo;Service&rdquo;). It applies to
+            website and practice interview platform (the &ldquo;Service&rdquo;). It applies to
             visitors of this marketing website and to applicants using the
             VisaPrepper application.
           </p>
@@ -37,13 +37,13 @@ export default function PrivacyPage() {
             </li>
             <li>
               <strong>Application and case details</strong> you choose to
-              share to build your mock interview — for example your visa
+              share to build your practice interview — for example your visa
               type, program or job, funding, sponsor, travel history, and
               similar circumstances.
             </li>
             <li>
               <strong>Interview recordings</strong> — audio and, where you use
-              video, video recordings of your mock interview sessions,
+              video, video recordings of your practice interview sessions,
               together with transcripts and the analysis generated from them
               (such as pacing, filler words, and feedback notes).
             </li>
@@ -57,7 +57,7 @@ export default function PrivacyPage() {
 
           <h2>How we use your information</h2>
           <ul>
-            <li>To generate and conduct your adaptive mock interviews</li>
+            <li>To generate and conduct your adaptive practice interviews</li>
             <li>To analyze your answers and communication and produce your feedback reports</li>
             <li>To operate, maintain, and improve the Service</li>
             <li>To communicate with you about your account or the Service</li>
@@ -102,8 +102,8 @@ export default function PrivacyPage() {
 
           <h2>International users</h2>
           <p>
-            VisaPrepper is used by applicants in Pakistan, India, Bangladesh,
-            and other countries, and our infrastructure may process
+            VisaPrepper currently supports applicants in Pakistan, with
+            India and Bangladesh coming soon. Our infrastructure may process
             information in countries other than your own. We take steps
             intended to protect your information consistent with this
             Privacy Policy wherever it is processed.

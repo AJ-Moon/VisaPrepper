@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/Container";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CONTACT_EMAIL } from "@/lib/config/site";
+import { SOCIAL_LINKS } from "@/lib/config/offering";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -24,7 +25,7 @@ export default function ContactPage() {
           titleAs="h1"
           eyebrow="Contact"
           title="Get in touch"
-          description="Questions about VisaPrepper, your account, or how a mock interview works? Send us a message and we'll get back to you."
+          description="Need help choosing a package or using your account? Send us a message."
         />
 
         <div className="mx-auto mt-10 max-w-md rounded-2xl border border-border bg-surface p-6">
@@ -40,6 +41,11 @@ export default function ContactPage() {
             address associated with your VisaPrepper account so we can help
             faster.
           </p>
+        </div>
+        <div className="mx-auto mt-8 max-w-md">
+          <h2 className="font-semibold">Follow @visaprepper</h2>
+          <p className="mt-2 text-sm text-muted-foreground">Preparation tips and news about new countries and languages.</p>
+          <div className="mt-4 flex flex-wrap gap-5">{SOCIAL_LINKS.map((link) => <a className="text-sm font-medium text-teal underline underline-offset-4" key={link.label} href={link.href} rel="noopener noreferrer">{link.label}</a>)}</div>
         </div>
       </Container>
     </>

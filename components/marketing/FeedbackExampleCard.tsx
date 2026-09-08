@@ -11,9 +11,8 @@ export function FeedbackExampleCard() {
         What to improve
       </p>
       <div className="mt-2 rounded-xl bg-teal-soft px-3.5 py-3 text-sm text-foreground">
-        You identified your sponsor but didn&rsquo;t explain his occupation,
-        financial capacity, or how tuition and living expenses will be
-        covered.
+        You said who will pay. Now explain what he does and how he will
+        cover your fees and living costs.
       </div>
     </div>
   );

@@ -4,12 +4,12 @@ export const familyImmigrant: VisaTypeContent = {
   slug: "family-immigrant",
   code: "Family / Immigrant",
   name: "Family-Based Immigrant Visa",
-  metaTitle: "Family & Immigrant Visa Interview Practice — Mock Interviews for Petition-Based Applicants",
+  metaTitle: "Family & Immigrant Visa Interview Practice — Practice Interviews for Petition-Based Applicants",
   metaDescription:
-    "Practice your family-based immigrant visa interview with AI mock interviews built around your relationship history, petition, and background — with adaptive follow-ups and feedback.",
+    "Practice your family-based immigrant visa interview with practice interviews built around your relationship history, petition, and background — with adaptive follow-ups and feedback.",
   h1: "Practice your family-based immigrant visa interview around your own relationship and petition",
   intro:
-    "Family-based immigrant interviews focus heavily on your relationship history with your petitioner and consistency with your petition paperwork. VisaPrepper builds your mock interview around your specific relationship — spouse, parent, child, or sibling — and your case.",
+    "Family-based immigrant interviews focus heavily on your relationship history with your petitioner and consistency with your petition paperwork. VisaPrepper builds your practice interview around your specific relationship — spouse, parent, child, or sibling — and your case.",
   whoItsFor: [
     "Spouses of U.S. citizens or permanent residents applying through marriage",
     "Parents, children, or siblings applying through a family petition",
@@ -49,7 +49,7 @@ export const familyImmigrant: VisaTypeContent = {
     {
       question: "Can VisaPrepper help me prepare for a marriage-based interview?",
       answer:
-        "Yes. VisaPrepper can build a mock interview around your relationship history and ask realistic follow-up questions about how you met, your timeline, and shared life details — the kind of questions that come up in spouse-based interviews.",
+        "Yes. VisaPrepper can build a practice interview around your relationship history and ask realistic follow-up questions about how you met, your timeline, and shared life details — the kind of questions that come up in spouse-based interviews.",
     },
     {
       question: "Does practicing with VisaPrepper mean I should memorize answers with my spouse?",

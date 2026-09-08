@@ -4,12 +4,12 @@ export const j1: VisaTypeContent = {
   slug: "j1",
   code: "J1",
   name: "Exchange Visitor Visa",
-  metaTitle: "J1 Visa Interview Practice — Exchange Visitor Mock Interviews",
+  metaTitle: "J1 Visa Interview Practice — Exchange Visitor Practice Interviews",
   metaDescription:
-    "Practice your J1 exchange visitor visa interview with AI mock interviews built around your program, sponsor, and plans — with adaptive follow-ups and detailed feedback.",
+    "Practice your J1 exchange visitor visa interview with practice interviews built around your program, sponsor, and plans — with adaptive follow-ups and detailed feedback.",
   h1: "Practice your J1 exchange visitor visa interview around your own program",
   intro:
-    "J1 interviews focus on your specific exchange program, your sponsor, and your plans during and after the program. VisaPrepper builds your mock interview around your actual program category — student, scholar, intern, trainee, au pair, or work-and-travel.",
+    "J1 interviews focus on your specific exchange program, your sponsor, and your plans during and after the program. VisaPrepper builds your practice interview around your actual program category — student, scholar, intern, trainee, au pair, or work-and-travel.",
   whoItsFor: [
     "Exchange students and scholars",
     "Interns and trainees on a J1 program",
@@ -49,7 +49,7 @@ export const j1: VisaTypeContent = {
     {
       question: "Does VisaPrepper cover all types of J1 programs?",
       answer:
-        "Yes. Tell VisaPrepper your specific program category — student, scholar, intern, trainee, au pair, or work-and-travel — and your mock interview and follow-up questions will be built around that program.",
+        "Yes. Tell VisaPrepper your specific program category — student, scholar, intern, trainee, au pair, or work-and-travel — and your practice interview and follow-up questions will be built around that program.",
     },
     {
       question: "Will VisaPrepper ask about the two-year home residency requirement?",

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SOCIAL_LINKS } from "@/lib/config/offering";
 import { Container } from "@/components/layout/Container";
 import { Logo } from "@/components/ui/Logo";
 import { LanguageChip } from "@/components/marketing/LanguageChip";
@@ -20,10 +21,7 @@ export function SiteFooter() {
             Realistic visa interview practice built around your application.
           </p>
           <p className="mt-6 text-sm text-on-charcoal-muted">
-            Preparing applicants across{" "}
-            <span className="text-on-charcoal">Pakistan</span>,{" "}
-            <span className="text-on-charcoal">India</span> and{" "}
-            <span className="text-on-charcoal">Bangladesh</span>.
+            Available in Pakistan. India and Bangladesh coming soon.
           </p>
           <ul className="mt-5 flex flex-wrap gap-2">
             {LOCALES.map((locale) => (
@@ -32,6 +30,10 @@ export function SiteFooter() {
               </li>
             ))}
           </ul>
+          <nav aria-label="Social media" className="mt-6 flex flex-wrap gap-4">
+            {SOCIAL_LINKS.map((link) => <a key={link.label} href={link.href} rel="noopener noreferrer" className="text-sm text-on-charcoal-muted underline-offset-4 hover:text-on-charcoal hover:underline">{link.label}</a>)}
+          </nav>
+          <p className="mt-2 text-xs text-on-charcoal-muted">@visaprepper</p>
         </div>
 
         <div>
@@ -89,10 +91,8 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
           </p>
           <p className="max-w-2xl sm:text-end">
-            {SITE_NAME} is an independent visa interview preparation tool. It
-            is not the U.S. Department of State, USCIS, or any embassy or
-            consulate, and does not decide visa eligibility or predict
-            interview outcomes.
+            {SITE_NAME} is an independent preparation tool, not an embassy
+            or government service. Preparation does not guarantee visa approval.
           </p>
         </Container>
       </div>

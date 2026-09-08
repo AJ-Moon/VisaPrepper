@@ -13,7 +13,7 @@ export function PracticeVsMockCompare() {
       </div>
       <div className="rounded-2xl border border-border bg-surface p-5 shadow-sm shadow-black/5">
         <Video className="h-5 w-5 text-primary" aria-hidden="true" />
-        <p className="mt-3 text-sm font-semibold text-foreground">Realistic Mock Interview</p>
+        <p className="mt-3 text-sm font-semibold text-foreground">Realistic Interview</p>
         <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
           Answer start to finish without interruptions, then get your full
           report afterward — closer to interview day.

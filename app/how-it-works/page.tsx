@@ -2,104 +2,32 @@ import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { StepCard } from "@/components/marketing/StepCard";
 import { FAQAccordion } from "@/components/faq/FAQAccordion";
 import { CTASection } from "@/components/marketing/CTASection";
-import { ApplicationCardMock } from "@/components/hero/ApplicationCardMock";
-import { InterviewInterfaceMock } from "@/components/hero/InterviewInterfaceMock";
-import { InterviewReportMock } from "@/components/hero/InterviewReportMock";
-import { ProgressTimelineMock } from "@/components/marketing/ProgressTimelineMock";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "How VisaPrepper Works — Application-Grounded Mock Visa Interviews",
-  description:
-    "See how VisaPrepper turns your visa application into a realistic, adaptive mock interview, then into detailed feedback you can act on before interview day.",
+  title: "How to Prepare with VisaPrepper",
+  description: "Check your documents, practice questions about your visa application, and get clear feedback. See how to start preparing in English or Urdu.",
   path: "/how-it-works",
 });
-
-const FAQS = [
-  {
-    question: "How long does a mock interview take?",
-    answer:
-      "Most mock interviews run similarly to a real visa interview — typically a short session focused on the core topics for your visa type, plus any adaptive follow-ups your answers prompt.",
-  },
-  {
-    question: "Do I need a webcam and microphone?",
-    answer:
-      "Yes, for the full mock interview experience with visual coaching you'll want a camera and microphone, similar to what you'd use for any video call.",
-  },
-  {
-    question: "What happens if I don't know how to answer something?",
-    answer:
-      "Answer as best you can, truthfully. VisaPrepper's feedback will show you where an answer was incomplete or unclear, so you know what to review before your real interview.",
-  },
-  {
-    question: "Can I redo a mock interview?",
-    answer:
-      "Yes. You can take multiple mock interviews and practice sessions, and VisaPrepper tracks your sessions so you can see what's improved over time.",
-  },
+const steps = [
+  { title: "Start with your details", text: "Choose your U.S. visa type and share your application details. Check your documents for missing or conflicting information. Your first document check is free." },
+  { title: "Say your answers out loud", text: "Choose a paid package when you are ready to practice. Use your microphone and camera to answer questions from an AI interviewer about your own plans, funding, and background." },
+  { title: "Know what to improve", text: "After each interview, read what you explained well and what you missed. Get tips based on your answers, then use your remaining interviews to work on those areas." },
 ];
-
 export default function HowItWorksPage() {
-  return (
-    <>
-      <Container className="pt-8">
-        <Breadcrumbs entries={[{ name: "Home", path: "/" }, { name: "How It Works", path: "/how-it-works" }]} />
-      </Container>
-
-      <Container className="py-10 sm:py-14">
-        <SectionHeading
-          titleAs="h1"
-          align="center"
-          eyebrow="How it works"
-          title="From your application to a real practice interview"
-          description="VisaPrepper connects four steps: understanding your case, interviewing you about it, analyzing your answers, and helping you improve. Here's what each step actually involves."
-        />
-      </Container>
-
-      <Container className="pb-8">
-        <div className="divide-y divide-border">
-          <StepCard
-            number={1}
-            title="Tell us about your visa application"
-            description="Start by sharing the details that shape your case: your visa type, purpose of travel, program or job, funding and sponsor, employment, family, travel history, U.S. relatives, accommodation, travel dates, and any previous refusals. The more accurately you describe your real circumstances, the more useful your practice interview will be — there's no benefit to exaggerating or leaving things out."
-            media={<ApplicationCardMock />}
-          />
-          <StepCard
-            number={2}
-            title="Take a realistic AI mock interview"
-            description="VisaPrepper conducts a live voice/video interview using your camera and microphone. Questions adapt to your visa type, your profile, your previous answers, and anything that seems unclear or inconsistent. The interview follows a simple pattern: ask, listen, understand, follow up when necessary, and move on — just like a real conversation, not a fixed questionnaire."
-            media={<InterviewInterfaceMock />}
-          />
-          <StepCard
-            number={3}
-            title="Get detailed, evidence-based feedback"
-            description="After the interview, VisaPrepper shows you what you answered well, which answers were weak or incomplete, any contradictions worth addressing, and which parts of your own application you should understand better. You'll also see communication feedback — speaking pace, filler words, long pauses, and answer duration — plus simple visual coaching notes about framing and camera presence."
-            media={<InterviewReportMock />}
-          />
-          <StepCard
-            number={4}
-            title="Practice again and improve"
-            description="Revisit the areas your feedback flagged, using Practice Mode to focus on one weak spot at a time, or take another full Realistic Mock Interview when you're ready. VisaPrepper keeps a record of your sessions so you can see what's improved and decide what to focus on next."
-            media={<ProgressTimelineMock />}
-          />
-        </div>
-      </Container>
-
-      <section className="bg-surface-muted">
-        <Container className="py-14 sm:py-16">
-          <SectionHeading align="center" eyebrow="FAQ" title="Questions about the process" />
-          <div className="mx-auto mt-10 max-w-2xl">
-            <FAQAccordion items={FAQS} />
-          </div>
-        </Container>
-      </section>
-
-      <CTASection
-        title="See it work with your own application"
-        description="The best way to understand VisaPrepper is to try it with your real circumstances."
-      />
-    </>
-  );
+  return <>
+    <Container className="pt-8"><Breadcrumbs entries={[{ name: "Home", path: "/" }, { name: "How it works", path: "/how-it-works" }]} /></Container>
+    <Container className="py-12 sm:py-16">
+      <SectionHeading titleAs="h1" eyebrow="Getting started" title="Three steps towards a better-prepared you." description="You do not need perfect English or memorized answers. Bring your real details and a little time to practice." />
+      <ol className="mt-10 grid gap-5 md:grid-cols-3">{steps.map((step, index) => <li key={step.title} className="rounded-2xl border border-border bg-surface p-6"><span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sage-soft font-semibold text-primary">{index + 1}</span><h2 className="mt-5 text-xl font-semibold">{step.title}</h2><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.text}</p></li>)}</ol>
+      <div className="mx-auto mt-12 max-w-2xl"><FAQAccordion items={[
+        { question: "What is the difference between the two interview types?", answer: "Practice interviews let you work on your answers with coaching. Realistic interviews run straight through, closer to interview day. You receive personal feedback afterward." },
+        { question: "What equipment do I need?", answer: "Use a device with a microphone and camera, an internet connection, and a quiet place where you can speak clearly." },
+        { question: "What if I do not know an answer?", answer: "Answer honestly as best you can. The feedback will help you see what to check or explain more clearly. You do not need to learn a script." },
+      ]} /></div>
+    </Container>
+    <CTASection title="Your first step is free." description="Check your documents once and read preparation tips before choosing an interview package." />
+  </>;
 }

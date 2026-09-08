@@ -74,7 +74,7 @@
 
 /* Deliberately light-only brand (warm cream palette) — we do not opt into
    automatic prefers-color-scheme dark mode, since the whole visual system
-   (illustrations, mock UI screens) is designed for a warm light surface. */
+   (illustrations, example UI screens) is designed for a warm light surface. */
 
 * {
   border-color: var(--color-border);
