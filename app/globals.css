@@ -57,12 +57,12 @@
   --vp-border: #e4dcce;
   --vp-border-on-charcoal: #4a493f;
 
-  --vp-primary: #3f6b52;
-  --vp-primary-hover: #345a44;
+  --vp-primary: #184b3c;
+  --vp-primary-hover: #103b2f;
   --vp-primary-foreground: #fbf7f1;
 
   --vp-sage: #9caf96;
-  --vp-sage-soft: #e7ede3;
+  --vp-sage-soft: #e5eee7;
   --vp-teal: #2f6e6b;
   --vp-teal-soft: #e1eeec;
 
@@ -197,4 +197,19 @@ body {
   padding-inline-start: 1rem;
   font-style: italic;
   color: var(--color-muted-foreground);
+}
+
+.depth-card {
+  border-radius: 1.5rem;
+  box-shadow: 5px 7px 0 -3px rgb(24 75 60 / 12%);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .lift-card {
+    transition: transform 240ms ease, box-shadow 240ms ease;
+  }
+  .lift-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px -18px rgb(24 75 60 / 25%);
+  }
 }

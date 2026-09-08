@@ -7,7 +7,7 @@ platform. Next.js (App Router), deployed on Vercel.
 
 - Next.js 16 (App Router), TypeScript
 - Tailwind CSS v4 (CSS-first `@theme` tokens in `app/globals.css`)
-- `motion` (Framer Motion's successor) for the homepage hero scroll animation
+- `motion` for subtle scroll entrances and 3D card movement, simplified on small screens and for reduced-motion preferences
 - Blog: plain `.mdx` files + `gray-matter` + `next-mdx-remote/rsc`
 - Deploy: Vercel, connected to this GitHub repo — every push to `main` deploys automatically
 
@@ -28,12 +28,23 @@ components/             UI components (layout/, hero/, marketing/, blog/, faq/, 
 content/blog/*.mdx      the 12 launch articles — add new posts here
 content/visa-types/*.ts structured content for each visa-type landing page
 lib/config/site.ts      SINGLE SOURCE for the app URL, contact email, nav links, visa types, locales
+lib/config/offering.ts  package pricing, destination availability, and social profiles
 lib/content/            content loaders (posts.ts, visa-types.ts)
 lib/seo/                metadata + JSON-LD helpers
 docs/i18n-architecture.md   how to add real Urdu/Hindi/Bengali locales later (not built yet — see file)
 ```
 
 ## Things you'll want to change before/at launch
+
+The Android section says “Available on Google Play” per the owner's launch
+status. Its store logo is informational until the owner supplies the actual
+listing URL; no placeholder download link is used.
+
+Brand assets in `public/images/brand/`: `visaprepper.jpg` is the owner-supplied
+logo, used unchanged (with CSS framing for the small header mark).
+`google-play.png` is the official lockup downloaded from Google's
+[Partner Marketing Hub](https://partnermarketinghub.withgoogle.com/brands/google-play/google-play/lockups-icons-badges/?folder=86718).
+The favicon uses the supplied logo. The previous favicon remains in Git history.
 
 All in **`lib/config/site.ts`**:
 

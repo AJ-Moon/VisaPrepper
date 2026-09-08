@@ -8,6 +8,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { DestinationGrid } from "@/components/marketing/DestinationGrid";
 import { LanguageWelcome } from "@/components/marketing/LanguageWelcome";
 import { Pricing } from "@/components/marketing/Pricing";
+import { AndroidApp } from "@/components/marketing/AndroidApp";
+import { DepthCard, ScrollReveal } from "@/components/marketing/ScrollEffects";
 import { FAQAccordion } from "@/components/faq/FAQAccordion";
 import { HOMEPAGE_FAQ } from "@/lib/content/faq";
 import { VISA_TYPES } from "@/lib/config/site";
@@ -39,14 +41,14 @@ export default function Home() {
             </div>
             <p className="mt-4 text-sm text-muted-foreground">One free document check + preparation tips. Interviews from $15.</p>
           </div>
-          <div className="rounded-3xl border border-border bg-surface p-6 shadow-xl shadow-primary/5 sm:p-8">
+          <DepthCard><div className="rounded-3xl border border-border bg-surface p-6 shadow-xl shadow-primary/5 sm:p-8">
             <div className="flex items-center justify-between gap-4 border-b border-border pb-5"><p className="text-sm font-semibold">A little practice. A clearer answer.</p><span className="rounded-full bg-sage-soft px-3 py-1 text-xs text-primary">Example</span></div>
             <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-muted-foreground">You may be asked</p>
             <p className="mt-3 font-display text-2xl leading-snug">“Who will pay for your studies?”</p>
             <div className="mt-6 rounded-2xl bg-surface-muted p-5"><p className="text-xs font-semibold text-muted-foreground">YOUR FIRST ANSWER</p><p className="mt-2">“My father will pay.”</p></div>
             <div className="mt-3 rounded-2xl bg-sage-soft p-5"><p className="flex items-center gap-2 text-xs font-semibold text-primary"><Sparkles className="h-4 w-4" aria-hidden="true" /> MAKE IT CLEARER</p><p className="mt-2 text-sm leading-relaxed">Explain what your father does and how he will cover your fees and living costs. Use the details that are true for you.</p></div>
             <p className="mt-5 flex items-start gap-2 text-sm text-muted-foreground"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />Know what to work on, before it matters.</p>
-          </div>
+          </div></DepthCard>
         </Container>
       </section>
 
@@ -63,14 +65,14 @@ export default function Home() {
       <section id="pricing" className="scroll-mt-24">
         <Container className="py-16 sm:py-20">
           <SectionHeading eyebrow="Simple prices" title="Start free. Choose the practice you need." description="One payment for your package. No monthly subscription." />
-          <div className="mt-9"><Pricing /></div>
+          <ScrollReveal className="mt-9"><Pricing /></ScrollReveal>
         </Container>
       </section>
 
       <section id="destinations" className="bg-surface-muted scroll-mt-24">
         <Container className="py-16 sm:py-20">
           <SectionHeading eyebrow="Where are you going?" title="Your next chapter starts with preparation." description="U.S. visa interviews are available now. Preparation for the UK, France, Italy, Germany, and Schengen visas is coming soon." />
-          <div className="mt-8"><DestinationGrid /></div>
+          <ScrollReveal className="mt-8"><DestinationGrid /></ScrollReveal>
           <div className="mt-8 flex flex-wrap items-center gap-3 text-sm"><p className="font-semibold">U.S. visas:</p>{VISA_TYPES.map((visa) => <Link key={visa.slug} href={`/visa-types/${visa.slug}`} className="rounded-full border border-border bg-surface px-4 py-2 transition-colors hover:border-primary">{visa.shortLabel} <span className="text-muted-foreground">· {visa.code}</span></Link>)}</div>
         </Container>
       </section>
@@ -81,6 +83,8 @@ export default function Home() {
           <div className="mt-8"><LanguageWelcome /></div>
         </Container>
       </section>
+
+      <AndroidApp />
 
       <section className="bg-surface-muted">
         <Container className="py-12">

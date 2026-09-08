@@ -15,7 +15,8 @@ export const metadata: Metadata = {
   description:
     "Prepare for your U.S. visa interview in English or Urdu. One free document check and interview practice packages from $15 for applicants in Pakistan.",
   icons: {
-    icon: "/icon.svg",
+    icon: "/icon.jpg",
+    apple: "/icon.jpg",
   },
   alternates: {
     canonical: "/",

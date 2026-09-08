@@ -17,7 +17,7 @@ export function buildOrganizationJsonLd() {
     name: SITE_NAME,
     url: SITE_URL,
     "@id": `${SITE_URL}/#organization`,
-    logo: `${SITE_URL}/icon.svg`,
+    logo: `${SITE_URL}/images/brand/visaprepper.jpg`,
     sameAs: SOCIAL_LINKS.map((link) => link.href),
     description:
       "VisaPrepper is an independent visa interview preparation platform. It is not affiliated with the U.S. Department of State, USCIS, or any embassy or consulate.",
@@ -43,7 +43,7 @@ export function buildSoftwareApplicationJsonLd() {
     "@type": "SoftwareApplication",
     name: SITE_NAME,
     applicationCategory: "EducationalApplication",
-    operatingSystem: "Web",
+    operatingSystem: "Web, Android",
     description:
       "U.S. visa interview preparation for applicants in Pakistan, with English and Urdu interviews, document checks, and personal feedback in paid packages.",
     url: SITE_URL,
@@ -124,7 +124,7 @@ export function buildArticleJsonLd(post: {
       name: SITE_NAME,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/icon.svg`,
+        url: `${SITE_URL}/images/brand/visaprepper.jpg`,
       },
     },
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,

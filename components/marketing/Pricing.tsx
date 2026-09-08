@@ -17,7 +17,7 @@ export function Pricing() {
             { text: "Tips based on your answers", included: plan.personalized },
           ];
           return (
-            <article key={plan.id} className={`relative flex flex-col rounded-3xl border p-6 sm:p-8 ${featured ? "border-primary bg-sage-soft" : "border-border bg-surface"}`}>
+            <article key={plan.id} className={`lift-card relative flex flex-col rounded-3xl border p-6 sm:p-8 ${featured ? "border-primary bg-sage-soft" : "border-border bg-surface"}`}>
               <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-primary">{featured ? "More practice, more preparation" : plan.price === 0 ? "Your first step" : "Build your confidence"}</p>
               <h3 className="font-display text-2xl font-semibold">{plan.name}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{plan.description}</p>
