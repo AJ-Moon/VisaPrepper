@@ -15,6 +15,7 @@ const frontmatterSchema = z.object({
   author: z.string(),
   authorRole: z.string().optional(),
   primaryKeyword: z.string(),
+  market: z.enum(["pakistan", "india", "bangladesh"]).optional(),
   tags: z.array(z.string()).optional().default([]),
   draft: z.boolean().optional().default(false),
   faq: z
@@ -87,8 +88,11 @@ export function getPostBySlug(slug: string): Post | undefined {
 }
 
 export function getRelatedPosts(currentSlug: string, tags: string[], limit = 3): Post[] {
+  const currentMarket = getPostBySlug(currentSlug)?.market;
   return getAllPosts()
     .filter((post) => post.slug !== currentSlug)
+    .filter((post) => !currentMarket || !post.market || post.market === currentMarket)
     .filter((post) => post.tags.some((tag) => tags.includes(tag)))
+    .sort((a, b) => b.tags.filter((tag) => tags.includes(tag)).length - a.tags.filter((tag) => tags.includes(tag)).length)
     .slice(0, limit);
 }

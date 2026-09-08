@@ -55,7 +55,7 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const related = getRelatedPosts(post.slug, post.tags);
-  const comingSoon = ["us-visa-interview-questions-india", "us-visa-interview-questions-bangladesh"].includes(post.slug);
+  const comingSoon = post.market === "india" || post.market === "bangladesh";
 
   return (
     <>
@@ -127,7 +127,7 @@ export default async function BlogPostPage({
 
       {!comingSoon && <CTASection
         title="Ready to practice your own answers?"
-        description="Start with a free document check, or choose a paid package to practice your visa interview."
+        description="For applicants in Pakistan, in English or Urdu. Start with a free document check, or choose an interview package. India and Bangladesh support are coming soon."
       />}
     </>
   );

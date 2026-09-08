@@ -111,6 +111,7 @@ export function buildArticleJsonLd(post: {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
+    inLanguage: "en",
     headline: post.title,
     description: post.description,
     datePublished: post.publishDate,
