@@ -30,7 +30,7 @@ export default function TermsPage() {
           <h2>What VisaPrepper is</h2>
           <p>
             VisaPrepper is an independent visa interview preparation and
-            practice tool. It helps applicants practice practice interviews built
+            practice tool. It helps applicants realistic interviews built
             around their own circumstances and provides feedback on their
             answers and communication.
           </p>

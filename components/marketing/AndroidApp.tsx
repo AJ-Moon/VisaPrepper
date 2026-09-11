@@ -10,12 +10,12 @@ export function AndroidApp() {
         <ScrollReveal>
           <p className="text-sm font-semibold text-primary">Your preparation, on your phone</p>
           <h2 className="mt-3 max-w-lg font-display text-3xl font-semibold leading-tight sm:text-4xl">A little practice.<br />Wherever you feel at home.</h2>
-          <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground">Prepare for your visa interview with VisaPrepper for Android. Find a quiet spot, open the app, and make a little time for your next big step.</p>
+          <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground">Our Android app is being prepared for Google Play. You can use VisaPrepper in your phone’s browser today.</p>
           <div className="mt-7 inline-flex flex-col items-start gap-3 rounded-2xl border border-primary/15 bg-white px-6 py-5">
-            <p className="text-xs font-semibold uppercase tracking-widest text-primary">Available on</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-primary">Coming soon to</p>
             <Image src="/images/brand/google-play.png" alt="Google Play" width={180} height={42} className="h-auto w-[180px]" />
           </div>
-          <p className="mt-3 text-xs text-muted-foreground">For Android phones</p>
+          <p className="mt-3 text-xs text-muted-foreground">Android release is not yet published.</p>
         </ScrollReveal>
         <DepthCard className="mx-auto w-full max-w-sm">
           <div className="relative rounded-[2rem] border border-primary/20 bg-primary p-3 shadow-2xl shadow-primary/20">

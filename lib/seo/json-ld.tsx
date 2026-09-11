@@ -1,3 +1,4 @@
+import type { PublicPlan } from "@/lib/config/live-offering";
 import { SITE_NAME, SITE_URL } from "@/lib/config/site";
 import { PLANS, SOCIAL_LINKS } from "@/lib/config/offering";
 
@@ -37,7 +38,7 @@ export function buildWebsiteJsonLd() {
   };
 }
 
-export function buildSoftwareApplicationJsonLd() {
+export function buildSoftwareApplicationJsonLd(plans:PublicPlan[] = [...PLANS]) {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -48,12 +49,12 @@ export function buildSoftwareApplicationJsonLd() {
       "U.S. visa interview preparation for applicants in Pakistan, with English and Urdu interviews, document checks, and personal feedback in paid packages.",
     url: SITE_URL,
     inLanguage: ["en", "ur"],
-    offers: PLANS.map((plan) => ({
+    offers: plans.map((plan) => ({
       "@type": "Offer",
       name: plan.name,
       description: plan.price === 0
         ? "One free document check and preparation tips. No interviews."
-        : `${plan.practice} practice interviews, ${plan.realistic} realistic interviews, ${plan.checks ?? "unlimited"} document checks, and personal feedback. One-time payment.`,
+        : `${plan.interviews} realistic interviews, ${plan.checks ?? "unlimited"} document checks, and personal feedback. One-time payment.`,
       price: plan.price,
       priceCurrency: "USD",
       url: `${SITE_URL}/#pricing`,

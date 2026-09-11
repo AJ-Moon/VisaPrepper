@@ -1,18 +1,18 @@
 import { Check, Minus } from "lucide-react";
 import { PLANS } from "@/lib/config/offering";
+import type { PublicPlan } from "@/lib/config/live-offering";
 import { CtaButton } from "@/components/layout/CtaButton";
 
-export function Pricing() {
+export function Pricing({plans = [...PLANS]}:{plans?:PublicPlan[]}) {
   return (
     <div>
       <div className="grid gap-5 lg:grid-cols-3">
-        {PLANS.map((plan) => {
+        {plans.map((plan) => {
           const featured = plan.id === "complete";
           const items = [
             { text: `${plan.checks ?? "Unlimited"} document ${plan.checks === 1 ? "check" : "checks"}${plan.price === 0 ? " — once only" : ""}`, included: true },
             { text: "Free preparation tips", included: true },
-            { text: plan.practice ? `${plan.practice} practice interviews` : "Practice interviews", included: plan.practice > 0 },
-            { text: plan.realistic ? `${plan.realistic} realistic ${plan.realistic === 1 ? "interview" : "interviews"}` : "Realistic interviews", included: plan.realistic > 0 },
+            { text: plan.interviews ? `${plan.interviews} realistic interviews` : "Realistic interviews", included: plan.interviews > 0 },
             { text: "Personal feedback after each interview", included: plan.personalized },
             { text: "Tips based on your answers", included: plan.personalized },
           ];
@@ -35,7 +35,7 @@ export function Pricing() {
           );
         })}
       </div>
-      <p className="mx-auto mt-6 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">Practice interviews give you room to work on your answers. Realistic interviews run like interview day, with feedback afterward. You can update your documents and check again within your package allowance.</p>
+      <p className="mx-auto mt-6 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">Every interview uses the same realistic, adaptive format, with personal feedback afterward. Choose a package for the number of interviews you need. You can update your documents and check again within your package allowance.</p>
       <p className="mx-auto mt-3 max-w-3xl text-center text-xs leading-relaxed text-muted-foreground">Document checks look for missing or conflicting details; they do not certify documents or guarantee acceptance. Continue to the app to get started.</p>
     </div>
   );

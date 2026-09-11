@@ -1,7 +1,7 @@
 export const SITE_URL = "https://visaprepper.com";
 export const SITE_NAME = "VisaPrepper";
 // Date of the last substantive marketing content update, not the build time.
-export const SITE_CONTENT_UPDATED = "2026-09-08";
+export const SITE_CONTENT_UPDATED = "2026-09-11";
 
 // The external VisaPrepper application (mock interview product itself).
 // Every "Start Practicing" / "Log In" CTA on the marketing site should read

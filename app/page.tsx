@@ -1,3 +1,4 @@
+import { getPublicPlans } from "@/lib/config/live-offering";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Check, FileCheck2, MessageCircle, Sparkles } from "lucide-react";
@@ -23,10 +24,11 @@ export const metadata: Metadata = {
   title: { absolute: title },
 };
 
-export default function Home() {
+export default async function Home() {
+  const plans = await getPublicPlans();
   return (
     <>
-      <JsonLd data={buildSoftwareApplicationJsonLd()} />
+      <JsonLd data={buildSoftwareApplicationJsonLd(plans)} />
       <JsonLd data={buildWebsiteJsonLd()} />
       <section className="bg-gradient-to-b from-sage-soft/60 to-background">
         <Container className="grid items-center gap-12 py-14 sm:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
@@ -65,7 +67,7 @@ export default function Home() {
       <section id="pricing" className="scroll-mt-24">
         <Container className="py-16 sm:py-20">
           <SectionHeading eyebrow="Simple prices" title="Start free. Choose the practice you need." description="One payment for your package. No monthly subscription." />
-          <ScrollReveal className="mt-9"><Pricing /></ScrollReveal>
+          <ScrollReveal className="mt-9"><Pricing plans={plans} /></ScrollReveal>
         </Container>
       </section>
 
