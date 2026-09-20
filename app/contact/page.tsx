@@ -8,8 +8,8 @@ import { SOCIAL_LINKS } from "@/lib/config/offering";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Contact VisaPrepper",
-  description: "Get in touch with the VisaPrepper team with questions about the platform, your account, or press inquiries.",
+  title: "Contact Visa Prepper",
+  description: "Get in touch with the Visa Prepper team with questions about the platform, your account, or press inquiries.",
   path: "/contact",
 });
 
@@ -38,7 +38,7 @@ export default function ContactPage() {
           </a>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
             For account or billing questions, please include the email
-            address associated with your VisaPrepper account so we can help
+            address associated with your Visa Prepper account so we can help
             faster.
           </p>
         </div>

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!visaType) return {};
   return buildPageMetadata({
     title: `${visaType.code} Visa Interview Practice in Pakistan`,
-    description: `Prepare for your U.S. ${visaType.code} visa interview in English or Urdu. Practice answers about your own application and get personal feedback. Packages from $15.`,
+    description: `Prepare for your U.S. ${visaType.code} visa interview in English or Urdu. Practise your own answers. Six AI interviews and ten document checks for $44.`,
     path: `/visa-types/${visaType.slug}`,
   });
 }
@@ -33,7 +33,7 @@ export default async function VisaTypePage({ params }: { params: Promise<{ slug:
       <p className="text-sm font-semibold text-primary">Available for Pakistan · English & Urdu</p>
       <h1 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">{visaType.h1}</h1>
       <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">{visaType.intro}</p>
-      <Link href="/#pricing" className="mt-6 inline-flex items-center gap-2 font-semibold text-primary underline underline-offset-4">See interview packages from $15 <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+      <Link href="/pricing" className="mt-6 inline-flex items-center gap-2 font-semibold text-primary underline underline-offset-4">Six interviews for $44 <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
     </Container>
     <section className="bg-surface-muted"><Container className="py-12">
       <h2 className="font-display text-2xl font-semibold">Who this is for</h2>

@@ -84,7 +84,7 @@ export default async function BlogPostPage({
         <div className="grid gap-10 lg:grid-cols-[1fr_260px]">
           <article>
             <BlogPostHeader post={post} />
-            {comingSoon && <p className="mt-6 rounded-xl border border-border bg-sage-soft p-4 text-sm leading-relaxed">This free guide is available to everyone. VisaPrepper interview practice for India and Bangladesh is coming soon. We currently support Pakistan in English and Urdu.</p>}
+            {comingSoon && <p className="mt-6 rounded-xl border border-border bg-sage-soft p-4 text-sm leading-relaxed">This free guide is available to everyone. Visa Prepper interview practice for India and Bangladesh is coming soon. We currently support Pakistan in English and Urdu.</p>}
 
             <div className="prose-vp mt-8">
               <MDXRemote

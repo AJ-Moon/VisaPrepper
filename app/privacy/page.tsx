@@ -6,7 +6,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Privacy Policy",
-  description: "How VisaPrepper collects, uses, and protects your information, including application details and practice interview recordings.",
+  description: "How Visa Prepper collects, uses, and protects your information, including application details and practice interview recordings.",
   path: "/privacy",
 });
 
@@ -18,15 +18,15 @@ export default function PrivacyPage() {
       </Container>
       <Container className="py-10 sm:py-14">
         <h1 className="font-display text-3xl font-semibold text-foreground sm:text-4xl">Privacy Policy</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Last updated: September 6, 2026</p>
+        <p className="mt-2 text-sm text-muted-foreground">Last updated: September 20, 2026</p>
 
         <div className="prose-vp mt-8 max-w-3xl">
           <p>
-            This Privacy Policy explains how {SITE_NAME} (&ldquo;VisaPrepper,&rdquo; &ldquo;we,&rdquo;
+            This Privacy Policy explains how {SITE_NAME} (&ldquo;Visa Prepper,&rdquo; &ldquo;we,&rdquo;
             &ldquo;us&rdquo;) collects, uses, and protects information when you use our
             website and practice interview platform (the &ldquo;Service&rdquo;). It applies to
             visitors of this marketing website and to applicants using the
-            VisaPrepper application.
+            Visa Prepper application.
           </p>
 
           <h2>Information we collect</h2>
@@ -55,6 +55,9 @@ export default function PrivacyPage() {
             </li>
           </ul>
 
+          <h2>Partner applications</h2>
+          <p>If you apply to become a partner, we use your contact, business, audience and application details to review the request and respond. Optional marketing consent is separate. Do not include passports, visa documents, bank details or applicant information.</p>
+          <p>Applications must be stored privately before a success message is shown. Authorised reviewers may record review notes and status changes. Applications and notes are not public testimonials. The same data access and deletion contact below applies. We do not accept applications while private storage is unavailable.</p>
           <h2>How we use your information</h2>
           <ul>
             <li>To generate and conduct your adaptive practice interviews</li>
@@ -102,7 +105,7 @@ export default function PrivacyPage() {
 
           <h2>International users</h2>
           <p>
-            VisaPrepper currently supports applicants in Pakistan, with
+            Visa Prepper currently supports applicants in Pakistan, with
             India and Bangladesh coming soon. Our infrastructure may process
             information in countries other than your own. We take steps
             intended to protect your information consistent with this

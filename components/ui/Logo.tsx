@@ -16,7 +16,7 @@ export function Logo({ className, onCharcoal = false }: { className?: string; on
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <LogoMark />
       <span className={cn("font-sans text-lg font-semibold tracking-tight", onCharcoal ? "text-on-charcoal" : "text-foreground")}>
-        Visa<span className={onCharcoal ? "text-sage" : "text-primary"}>Prepper</span>
+        Visa{" "}<span className={onCharcoal ? "text-sage" : "text-primary"}>Prepper</span>
       </span>
     </span>
   );

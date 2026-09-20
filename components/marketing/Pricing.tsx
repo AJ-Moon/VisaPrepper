@@ -1,42 +1,30 @@
+import Link from "next/link";
 import { Check, Minus } from "lucide-react";
-import { PLANS } from "@/lib/config/offering";
-import type { PublicPlan } from "@/lib/config/live-offering";
+import { COMPLETE_OFFER } from "@/lib/config/offer";
 import { CtaButton } from "@/components/layout/CtaButton";
-
-export function Pricing({plans = [...PLANS]}:{plans?:PublicPlan[]}) {
-  return (
-    <div>
-      <div className="grid gap-5 lg:grid-cols-3">
-        {plans.map((plan) => {
-          const featured = plan.id === "complete";
-          const items = [
-            { text: `${plan.checks ?? "Unlimited"} document ${plan.checks === 1 ? "check" : "checks"}${plan.price === 0 ? " — once only" : ""}`, included: true },
-            { text: "Free preparation tips", included: true },
-            { text: plan.interviews ? `${plan.interviews} realistic interviews` : "Realistic interviews", included: plan.interviews > 0 },
-            { text: "Personal feedback after each interview", included: plan.personalized },
-            { text: "Tips based on your answers", included: plan.personalized },
-          ];
-          return (
-            <article key={plan.id} className={`lift-card relative flex flex-col rounded-3xl border p-6 sm:p-8 ${featured ? "border-primary bg-sage-soft" : "border-border bg-surface"}`}>
-              <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-primary">{featured ? "More practice, more preparation" : plan.price === 0 ? "Your first step" : "Build your confidence"}</p>
-              <h3 className="font-display text-2xl font-semibold">{plan.name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{plan.description}</p>
-              <p className="mt-6"><span className="text-5xl font-semibold tracking-tight">${plan.price}</span><span className="ml-2 text-sm text-muted-foreground">USD{plan.price > 0 ? " · one time" : " · free"}</span></p>
-              <ul className="my-7 flex-1 space-y-4 text-sm">
-                {items.map(({ text, included }) => (
-                  <li key={text} className={`flex items-start gap-3 ${included ? "text-foreground" : "text-muted-foreground"}`}>
-                    {included ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" /> : <Minus className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />}
-                    <span>{!included && <span className="sr-only">Not included: </span>}<span className={included ? "" : "line-through decoration-muted-foreground/50"}>{text}</span></span>
-                  </li>
-                ))}
-              </ul>
-              <CtaButton label={plan.price === 0 ? "Check my documents free" : `Get started — $${plan.price}`} size="lg" className="w-full" />
-            </article>
-          );
-        })}
-      </div>
-      <p className="mx-auto mt-6 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">Every interview uses the same realistic, adaptive format, with personal feedback afterward. Choose a package for the number of interviews you need. You can update your documents and check again within your package allowance.</p>
-      <p className="mx-auto mt-3 max-w-3xl text-center text-xs leading-relaxed text-muted-foreground">Document checks look for missing or conflicting details; they do not certify documents or guarantee acceptance. Continue to the app to get started.</p>
+export function Pricing() {
+  return <div>
+    <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+      <article className="flex flex-col rounded-3xl border bg-surface p-7 sm:p-9">
+        <p className="text-sm font-semibold text-primary">Your first step</p>
+        <h3 className="mt-3 font-display text-2xl font-semibold">Free</h3>
+        <p className="mt-3 text-muted-foreground">Find document problems before you pay.</p>
+        <p className="mt-6 text-5xl font-semibold">$0 <span className="text-base font-normal">USD</span></p>
+        <ul className="my-7 flex-1 space-y-4">{["1 document check, once only", "Free preparation guides", "Sample interview report"].map(text => <li key={text} className="flex gap-3"><Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true"/>{text}</li>)}<li className="flex gap-3 text-muted-foreground"><Minus className="mt-1 h-4 w-4 shrink-0" aria-hidden="true"/><span>No live AI interview</span></li></ul>
+        <CtaButton intent="free" label="Check My Documents Free" size="lg"/>
+        <Link href="/#sample-report" className="mt-4 text-center text-sm underline underline-offset-4">See the sample report</Link>
+      </article>
+      <article className="flex flex-col rounded-3xl border border-primary bg-sage-soft p-7 sm:p-9">
+        <p className="text-sm font-semibold text-primary">Six chances to practise</p>
+        <h3 className="mt-3 font-display text-2xl font-semibold">{COMPLETE_OFFER.name}</h3>
+        <p className="mt-3 text-muted-foreground">Practise your answers before the real interview.</p>
+        <p className="mt-6 text-5xl font-semibold">$44 <span className="text-base font-normal">USD · one time</span></p>
+        <ul className="my-7 flex-1 space-y-3">{["6 complete AI practice interviews", "Questions based on your application", "Follow-up questions based on your answers", "10 document checks, including revised documents", "A personal report after every interview", "Help with unclear, different or very long answers", "All currently supported interview types and languages", "90 days from purchase to use the package"].map(text => <li key={text} className="flex gap-3"><Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true"/>{text}</li>)}</ul>
+        <CtaButton label="Get 6 Interviews — $44" size="lg"/>
+        <p className="mt-4 text-center text-sm">One payment. No monthly subscription.</p>
+      </article>
     </div>
-  );
+    <p className="mx-auto mt-6 max-w-3xl text-center text-base">Need more practice? Buy the same package again. Six interviews total—not six of each mode.</p>
+    <p className="mx-auto mt-3 max-w-3xl text-center text-sm text-muted-foreground">Document checks find missing or different details. They do not certify documents. Final currency and total are shown at checkout. <Link href="/terms" className="underline">Read the terms</Link>.</p>
+  </div>;
 }

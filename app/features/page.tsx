@@ -9,7 +9,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "What You Get from Visa Interview Practice",
-  description: "Find unclear answers, check details that do not match, and know what to practice next. Personal interview feedback with VisaPrepper packages from $15.",
+  description: "Find unclear answers and details that do not match. Get a report after every practice interview. Six interviews and ten document checks for $44 USD.",
   path: "/features",
 });
 export default function FeaturesPage() {
@@ -25,6 +25,6 @@ export default function FeaturesPage() {
       ].map(([title, text]) => <div key={title} className="rounded-2xl border border-border bg-surface p-6"><Check className="h-5 w-5 text-primary" aria-hidden="true" /><h2 className="mt-4 text-xl font-semibold">{title}</h2><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p></div>)}</div>
     </Container>
     <section className="bg-surface-muted"><Container className="grid items-center gap-8 py-12 md:grid-cols-2"><SectionHeading eyebrow="Example feedback" title="Small details can make your answer clearer." description="Your paid interview report shows what you said and what needs more explanation. Build a truthful answer using your own details." /><div className="flex justify-center"><FeedbackExampleCard /></div></Container></section>
-    <CTASection title="Choose how much practice you need." description="Begin with a free document check. Paid packages add interviews, personal feedback, and tips based on your answers." />
+    <CTASection title="Six chances to work on your answers." description="One $44 package. Six interviews, ten document checks and 90 days to practise." />
   </>;
 }

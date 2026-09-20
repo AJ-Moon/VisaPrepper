@@ -9,11 +9,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Visa Interview Preparation in Pakistan | VisaPrepper",
-    template: "%s | VisaPrepper",
+    default: "Visa Interview Preparation in Pakistan | Visa Prepper",
+    template: "%s | Visa Prepper",
   },
   description:
-    "Prepare for your U.S. visa interview in English or Urdu. One free document check and interview practice packages from $15 for applicants in Pakistan.",
+    "Prepare for your U.S. visa interview in English or Urdu. One free document check, or six AI interviews and ten document checks for $44 USD.",
   icons: {
     icon: "/icon.jpg",
     apple: "/icon.jpg",

@@ -204,6 +204,28 @@ body {
   box-shadow: 5px 7px 0 -3px rgb(24 75 60 / 12%);
 }
 
+/* Native scrolling stays usable without JavaScript or animation. The second
+   identical set makes the automatic loop seamless and is hidden from AT. */
+.testimonial-viewport {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+.testimonial-viewport::-webkit-scrollbar { display: none; }
+.testimonial-set {
+  display: flex;
+  flex-shrink: 0;
+  gap: 20px;
+  padding-right: 20px;
+}
+.testimonial-card { width: min(78vw, 320px); flex-shrink: 0; }
+@media (min-width: 1024px) {
+  .testimonial-card { width: clamp(280px, 23vw, 340px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-copy { display: none; }
+}
+
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .lift-card {
     transition: transform 240ms ease, box-shadow 240ms ease;

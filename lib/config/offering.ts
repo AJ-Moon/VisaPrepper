@@ -1,3 +1,5 @@
+import { COMPLETE_OFFER, FREE_OFFER } from "./offer";
+
 export const DESTINATIONS = [
   { name: "United States", flag: "🇺🇸", status: "live", detail: "Student, visitor, work & family visas" },
   { name: "France & Schengen", flag: "🇫🇷", status: "coming-soon", detail: "Visa interview preparation" },
@@ -19,7 +21,6 @@ export const SOCIAL_LINKS = [
 ];
 
 export const PLANS = [
-  { id: "free", name: "Free", price: 0, description: "Start with your documents.", interviews: 0, checks: 1, personalized: false },
-  { id: "starter", name: "Interview Starter", price: 15, description: "Prepare with three realistic interviews.", interviews: 3, checks: 10, personalized: true },
-  { id: "complete", name: "Interview Plus", price: 35, description: "More time to work on your answers.", interviews: 8, checks: null, personalized: true },
+  { ...FREE_OFFER, description: "One document check and preparation guides.", personalized: false },
+  { ...COMPLETE_OFFER, description: "Six interviews. Ten document checks. 90 days to practise.", personalized: true },
 ] as const;

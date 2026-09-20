@@ -5,7 +5,7 @@ export function buildPageMetadata({
   title,
   description,
   path,
-  ogImage = "/images/og/default.png",
+  ogImage = "/opengraph-image",
 }: {
   title: string;
   description: string;

@@ -9,7 +9,7 @@ export const j1: VisaTypeContent = {
     "Practice your J1 exchange visitor visa interview with practice interviews built around your program, sponsor, and plans — with adaptive follow-ups and detailed feedback.",
   h1: "Practice your J1 exchange visitor visa interview around your own program",
   intro:
-    "J1 interviews focus on your specific exchange program, your sponsor, and your plans during and after the program. VisaPrepper builds your practice interview around your actual program category — student, scholar, intern, trainee, au pair, or work-and-travel.",
+    "J1 interviews focus on your specific exchange program, your sponsor, and your plans during and after the program. Visa Prepper builds your practice interview around your actual program category — student, scholar, intern, trainee, au pair, or work-and-travel.",
   whoItsFor: [
     "Exchange students and scholars",
     "Interns and trainees on a J1 program",
@@ -47,19 +47,19 @@ export const j1: VisaTypeContent = {
   ],
   faqs: [
     {
-      question: "Does VisaPrepper cover all types of J1 programs?",
+      question: "Does Visa Prepper cover all types of J1 programs?",
       answer:
-        "Yes. Tell VisaPrepper your specific program category — student, scholar, intern, trainee, au pair, or work-and-travel — and your practice interview and follow-up questions will be built around that program.",
+        "Yes. Tell Visa Prepper your specific program category — student, scholar, intern, trainee, au pair, or work-and-travel — and your practice interview and follow-up questions will be built around that program.",
     },
     {
-      question: "Will VisaPrepper ask about the two-year home residency requirement?",
+      question: "Will Visa Prepper ask about the two-year home residency requirement?",
       answer:
-        "If it's relevant to your program category, VisaPrepper can include questions about your understanding of program requirements. It doesn't provide legal advice on whether the requirement applies to you — check your DS-2019 and official guidance for that.",
+        "If it's relevant to your program category, Visa Prepper can include questions about your understanding of program requirements. It doesn't provide legal advice on whether the requirement applies to you — check your DS-2019 and official guidance for that.",
     },
     {
       question: "Can I practice explaining my sponsor and host organization?",
       answer:
-        "Yes. VisaPrepper will ask about your sponsor and host organization and follow up if key details, like your day-to-day activities or funding, aren't clearly explained.",
+        "Yes. Visa Prepper will ask about your sponsor and host organization and follow up if key details, like your day-to-day activities or funding, aren't clearly explained.",
     },
   ],
 };

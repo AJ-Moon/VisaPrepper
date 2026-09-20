@@ -15,7 +15,7 @@ const STEPS = [
   },
   {
     icon: Search,
-    label: "VisaPrepper notices",
+    label: "Visa Prepper notices",
     text: "Occupation and relationship to your uncle weren't covered.",
     tone: "bg-warning-soft text-foreground",
   },

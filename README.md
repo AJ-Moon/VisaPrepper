@@ -25,7 +25,7 @@ npm run lint
 ```
 app/                    routes (App Router)
 components/             UI components (layout/, hero/, marketing/, blog/, faq/, ui/)
-content/blog/*.mdx      the 12 launch articles — add new posts here
+content/blog/*.mdx      the preparation articles — add new posts here
 content/visa-types/*.ts structured content for each visa-type landing page
 lib/config/site.ts      SINGLE SOURCE for the app URL, contact email, nav links, visa types, locales
 lib/config/offering.ts  package pricing, destination availability, and social profiles
@@ -95,3 +95,20 @@ points at `https://visaprepper.com`, so canonical/OG tags are correct from
 the first deploy regardless of the interim `*.vercel.app` URL.
 
 **Environment**: no environment variables are required for a working build.
+See `.env.example` for release gates. Paid checkout stays disabled until the
+application confirms the approved $44 / 6 interviews / 10 checks / 90-day offer.
+Partner submissions stay disabled until a private, durable submission API is
+configured. Neither feature should be enabled by changing marketing copy alone.
+
+## Release verification
+
+```bash
+npm test
+npm run lint
+npm run build
+npm run test:site -- http://localhost:3004
+```
+
+The site checker is read-only against non-local origins. Synthetic partner
+submission tests run only on localhost. See `docs/release-readiness.md` for
+the remaining app, partner, store-link and SEO dependencies.

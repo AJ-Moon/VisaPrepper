@@ -1,10 +1,13 @@
 import type { FaqEntry } from "@/lib/seo/json-ld";
-
 export const HOMEPAGE_FAQ: FaqEntry[] = [
-  { question: "Can I try it without paying?", answer: "Yes. You get one free document check for missing or conflicting details, plus free preparation tips. Interviews and personal feedback are included in the paid packages." },
-  { question: "Do I speak to a real person?", answer: "You practice with an AI interviewer using your microphone and camera. It asks about your own visa application and follows up on your answers. You receive feedback after your interview." },
-  { question: "What should I have ready?", answer: "Have your application details and documents nearby. You will use these to explain your travel plans, studies or work, funding, and family situation. Answer honestly, in your own words." },
-  { question: "Can I prepare in Urdu?", answer: "Yes. Applicants in Pakistan can practice U.S. visa interviews in English or Urdu. Your practice language does not determine the language of your official interview; check the instructions for your appointment." },
-  { question: "Can I use this after a visa refusal?", answer: "Yes. Practice explaining your current circumstances and any changes since your last application. The feedback helps you find unclear answers and prepare for another interview." },
-  { question: "Will VisaPrepper get me a visa or submit my application?", answer: "No. VisaPrepper helps you prepare for an interview. It does not submit visa applications, book embassy appointments, certify documents, or guarantee approval. Only the relevant government authority decides your visa outcome." },
+ {question:"Will Visa Prepper help me get my visa?",answer:"We help you prepare for the interview and find what to improve. The visa authority makes the decision. We do not guarantee approval."},
+ {question:"Are AI interviews free?",answer:"No. Free access includes one document check, preparation guides and a sample report. Live AI interviews are included in the $44 package."},
+ {question:"What do I get for $44?",answer:"Six complete AI practice interviews, ten document checks and a report after every interview. You have 90 days from purchase to use the package."},
+ {question:"Does the AI use my documents?",answer:"Yes. It can ask questions based on the information you provide. It can point out answers that may not match."},
+ {question:"What happens after six interviews?",answer:"You can buy the same package again. There is no monthly subscription. Earlier purchases keep their original terms."},
+ {question:"Which visas and languages are supported?",answer:"The current website offer is for U.S. visa applicants in Pakistan, in English and Urdu. See Visa Types and Languages for the full list. India, Bangladesh, Hindi and Bengali are coming soon."},
+ {question:"Will I pay in rupees or taka?",answer:"The base price is $44 USD. Check the final currency and total before paying. Your bank may apply its own fees. We do not show estimated conversions."},
+ {question:"Is checkout available?",answer:"Checkout opens only when the app confirms the current package. If it is not ready, no payment is taken. When available, payments are processed by Stripe."},
+ {question:"Can I get a refund?",answer:"Check the refund terms shown before payment. If they are missing or unclear, contact hello@visaprepper.com before buying. We do not promise a refund policy that has not been confirmed."},
+ {question:"What about privacy?",answer:"Share only what you need for practice. Do not send visa documents through the partner form. Read our Privacy Policy for data use and deletion requests."},
 ];

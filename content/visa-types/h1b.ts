@@ -9,7 +9,7 @@ export const h1b: VisaTypeContent = {
     "Practice your H1B work visa interview with practice interviews built around your employer, job role, and petition details — with adaptive follow-ups and detailed feedback.",
   h1: "Practice your H1B work visa interview around your own role and petition",
   intro:
-    "H1B interviews focus on your job, your employer, and whether your role genuinely requires your specific qualifications. VisaPrepper builds your practice interview around your actual petition and role, so you can explain your own job clearly and confidently.",
+    "H1B interviews focus on your job, your employer, and whether your role genuinely requires your specific qualifications. Visa Prepper builds your practice interview around your actual petition and role, so you can explain your own job clearly and confidently.",
   whoItsFor: [
     "First-time H1B applicants with an approved petition",
     "Applicants renewing or extending an existing H1B",
@@ -53,24 +53,24 @@ export const h1b: VisaTypeContent = {
   ],
   faqs: [
     {
-      question: "Does VisaPrepper know the exact questions my H1B officer will ask?",
+      question: "Does Visa Prepper know the exact questions my H1B officer will ask?",
       answer:
-        "No. VisaPrepper doesn't predict specific officer questions. It builds adaptive, realistic questions around your actual job, employer, and petition so you can explain your role clearly, whatever is asked.",
+        "No. Visa Prepper doesn't predict specific officer questions. It builds adaptive, realistic questions around your actual job, employer, and petition so you can explain your role clearly, whatever is asked.",
     },
     {
-      question: "Can VisaPrepper help me explain my job duties clearly?",
+      question: "Can Visa Prepper help me explain my job duties clearly?",
       answer:
-        "Yes. This is one of the most common weak spots in H1B interviews. VisaPrepper follows up when an explanation of your duties is vague or doesn't clearly connect to your qualifications.",
+        "Yes. This is one of the most common weak spots in H1B interviews. Visa Prepper follows up when an explanation of your duties is vague or doesn't clearly connect to your qualifications.",
     },
     {
       question: "I changed employers on my H1B. Does that change my practice interview?",
       answer:
-        "Yes. Tell VisaPrepper about your current employer and role, and your practice interview will be built around that — not your previous position.",
+        "Yes. Tell Visa Prepper about your current employer and role, and your practice interview will be built around that — not your previous position.",
     },
     {
-      question: "Does VisaPrepper review my actual I-129 petition?",
+      question: "Does Visa Prepper review my actual I-129 petition?",
       answer:
-        "You describe your petition and role details yourself, and VisaPrepper uses that information to build your interview and check your answers for consistency. It doesn't independently access USCIS or employer systems.",
+        "You describe your petition and role details yourself, and Visa Prepper uses that information to build your interview and check your answers for consistency. It doesn't independently access USCIS or employer systems.",
     },
   ],
 };

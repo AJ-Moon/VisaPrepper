@@ -9,7 +9,7 @@ export const b1b2: VisaTypeContent = {
     "Practice your B1/B2 tourist or business visa interview with practice interviews built around your trip purpose, finances, and ties to home — with adaptive follow-ups and detailed feedback.",
   h1: "Practice your B1/B2 tourist or business visa interview around your own trip",
   intro:
-    "B1/B2 interviews are short, and officers focus on why you're traveling, whether you can afford the trip, and whether you're likely to return home. VisaPrepper builds your practice interview around your actual trip — your purpose, your itinerary, and your circumstances.",
+    "B1/B2 interviews are short, and officers focus on why you're traveling, whether you can afford the trip, and whether you're likely to return home. Visa Prepper builds your practice interview around your actual trip — your purpose, your itinerary, and your circumstances.",
   whoItsFor: [
     "Tourists planning a vacation, family visit, or short trip to the U.S.",
     "Business travelers attending meetings, conferences, or training",
@@ -53,24 +53,24 @@ export const b1b2: VisaTypeContent = {
   ],
   faqs: [
     {
-      question: "Does VisaPrepper guarantee my B1/B2 visa will be approved?",
+      question: "Does Visa Prepper guarantee my B1/B2 visa will be approved?",
       answer:
-        "No. VisaPrepper is a preparation tool, not an approval predictor. It helps you practice explaining your trip and your ties to home clearly — the decision itself is made only by the consular officer.",
+        "No. Visa Prepper is a preparation tool, not an approval predictor. It helps you practice explaining your trip and your ties to home clearly — the decision itself is made only by the consular officer.",
     },
     {
-      question: "Can VisaPrepper help with a 214(b) refusal?",
+      question: "Can Visa Prepper help with a 214(b) refusal?",
       answer:
-        "Yes. Many B1/B2 applicants use VisaPrepper after a prior 214(b) refusal to practice explaining their ties to home and trip purpose more clearly and consistently. See our guide on preparing after a 214(b) refusal for more detail.",
+        "Yes. Many B1/B2 applicants use Visa Prepper after a prior 214(b) refusal to practice explaining their ties to home and trip purpose more clearly and consistently. See our guide on preparing after a 214(b) refusal for more detail.",
     },
     {
       question: "Will the practice interview match my actual DS-160 answers?",
       answer:
-        "VisaPrepper builds questions around the trip and background details you share, and checks your interview answers for consistency with what you've told it — the same kind of consistency that matters between your DS-160 and your interview.",
+        "Visa Prepper builds questions around the trip and background details you share, and checks your interview answers for consistency with what you've told it — the same kind of consistency that matters between your DS-160 and your interview.",
     },
     {
       question: "Is business travel handled differently from tourism?",
       answer:
-        "Yes. If you're traveling for business, VisaPrepper adapts its questions to your company, your role, and the purpose of your trip, rather than treating it like a general tourism visit.",
+        "Yes. If you're traveling for business, Visa Prepper adapts its questions to your company, your role, and the purpose of your trip, rather than treating it like a general tourism visit.",
     },
   ],
 };

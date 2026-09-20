@@ -21,7 +21,7 @@ export function buildOrganizationJsonLd() {
     logo: `${SITE_URL}/images/brand/visaprepper.jpg`,
     sameAs: SOCIAL_LINKS.map((link) => link.href),
     description:
-      "VisaPrepper is an independent visa interview preparation platform. It is not affiliated with the U.S. Department of State, USCIS, or any embassy or consulate.",
+      "Visa Prepper is an independent visa interview preparation platform. It is not affiliated with the U.S. Department of State, USCIS, or any embassy or consulate.",
   };
 }
 
@@ -54,7 +54,7 @@ export function buildSoftwareApplicationJsonLd(plans:PublicPlan[] = [...PLANS]) 
       name: plan.name,
       description: plan.price === 0
         ? "One free document check and preparation tips. No interviews."
-        : `${plan.interviews} realistic interviews, ${plan.checks ?? "unlimited"} document checks, and personal feedback. One-time payment.`,
+        : `${plan.interviews} AI practice interviews, ${plan.checks} document checks, and a report after each interview. 90 days from purchase. One-time payment.`,
       price: plan.price,
       priceCurrency: "USD",
       url: `${SITE_URL}/#pricing`,
@@ -118,7 +118,7 @@ export function buildArticleJsonLd(post: {
     datePublished: post.publishDate,
     dateModified: post.updatedDate ?? post.publishDate,
     author: {
-      "@type": post.author === "VisaPrepper Editorial Team" ? "Organization" : "Person",
+      "@type": post.author === "Visa Prepper Editorial Team" ? "Organization" : "Person",
       name: post.author,
     },
     publisher: {

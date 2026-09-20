@@ -9,7 +9,7 @@ export const familyImmigrant: VisaTypeContent = {
     "Practice your family-based immigrant visa interview with practice interviews built around your relationship history, petition, and background — with adaptive follow-ups and feedback.",
   h1: "Practice your family-based immigrant visa interview around your own relationship and petition",
   intro:
-    "Family-based immigrant interviews focus heavily on your relationship history with your petitioner and consistency with your petition paperwork. VisaPrepper builds your practice interview around your specific relationship — spouse, parent, child, or sibling — and your case.",
+    "Family-based immigrant interviews focus heavily on your relationship history with your petitioner and consistency with your petition paperwork. Visa Prepper builds your practice interview around your specific relationship — spouse, parent, child, or sibling — and your case.",
   whoItsFor: [
     "Spouses of U.S. citizens or permanent residents applying through marriage",
     "Parents, children, or siblings applying through a family petition",
@@ -47,19 +47,19 @@ export const familyImmigrant: VisaTypeContent = {
   ],
   faqs: [
     {
-      question: "Can VisaPrepper help me prepare for a marriage-based interview?",
+      question: "Can Visa Prepper help me prepare for a marriage-based interview?",
       answer:
-        "Yes. VisaPrepper can build a practice interview around your relationship history and ask realistic follow-up questions about how you met, your timeline, and shared life details — the kind of questions that come up in spouse-based interviews.",
+        "Yes. Visa Prepper can build a practice interview around your relationship history and ask realistic follow-up questions about how you met, your timeline, and shared life details — the kind of questions that come up in spouse-based interviews.",
     },
     {
-      question: "Does practicing with VisaPrepper mean I should memorize answers with my spouse?",
+      question: "Does practicing with Visa Prepper mean I should memorize answers with my spouse?",
       answer:
-        "No. VisaPrepper is meant to help you and your petitioner each explain your own, truthful relationship clearly and consistently — not to coordinate a rehearsed script. Consistency should come from a shared real history, not memorization.",
+        "No. Visa Prepper is meant to help you and your petitioner each explain your own, truthful relationship clearly and consistently — not to coordinate a rehearsed script. Consistency should come from a shared real history, not memorization.",
     },
     {
       question: "What if my case involves a more complex family history?",
       answer:
-        "Share the relevant details — prior marriages, family background, or anything else specific to your case — and VisaPrepper will build follow-up questions around your actual circumstances.",
+        "Share the relevant details — prior marriages, family background, or anything else specific to your case — and Visa Prepper will build follow-up questions around your actual circumstances.",
     },
   ],
 };

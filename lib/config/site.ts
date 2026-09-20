@@ -1,9 +1,9 @@
 export const SITE_URL = "https://visaprepper.com";
-export const SITE_NAME = "VisaPrepper";
+export const SITE_NAME = "Visa Prepper";
 // Date of the last substantive marketing content update, not the build time.
-export const SITE_CONTENT_UPDATED = "2026-09-11";
+export const SITE_CONTENT_UPDATED = "2026-09-20";
 
-// The external VisaPrepper application (mock interview product itself).
+// The external Visa Prepper application (mock interview product itself).
 // Every "Start Practicing" / "Log In" CTA on the marketing site should read
 // from these two constants rather than hardcoding a URL.
 export const EXTERNAL_APP_URL = "https://app.visaprepper.com";
@@ -11,7 +11,7 @@ export const EXTERNAL_LOGIN_URL = "https://app.visaprepper.com/login";
 
 export const CONTACT_EMAIL = "hello@visaprepper.com";
 
-export const CTA_PRIMARY_LABEL = "Start free";
+export const CTA_PRIMARY_LABEL = "Start Preparing";
 export const CTA_SECONDARY_LABEL = "See prices";
 
 export type NavLink = {
@@ -20,13 +20,15 @@ export type NavLink = {
 };
 
 export const PRIMARY_NAV: NavLink[] = [
-  { label: "Destinations", href: "/visa-types" },
-  { label: "Prices", href: "/#pricing" },
-  { label: "Languages", href: "/languages" },
-  { label: "Free tips", href: "/blog" },
+  { label: "How It Helps", href: "/features" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Visa Types", href: "/visa-types" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Partners", href: "/partners" },
 ];
 
 export const FOOTER_PRODUCT_LINKS: NavLink[] = [
+  { label: "Partners", href: "/partners" },
   { label: "Prices", href: "/#pricing" },
   { label: "What you get", href: "/features" },
   { label: "How It Works", href: "/how-it-works" },

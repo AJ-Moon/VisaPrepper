@@ -9,7 +9,7 @@ export const f1: VisaTypeContent = {
     "Practice your F1 student visa interview with practice interviews built around your school, program, funding, and academic background — with adaptive follow-ups and detailed feedback.",
   h1: "Practice your F1 student visa interview around your own application",
   intro:
-    "F1 interviews focus on your school, your program, how you'll fund your studies, and your plans after graduation. VisaPrepper builds your practice interview around those specifics — your I-20, your university, and your circumstances — instead of a generic student-visa question list.",
+    "F1 interviews focus on your school, your program, how you'll fund your studies, and your plans after graduation. Visa Prepper builds your practice interview around those specifics — your I-20, your university, and your circumstances — instead of a generic student-visa question list.",
   whoItsFor: [
     "First-time F1 applicants admitted to a U.S. school or university",
     "Applicants transferring schools or programs on an existing F1 status",
@@ -53,24 +53,24 @@ export const f1: VisaTypeContent = {
   ],
   faqs: [
     {
-      question: "Does VisaPrepper know what my F1 visa officer will ask me?",
+      question: "Does Visa Prepper know what my F1 visa officer will ask me?",
       answer:
-        "No. VisaPrepper doesn't know or predict the exact questions an embassy officer will ask. It builds realistic, adaptive practice questions around your program, funding, and background, so you're prepared to explain your case clearly — not memorizing a fixed script.",
+        "No. Visa Prepper doesn't know or predict the exact questions an embassy officer will ask. It builds realistic, adaptive practice questions around your program, funding, and background, so you're prepared to explain your case clearly — not memorizing a fixed script.",
     },
     {
       question: "Can I practice explaining my funding and sponsor?",
       answer:
-        "Yes. Funding and sponsorship are common F1 interview topics, and VisaPrepper will ask about your sponsor's ability to support you and follow up if your answer leaves out details like their occupation or income source.",
+        "Yes. Funding and sponsorship are common F1 interview topics, and Visa Prepper will ask about your sponsor's ability to support you and follow up if your answer leaves out details like their occupation or income source.",
     },
     {
-      question: "I was refused an F1 visa before. Can VisaPrepper help me prepare again?",
+      question: "I was refused an F1 visa before. Can Visa Prepper help me prepare again?",
       answer:
-        "Yes. You can practice explaining your application and any changed circumstances since your last interview. VisaPrepper cannot reverse a previous decision, but it can help you prepare clearer, more consistent answers for your next attempt.",
+        "Yes. You can practice explaining your application and any changed circumstances since your last interview. Visa Prepper cannot reverse a previous decision, but it can help you prepare clearer, more consistent answers for your next attempt.",
     },
     {
-      question: "Will VisaPrepper check if my answers match my I-20 and application?",
+      question: "Will Visa Prepper check if my answers match my I-20 and application?",
       answer:
-        "VisaPrepper compares what you share about your application against your interview answers and flags anything that seems inconsistent or unclear, so you can address it before interview day.",
+        "Visa Prepper compares what you share about your application against your interview answers and flags anything that seems inconsistent or unclear, so you can address it before interview day.",
     },
   ],
 };
