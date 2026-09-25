@@ -33,7 +33,7 @@ export const APPROVED_TESTIMONIALS: PublicTestimonial[] = [
     "country": "Bangladesh",
     "destination": "United States",
     "visaCategory": "US H-1B work visa",
-    "quote": "I knew my job well, but I started stuttering when I had to explain it simply. The interviewer made me practise my duties, employer and work location several times. My answer became shorter and easier to understand."
+    "quote": "I knew my job well, but I started stuttering when I had to explain it simply. The interviewer made me practice my duties, employer and work location several times. My answer became shorter and easier to understand."
   },
   {
     "id": "review-18",
@@ -233,7 +233,7 @@ export const APPROVED_TESTIMONIALS: PublicTestimonial[] = [
     "country": "India",
     "destination": "Italy",
     "visaCategory": "Italy visitor visa",
-    "quote": "I was scared of the interview and kept overthinking every answer. Practising in a realistic setting helped me relax, listen to the full question and speak more naturally."
+    "quote": "I was scared of the interview and kept overthinking every answer. Practicing in a realistic setting helped me relax, listen to the full question and speak more naturally."
   },
   {
     "id": "review-22",
@@ -241,7 +241,7 @@ export const APPROVED_TESTIMONIALS: PublicTestimonial[] = [
     "country": "India",
     "destination": "France",
     "visaCategory": "France family visa",
-    "quote": "I found the interview much more useful than practising with relatives. My family already knew everything, but the AI made me explain it from the beginning. That showed me which parts were not clear."
+    "quote": "I found the interview much more useful than practicing with relatives. My family already knew everything, but the AI made me explain it from the beginning. That showed me which parts were not clear."
   },
   {
     "id": "review-28",

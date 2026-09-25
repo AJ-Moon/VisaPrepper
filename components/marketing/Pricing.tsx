@@ -15,9 +15,9 @@ export function Pricing() {
         <Link href="/#sample-report" className="mt-4 text-center text-sm underline underline-offset-4">See the sample report</Link>
       </article>
       <article className="flex flex-col rounded-3xl border border-primary bg-sage-soft p-7 sm:p-9">
-        <p className="text-sm font-semibold text-primary">Six chances to practise</p>
+        <p className="text-sm font-semibold text-primary">Six chances to practice</p>
         <h3 className="mt-3 font-display text-2xl font-semibold">{COMPLETE_OFFER.name}</h3>
-        <p className="mt-3 text-muted-foreground">Practise your answers before the real interview.</p>
+        <p className="mt-3 text-muted-foreground">Practice your answers before the real interview.</p>
         <p className="mt-6 text-5xl font-semibold">$44 <span className="text-base font-normal">USD · one time</span></p>
         <ul className="my-7 flex-1 space-y-3">{["6 complete AI video interviews", "Questions based on your form and personal details", "Follow-up questions based on your answers", "10 document verification checks, including revised documents", "Personalised practice tips", "Results for answer, confidence and consistency problems", "All currently supported destinations and languages", "90 days from purchase to use the package"].map(text => <li key={text} className="flex gap-3"><Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true"/>{text}</li>)}</ul>
         <CtaButton label="Get 6 Interviews — $44" size="lg"/>

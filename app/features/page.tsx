@@ -26,6 +26,6 @@ export default function FeaturesPage() {
       ].map(([title, text]) => <div key={title} className="rounded-2xl border border-border bg-surface p-6"><Check className="h-5 w-5 text-primary" aria-hidden="true" /><h2 className="mt-4 text-xl font-semibold">{title}</h2><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p></div>)}</div>
     </Container>
     <section className="bg-surface-muted"><Container className="grid items-center gap-8 py-12 md:grid-cols-2"><SectionHeading eyebrow="Your results" title="Small details can make your answer clearer." description="Your report scores your answers, confidence and consistency. It shows what needs more explanation so you can improve using your own truthful details." /><div className="flex justify-center"><FeedbackExampleCard /></div></Container></section>
-    <CTASection title="Six chances to work on your answers." description="One $44 package. Six interviews, ten document checks and 90 days to practise." />
+    <CTASection title="Six chances to work on your answers." description="One $44 package. Six interviews, ten document checks and 90 days to practice." />
   </>;
 }

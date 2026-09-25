@@ -6,9 +6,11 @@ const sitemapResponse=await fetch(origin+"/sitemap.xml");
 assert.equal(sitemapResponse.status,200);
 const sitemap=await sitemapResponse.text();
 const routes=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>new URL(m[1]).pathname);
-assert.equal(routes.length,34);
+assert.equal(routes.length,36);
 assert.equal(new Set(routes).size,routes.length);
 assert.ok(!routes.includes("/start"));
+assert.ok(routes.includes("/blog/best-ai-visa-interview-tools"));
+assert.ok(routes.includes("/blog/free-ai-visa-mock-interview-online"));
 const pages=new Map(),titles=new Set(),descriptions=new Set(),links=new Set();
 for(const path of routes){
  const response=await fetch(origin+path);assert.equal(response.status,200,path);
@@ -28,11 +30,12 @@ for(const path of routes){
  }
  const text=html.replace(/<script\b[^>]*>.*?<\/script>/gs,"").replace(/<[^>]+>/g," ").replace(/\s+/g," ");
  assert.ok(!/\$(15|35)\b|Unlimited document checks|3 realistic interviews|5 practice interviews/.test(text),path+" no superseded offers");
+ assert.ok(!/\bpractise\b|\bpractising\b|\bpractised\b/i.test(text),path+" uses practice spelling consistently");
  for(const tag of html.matchAll(/<a\b[^>]*data-intent="(?:paid|free)"[^>]*>/g)){
   const href=tag[0].match(/href="([^"]+)"/)?.[1];
   assert.equal(href,"https://app.visaprepper.com",path+" signup CTA goes to the app");
  }
- // Customer quotes are preserved verbatim, including their own word choices.
+ // Customer stories keep their substance; only the brand-wide spelling style is normalized.
 }
 for(const[path,html]of pages){
  for(const m of html.matchAll(/href="([^"]+)"/g)){
@@ -81,4 +84,4 @@ assert.equal((await post("x".repeat(17000))).status,413);
 // A valid submission is covered with a mocked relay in unit tests; never send
 // synthetic partner applications to the real inbox from the site crawler.
 }
-console.log(JSON.stringify({pages:routes.length,internalLinks:links.size,checks:"PASS: indexability, unique metadata, H1, canonicals, structured data, all internal links/anchors, signup CTAs, AI video and requested features, approved pricing, 30 supplied reviews plus hidden loop copy, languages, destinations, private partner form, mobile app notices, sitemap, robots, 404, social image, checkout fail-closed, partner read-only route check. POST validation tests run only on localhost; live relay delivery is mocked in unit tests."},null,2));
+console.log(JSON.stringify({pages:routes.length,internalLinks:links.size,checks:"PASS: indexability, unique metadata, H1, canonicals, structured data, all internal links/anchors, signup CTAs, AI video and requested features, approved pricing, 30 supplied reviews plus hidden loop copy, languages, destinations, both new SEO guides, consistent practice spelling, private partner form, mobile app notices, sitemap, robots, 404, social image, checkout fail-closed, partner read-only route check. POST validation tests run only on localhost; live relay delivery is mocked in unit tests."},null,2));

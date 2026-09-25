@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | Visa Prepper",
   },
   description:
-    "Practise a complete AI video visa interview in English, Urdu or Hindi. Get document checks, personalised tips, answer feedback and confidence scores.",
+    "Practice a complete AI video visa interview in English, Urdu or Hindi. Get document checks, personalised tips, answer feedback and confidence scores.",
   icons: {
     icon: "/icon.jpg",
     apple: "/icon.jpg",

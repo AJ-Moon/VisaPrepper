@@ -104,6 +104,16 @@ body {
   font-family: var(--font-sans);
 }
 
+/* A restrained technical grid gives the opening the confident studio feel of
+   the visual reference while keeping Visa Prepper's warm, calm brand. */
+.hero-grid {
+  background-image:
+    linear-gradient(to right, rgb(24 75 60 / 5.5%) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(24 75 60 / 5.5%) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: center top;
+}
+
 ::selection {
   background: var(--color-sage-soft);
   color: var(--color-foreground);

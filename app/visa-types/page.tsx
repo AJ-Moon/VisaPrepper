@@ -31,7 +31,7 @@ export default function VisaTypesIndexPage() {
         />
         <div className="mt-8"><DestinationGrid /></div>
         <h2 className="mt-12 font-display text-2xl font-semibold">Choose your U.S. visa type</h2>
-        <p className="mt-3 text-muted-foreground">Available in English, Urdu and Hindi. Select a visa to see the topics you can practise.</p>
+        <p className="mt-3 text-muted-foreground">Available in English, Urdu and Hindi. Select a visa to see the topics you can practice.</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {VISA_TYPES.map((visaType) => (
             <VisaTypeCard key={visaType.slug} visaType={visaType} />

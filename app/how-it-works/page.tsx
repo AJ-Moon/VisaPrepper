@@ -20,7 +20,7 @@ export default function HowItWorksPage() {
   return <>
     <Container className="pt-8"><Breadcrumbs entries={[{ name: "Home", path: "/" }, { name: "How it works", path: "/how-it-works" }]} /></Container>
     <Container className="py-12 sm:py-16">
-      <SectionHeading titleAs="h1" eyebrow="Getting started" title="A complete AI video interview in three simple steps." description="You do not need perfect English or memorized answers. Bring your real details, a camera and a little time to practise." />
+      <SectionHeading titleAs="h1" eyebrow="Getting started" title="A complete AI video interview in three simple steps." description="You do not need perfect English or memorized answers. Bring your real details, a camera and a little time to practice." />
       <ol className="mt-10 grid gap-5 md:grid-cols-3">{steps.map((step, index) => <li key={step.title} className="rounded-2xl border border-border bg-surface p-6"><span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sage-soft font-semibold text-primary">{index + 1}</span><h2 className="mt-5 text-xl font-semibold">{step.title}</h2><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.text}</p></li>)}</ol>
       <div className="mx-auto mt-12 max-w-2xl"><FAQAccordion items={[
         { question: "How many interviews can I take?", answer: "The $44 package includes six complete AI video interviews total. You also get ten document verification checks and 90 days from purchase to use the package." },

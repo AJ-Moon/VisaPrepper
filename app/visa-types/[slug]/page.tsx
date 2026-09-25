@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!visaType) return {};
   return buildPageMetadata({
     title: `${visaType.code} Visa Interview Practice in Pakistan`,
-    description: `Prepare for your U.S. ${visaType.code} visa interview in English or Urdu. Practise your own answers. Six AI interviews and ten document checks for $44.`,
+    description: `Prepare for your U.S. ${visaType.code} visa interview in English or Urdu. Practice your own answers. Six AI interviews and ten document checks for $44.`,
     path: `/visa-types/${visaType.slug}`,
   });
 }

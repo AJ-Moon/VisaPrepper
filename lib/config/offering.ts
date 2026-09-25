@@ -22,5 +22,5 @@ export const SOCIAL_LINKS = [
 
 export const PLANS = [
   { ...FREE_OFFER, description: "One document check and preparation guides.", personalized: false },
-  { ...COMPLETE_OFFER, description: "Six interviews. Ten document checks. 90 days to practise.", personalized: true },
+  { ...COMPLETE_OFFER, description: "Six interviews. Ten document checks. 90 days to practice.", personalized: true },
 ] as const;
