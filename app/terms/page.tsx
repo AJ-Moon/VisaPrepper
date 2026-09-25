@@ -48,8 +48,8 @@ export default function TermsPage() {
           </p>
 
           <h2>New purchases and free access</h2>
-          <p>The new package costs $44 USD once. It includes six AI practice interviews and ten document checks, including revised documents. The allowance is valid for 90 days from purchase. Six means six interviews total. There is no monthly subscription.</p>
-          <p>Free access includes one document check once, preparation guides and a sample report. It does not include a live AI interview. You can buy the paid package again for more practice. Earlier purchases keep their original credits and terms. A new purchase must not remove valid remaining credits or reports.</p>
+          <p>The new package costs $44 USD once. It includes six complete AI video interviews and ten document verification checks, including revised documents. The allowance is valid for 90 days from purchase. Six means six interviews total. There is no monthly subscription.</p>
+          <p>Free access includes one document verification check once, a personalised document checklist, preparation guides and a sample report. It does not include an AI video interview. You can buy the paid package again for more practice. Earlier purchases keep their original credits and terms. A new purchase must not remove valid remaining credits or reports.</p>
           <p>Check the final currency, total and refund terms before paying. If refund terms are missing or unclear, contact us before purchase. No refund guarantee is made on this page. Checkout stays unavailable until the new package is connected and release checks are complete.</p>
           <h2>Your account and responsibilities</h2>
           <ul>

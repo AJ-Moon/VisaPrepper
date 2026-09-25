@@ -23,11 +23,11 @@
 
   <text x="90" y="290" font-family="Georgia, 'Times New Roman', serif" font-size="66" font-weight="600" fill="#262624">
     <tspan x="90" dy="0">Your visa application.</tspan>
-    <tspan x="90" dy="78">Your mock interview.</tspan>
+    <tspan x="90" dy="78">Your AI video interview.</tspan>
   </text>
 
   <text x="90" y="470" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#5B564A">
-    <tspan x="90" dy="0">Realistic AI mock interviews built around your own case —</tspan>
+    <tspan x="90" dy="0">Complete AI video interviews built around your own case —</tspan>
     <tspan x="90" dy="42">not a generic question bank.</tspan>
   </text>
 

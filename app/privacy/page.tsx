@@ -106,7 +106,7 @@ export default function PrivacyPage() {
           <h2>International users</h2>
           <p>
             Visa Prepper currently supports applicants in Pakistan, with
-            India and Bangladesh coming soon. Our infrastructure may process
+            India available and Bangladesh coming soon. Our infrastructure may process
             information in countries other than your own. We take steps
             intended to protect your information consistent with this
             Privacy Policy wherever it is processed.

@@ -18,7 +18,7 @@ export default function BlogIndexPage() {
   const posts = getAllPosts();
   const countries = [
     { market: "pakistan", name: "Pakistan", localName: "پاکستان", lang: "ur", description: "Family visits, student funding, and practice in English or Urdu.", status: "Interview practice available" },
-    { market: "india", name: "India", localName: "भारत", lang: "hi", description: "Education loans, H1B work details, and visiting family.", status: "India support & Hindi coming soon" },
+    { market: "india", name: "India", localName: "भारत", lang: "hi", description: "Education loans, H1B work details, and visiting family.", status: "India support & Hindi available now" },
     { market: "bangladesh", name: "Bangladesh", localName: "বাংলাদেশ", lang: "bn", description: "Student funding, family support, and planning for your appointment.", status: "Bangladesh support & Bengali coming soon" },
   ];
 

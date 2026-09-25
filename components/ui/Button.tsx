@@ -29,6 +29,7 @@ type CommonProps = {
 type LinkButtonProps = CommonProps & {
   href: string;
   external?: boolean;
+  "data-intent"?: "paid" | "free";
 };
 
 export function LinkButton({
@@ -38,6 +39,7 @@ export function LinkButton({
   size = "md",
   className,
   external = false,
+  "data-intent": dataIntent,
 }: LinkButtonProps) {
   const classes = cn(
     "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-teal focus-visible:outline-offset-2",
@@ -48,7 +50,7 @@ export function LinkButton({
 
   if (external || href.startsWith("http")) {
     return (
-      <a href={href} className={classes} rel="noopener noreferrer">
+      <a href={href} className={classes} rel="noopener noreferrer" data-intent={dataIntent}>
         {children}
       </a>
     );

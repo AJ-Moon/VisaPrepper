@@ -28,6 +28,10 @@ for(const path of routes){
  }
  const text=html.replace(/<script\b[^>]*>.*?<\/script>/gs,"").replace(/<[^>]+>/g," ").replace(/\s+/g," ");
  assert.ok(!/\$(15|35)\b|Unlimited document checks|3 realistic interviews|5 practice interviews/.test(text),path+" no superseded offers");
+ for(const tag of html.matchAll(/<a\b[^>]*data-intent="(?:paid|free)"[^>]*>/g)){
+  const href=tag[0].match(/href="([^"]+)"/)?.[1];
+  assert.equal(href,"https://app.visaprepper.com",path+" signup CTA goes to the app");
+ }
  // Customer quotes are preserved verbatim, including their own word choices.
 }
 for(const[path,html]of pages){
@@ -47,8 +51,15 @@ assert.match(home,/data-review-set="original"/);
 assert.match(home,/data-review-set="duplicate"/);
 const product=[...home.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].map(m=>JSON.parse(m[1])).find(s=>s["@type"]==="SoftwareApplication");
 assert.deepEqual(product.offers.map(p=>p.price),[0,44]);
-assert.deepEqual(product.inLanguage,["en","ur"]);
-for(const phrase of ["6 complete AI practice interviews","10 document checks, including revised documents","90 days from purchase","France","Italy","United Kingdom","Germany","Coming soon","The direct Google Play link will be added here."])assert.ok(home.includes(phrase),phrase);
+assert.deepEqual(product.inLanguage,["en","ur","hi"]);
+for(const phrase of ["Six complete AI video interviews","Personalised document checklist","Document verification check","Full AI video interview","Personalised practice tips","Results and scores","10 document verification checks, including revised documents","90 days from purchase","France","Italy","United Kingdom","Germany","English, Urdu and Hindi","Google Play","Apple App Store"])assert.ok(home.includes(phrase),phrase);
+const videoTag=home.match(/<video[^>]*>/i)?.[0]||"";
+for(const attribute of ["autoPlay","muted","loop","playsInline","controls"])assert.ok(videoTag.includes(`${attribute}=""`),`video ${attribute}`);
+assert.ok((home.match(/href="https:\/\/app\.visaprepper\.com"/g)||[]).length>=6,"home signup CTAs link to app.visaprepper.com");
+assert.ok(!home.includes('href="/start'),"home does not route signup through /start");
+assert.ok(!pages.get("/partners").includes("ajmoon2202@gmail.com"),"partner email is not shown on the public page");
+assert.ok(!pages.get("/partners/apply").includes("ajmoon2202@gmail.com"),"partner email is not shown in the form HTML");
+for(const phrase of ["Full name","Email","WhatsApp or phone","Website or social profile URL","Send Application"])assert.ok(pages.get("/partners/apply").includes(phrase),`partner form ${phrase}`);
 for(const lang of ["ur","hi","bn"])assert.ok(home.includes('lang="'+lang+'"'),lang+" language tag");
 assert.match(await(await fetch(origin+"/start")).text(),/noindex/);
 assert.equal((await fetch(origin+"/does-not-exist")).status,404);
@@ -68,4 +79,4 @@ assert.equal((await post("x".repeat(17000))).status,413);
 const result=await post(JSON.stringify(fixture));assert.equal(result.status,503);
 assert.equal((await result.json()).id,undefined);
 }
-console.log(JSON.stringify({pages:routes.length,internalLinks:links.size,checks:"PASS: indexability, unique metadata, H1, canonicals, structured data, all internal links/anchors, approved pricing, 30 supplied reviews plus hidden loop copy, languages, sitemap, robots, 404, social image, checkout fail-closed, partner read-only route check. POST validation/failure tests run only on localhost."},null,2));
+console.log(JSON.stringify({pages:routes.length,internalLinks:links.size,checks:"PASS: indexability, unique metadata, H1, canonicals, structured data, all internal links/anchors, signup CTAs, AI video and requested features, approved pricing, 30 supplied reviews plus hidden loop copy, languages, destinations, partner email, mobile app notices, sitemap, robots, 404, social image, checkout fail-closed, partner read-only route check. POST validation/failure tests run only on localhost."},null,2));

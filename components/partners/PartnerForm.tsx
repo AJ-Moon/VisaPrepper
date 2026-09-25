@@ -1,32 +1,47 @@
 "use client";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { AUDIENCE_COUNTRIES, AUDIENCE_RANGES, PARTNER_TYPES } from "@/lib/partners/validation";
-export function PartnerForm({configured}:{configured:boolean}) {
- const [busy,setBusy]=useState(false),[error,setError]=useState(""),[fields,setFields]=useState<Record<string,string[]>>({}),[success,setSuccess]=useState("");
- const request=useRef({signature:"",id:""});
- async function submit(event:React.FormEvent<HTMLFormElement>) {
-  event.preventDefault();setError("");setFields({});setBusy(true);
+import { PARTNER_EMAIL } from "@/lib/config/site";
+import { AUDIENCE_COUNTRIES, AUDIENCE_RANGES, PARTNER_TYPES, partnerApplicationSchema } from "@/lib/partners/validation";
+export function PartnerForm() {
+ const [fields,setFields]=useState<Record<string,string[] | undefined>>({}),[opened,setOpened]=useState(false);
+ function submit(event:React.FormEvent<HTMLFormElement>) {
+  event.preventDefault();setFields({});setOpened(false);
   const data=new FormData(event.currentTarget);
-  const values={fullName:data.get("fullName"),email:data.get("email"),businessName:data.get("businessName"),country:data.get("country"),partnerType:data.get("partnerType"),profileUrl:data.get("profileUrl"),phone:data.get("phone"),audienceCountries:data.getAll("audienceCountries"),audienceRange:data.get("audienceRange"),introduction:data.get("introduction"),experience:data.get("experience"),privacy:data.get("privacy")==="on",marketing:data.get("marketing")==="on",website:data.get("website")};
-  const signature=JSON.stringify(values);
-  if(request.current.signature!==signature)request.current={signature,id:crypto.randomUUID()};
-  try {
-   const response=await fetch("/api/partners",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...values,requestId:request.current.id})});
-   const result=await response.json();
-   if(!response.ok){setFields(result.fields??{});throw new Error(result.error??"We could not submit your application. Your answers are still here. Please try again.");}
-   if(!result.id)throw new Error("We could not confirm your application. Your answers are still here.");
-   setSuccess(result.id);
-  }catch(e){setError(e instanceof Error?e.message:"We could not submit your application. Your answers are still here. Please try again.");}
-  finally{setBusy(false);}
+  const values={requestId:crypto.randomUUID(),fullName:data.get("fullName"),email:data.get("email"),businessName:data.get("businessName"),country:data.get("country"),partnerType:data.get("partnerType"),profileUrl:data.get("profileUrl"),phone:data.get("phone"),audienceCountries:data.getAll("audienceCountries"),audienceRange:data.get("audienceRange"),introduction:data.get("introduction"),experience:data.get("experience"),privacy:data.get("privacy")==="on",marketing:data.get("marketing")==="on",website:data.get("website")};
+  const parsed=partnerApplicationSchema.safeParse(values);
+  if(!parsed.success){setFields(parsed.error.flatten().fieldErrors);return;}
+  const application=parsed.data;
+  const body=[
+   "Visa Prepper Partner Application",
+   "",
+   `Name: ${application.fullName}`,
+   `Email: ${application.email}`,
+   `WhatsApp or phone: ${application.phone || "Not provided"}`,
+   `Business or creator name: ${application.businessName}`,
+   `Country: ${application.country}`,
+   `Partner type: ${application.partnerType}`,
+   `Website or social profile: ${application.profileUrl}`,
+   `Audience countries: ${application.audienceCountries.join(", ")}`,
+   `Monthly applicants or audience: ${application.audienceRange}`,
+   "",
+   "How I will introduce Visa Prepper:",
+   application.introduction,
+   "",
+   "Experience helping visa applicants:",
+   application.experience || "Not provided",
+   "",
+   `Marketing updates: ${application.marketing ? "Yes" : "No"}`,
+  ].join("\n");
+  setOpened(true);
+  window.location.href=`mailto:${PARTNER_EMAIL}?subject=${encodeURIComponent("Visa Prepper Partner Application")}&body=${encodeURIComponent(body)}`;
  }
  const inputClass="mt-2 w-full rounded-xl border bg-surface px-4 py-3 text-base";
  function errorFor(name:string){return fields[name]?.length?<p id={name+"-error"} className="mt-2 text-sm text-danger">{fields[name][0]}</p>:null;}
  function input(name:string,label:string,type="text",required=true,maxLength=150){return <div><label htmlFor={name} className="font-medium">{label}{!required?" (optional)":""}</label><input id={name} name={name} type={type} required={required} maxLength={maxLength} aria-invalid={!!fields[name]} aria-describedby={fields[name]?name+"-error":undefined} className={inputClass}/>{errorFor(name)}</div>;}
- if(success)return <div role="status" className="rounded-2xl border bg-sage-soft p-7"><h2 className="text-2xl font-semibold">We have received your application.</h2><p className="mt-4">We will review it and contact you by email.</p><p className="mt-3 break-all text-sm">Application reference: {success}</p></div>;
- return <form onSubmit={submit} className="mt-8 space-y-6" aria-busy={busy}>
-  {!configured&&<p role="status" className="rounded-xl border bg-sage-soft p-4">Applications are not open yet. This form is being connected to private storage. Please do not enter personal details until submissions are enabled.</p>}
-  <fieldset disabled={!configured||busy} className="space-y-6 disabled:opacity-70">
+ return <form onSubmit={submit} className="mt-8 space-y-6">
+  <p className="rounded-xl border bg-sage-soft p-4">Fill in the form and select <strong>Send Application</strong>. Your email app will open with the application ready; review it and press send there.</p>
+  <fieldset className="space-y-6">
    <div className="grid gap-6 sm:grid-cols-2">{input("fullName","Full name")}{input("email","Email","email",true,254)}{input("businessName","Business or creator name")}{input("country","Country")}</div>
    <div><label htmlFor="partnerType" className="font-medium">Partner type</label><select id="partnerType" name="partnerType" required className={inputClass} defaultValue=""><option value="" disabled>Choose one</option>{PARTNER_TYPES.map(t=><option key={t}>{t}</option>)}</select>{errorFor("partnerType")}</div>
    {input("profileUrl","Website or social profile URL","url",true,500)}
@@ -38,8 +53,8 @@ export function PartnerForm({configured}:{configured:boolean}) {
    <div hidden aria-hidden="true"><label>Leave this empty<input name="website" tabIndex={-1} autoComplete="off"/></label></div>
    <label className="flex items-start gap-3"><input name="privacy" type="checkbox" required className="mt-1 h-5 w-5 shrink-0"/><span>I have read the <Link href="/privacy" className="underline">Privacy Policy</Link>. My details may be used to review and respond to this application.</span></label>
    <label className="flex items-start gap-3"><input name="marketing" type="checkbox" className="mt-1 h-5 w-5 shrink-0"/><span>Send me marketing updates (optional).</span></label>
-   <button type="submit" className="rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground disabled:opacity-60">{busy?"Submitting…":"Submit My Application"}</button>
+   <button type="submit" className="rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground">Send Application</button>
   </fieldset>
-  {error&&<p role="alert" className="rounded-xl border border-danger bg-surface p-4 text-danger">{error}</p>}
+  {opened&&<p role="status" className="rounded-xl border bg-sage-soft p-4">Your email app should now be open. Review the application and press send to complete it.</p>}
  </form>;
 }

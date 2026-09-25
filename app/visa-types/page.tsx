@@ -9,9 +9,9 @@ import { VISA_TYPES } from "@/lib/config/site";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Visa Interview Destinations — U.S. Now, UK & Schengen Soon",
+  title: "Visa Interview Practice for U.S., UK & Schengen Visas",
   description:
-    "U.S. visa interview preparation is available for Pakistan. UK, France, Italy, Germany, and Schengen preparation is coming soon. Explore supported U.S. visa types.",
+    "AI video visa interview practice is available for the United States, United Kingdom, France, Italy, Germany and general Schengen routes.",
   path: "/visa-types",
 });
 
@@ -27,11 +27,11 @@ export default function VisaTypesIndexPage() {
           titleAs="h1"
           eyebrow="Destinations"
           title="Where will your next chapter take you?"
-          description="Prepare for a U.S. visa interview today, from Pakistan. More destinations are on the way."
+          description="Prepare for the United States, United Kingdom, France, Italy, Germany and general Schengen routes. All listed destinations are available now."
         />
         <div className="mt-8"><DestinationGrid /></div>
         <h2 className="mt-12 font-display text-2xl font-semibold">Choose your U.S. visa type</h2>
-        <p className="mt-3 text-muted-foreground">Available in English and Urdu. Select a visa to see the topics you can practice.</p>
+        <p className="mt-3 text-muted-foreground">Available in English, Urdu and Hindi. Select a visa to see the topics you can practise.</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {VISA_TYPES.map((visaType) => (
             <VisaTypeCard key={visaType.slug} visaType={visaType} />

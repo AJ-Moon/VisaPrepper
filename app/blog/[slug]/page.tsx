@@ -84,7 +84,7 @@ export default async function BlogPostPage({
         <div className="grid gap-10 lg:grid-cols-[1fr_260px]">
           <article>
             <BlogPostHeader post={post} />
-            {comingSoon && <p className="mt-6 rounded-xl border border-border bg-sage-soft p-4 text-sm leading-relaxed">This free guide is available to everyone. Visa Prepper interview practice for India and Bangladesh is coming soon. We currently support Pakistan in English and Urdu.</p>}
+            {comingSoon && <p className="mt-6 rounded-xl border border-border bg-sage-soft p-4 text-sm leading-relaxed">This free guide is available to everyone. Visa Prepper currently supports applicants in Pakistan and India in English, Urdu and Hindi. Bengali and support for applicants in Bangladesh are coming soon.</p>}
 
             <div className="prose-vp mt-8">
               <MDXRemote
@@ -127,7 +127,7 @@ export default async function BlogPostPage({
 
       {!comingSoon && <CTASection
         title="Ready to practice your own answers?"
-        description="For applicants in Pakistan, in English or Urdu. Start with a free document check, or choose an interview package. India and Bangladesh support are coming soon."
+        description="For applicants in Pakistan and India, in English, Urdu or Hindi. Start with a free document check, or choose a complete AI video interview package. Bangladesh support is coming soon."
       />}
     </>
   );

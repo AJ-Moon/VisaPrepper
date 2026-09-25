@@ -18,10 +18,10 @@ export function SiteFooter() {
         <div className="max-w-sm">
           <Logo onCharcoal />
           <p className="mt-4 text-sm leading-relaxed text-on-charcoal-muted">
-            Realistic visa interview practice built around your application.
+            Complete AI video visa interviews built around your own application.
           </p>
           <p className="mt-6 text-sm text-on-charcoal-muted">
-            Available in Pakistan. India and Bangladesh coming soon.
+            Available for Pakistan and India. Bangladesh support coming soon.
           </p>
           <ul className="mt-5 flex flex-wrap gap-2">
             {LOCALES.map((locale) => (

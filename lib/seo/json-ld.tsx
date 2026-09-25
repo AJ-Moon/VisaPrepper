@@ -44,21 +44,24 @@ export function buildSoftwareApplicationJsonLd(plans:PublicPlan[] = [...PLANS]) 
     "@type": "SoftwareApplication",
     name: SITE_NAME,
     applicationCategory: "EducationalApplication",
-    operatingSystem: "Web, Android",
+    operatingSystem: "Web",
     description:
-      "U.S. visa interview preparation for applicants in Pakistan, with English and Urdu interviews, document checks, and personal feedback in paid packages.",
+      "Complete AI video visa interview practice for U.S., UK, France, Italy, Germany and Schengen applicants, with document checks, personalised tips, answer feedback and confidence scores.",
     url: SITE_URL,
-    inLanguage: ["en", "ur"],
+    inLanguage: ["en", "ur", "hi"],
     offers: plans.map((plan) => ({
       "@type": "Offer",
       name: plan.name,
       description: plan.price === 0
         ? "One free document check and preparation tips. No interviews."
-        : `${plan.interviews} AI practice interviews, ${plan.checks} document checks, and a report after each interview. 90 days from purchase. One-time payment.`,
+        : `${plan.interviews} complete AI video interviews, ${plan.checks} document verification checks, personalised practice tips, and results after each interview. 90 days from purchase. One-time payment.`,
       price: plan.price,
       priceCurrency: "USD",
       url: `${SITE_URL}/#pricing`,
-      eligibleRegion: { "@type": "Country", name: "Pakistan" },
+      eligibleRegion: [
+        { "@type": "Country", name: "Pakistan" },
+        { "@type": "Country", name: "India" },
+      ],
     })),
   };
 }

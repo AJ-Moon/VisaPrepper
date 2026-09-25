@@ -6,7 +6,7 @@ import { LanguageChip } from "@/components/marketing/LanguageChip";
 const MESSAGES: Record<string, { text: string; status: string }> = {
   en: { text: "Find your words. Feel more prepared.", status: "Available now" },
   ur: { text: "اپنے ویزا انٹرویو کی تیاری کریں، اعتماد سے جواب دیں۔", status: "اب دستیاب ہے" },
-  hi: { text: "अपने वीज़ा इंटरव्यू की तैयारी करें, भरोसे से जवाब दें।", status: "जल्द आ रहा है" },
+  hi: { text: "अपने वीज़ा इंटरव्यू की तैयारी करें, भरोसे से जवाब दें।", status: "अब उपलब्ध है" },
   bn: { text: "ভিসা ইন্টারভিউয়ের প্রস্তুতি নিন, আত্মবিশ্বাসের সঙ্গে উত্তর দিন।", status: "শীঘ্রই আসছে" },
 };
 

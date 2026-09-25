@@ -1,7 +1,7 @@
 export const SITE_URL = "https://visaprepper.com";
 export const SITE_NAME = "Visa Prepper";
 // Date of the last substantive marketing content update, not the build time.
-export const SITE_CONTENT_UPDATED = "2026-09-20";
+export const SITE_CONTENT_UPDATED = "2026-09-25";
 
 // The external Visa Prepper application (mock interview product itself).
 // Every "Start Practicing" / "Log In" CTA on the marketing site should read
@@ -10,6 +10,7 @@ export const EXTERNAL_APP_URL = "https://app.visaprepper.com";
 export const EXTERNAL_LOGIN_URL = "https://app.visaprepper.com/login";
 
 export const CONTACT_EMAIL = "hello@visaprepper.com";
+export const PARTNER_EMAIL = "ajmoon2202@gmail.com";
 
 export const CTA_PRIMARY_LABEL = "Start Preparing";
 export const CTA_SECONDARY_LABEL = "See prices";
@@ -56,7 +57,7 @@ export type Locale = {
 export const LOCALES: Locale[] = [
   { code: "en", label: "English", nativeLabel: "English", status: "live" },
   { code: "ur", label: "Urdu", nativeLabel: "اردو", status: "live" },
-  { code: "hi", label: "Hindi", nativeLabel: "हिन्दी", status: "coming-soon" },
+  { code: "hi", label: "Hindi", nativeLabel: "हिन्दी", status: "live" },
   { code: "bn", label: "Bengali", nativeLabel: "বাংলা", status: "coming-soon" },
 ];
 
