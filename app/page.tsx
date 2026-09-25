@@ -11,6 +11,7 @@ import { DestinationGrid } from "@/components/marketing/DestinationGrid";
 import { LanguageWelcome } from "@/components/marketing/LanguageWelcome";
 import { MobileApps } from "@/components/marketing/MobileApps";
 import { ProductDemoVideo } from "@/components/marketing/ProductDemoVideo";
+import { HeroFixVisual } from "@/components/marketing/HeroFixVisual";
 import { FAQAccordion } from "@/components/faq/FAQAccordion";
 import { HOMEPAGE_FAQ } from "@/lib/content/faq";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -43,27 +44,29 @@ export default function Home() {
   <JsonLd data={buildSoftwareApplicationJsonLd()}/><JsonLd data={buildWebsiteJsonLd()}/>
   <section className="hero-grid relative overflow-hidden border-b bg-background">
    <div className="pointer-events-none absolute -right-32 -top-40 h-96 w-96 rounded-full bg-sage-soft/80 blur-3xl" aria-hidden="true"/>
-   <Container className="relative grid items-center gap-12 py-14 sm:py-20 lg:min-h-[680px] lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
+   <Container className="relative grid items-center gap-12 py-14 sm:py-20 lg:min-h-[680px] lg:grid-cols-[0.88fr_1.12fr] lg:gap-16">
     <div>
      <p className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-primary"><span className="h-0.5 w-9 bg-primary" aria-hidden="true"/>AI video visa interview practice</p>
      <h1 className="mt-6 max-w-2xl font-sans text-5xl font-semibold leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
-      <span className="block">Practice the interview.</span>
-      <span className="mt-2 block">Fix weak answers.</span>
-      <span className="mt-2 block text-primary">Walk in prepared.</span>
+      <span className="block">Scared you will</span>
+      <span className="mt-2 block text-primary">fail your visa interview?</span>
      </h1>
-     <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">Face a complete AI video interview that feels like the real visa interview. The questions and follow-ups come from your own form, documents and personal details.</p>
-     <p className="mt-4 text-lg font-semibold text-primary">See exactly what to improve before the interview that matters.</p>
+     <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">Find weak answers, document inconsistencies and confidence problems before the real interview. Then practice a complete AI video interview based on your own form and personal details.</p>
+     <p className="mt-4 text-lg font-semibold text-primary">Know what to fix. Practice again. Walk in prepared.</p>
      <div className="mt-7 flex flex-wrap gap-3"><CtaButton label="Start Preparing — 6 Interviews for $44" size="lg"/><CtaButton intent="free" label="Check My Documents Free" size="lg" className="border bg-surface text-primary hover:bg-sage-soft"/></div>
      <p className="mt-5 text-sm font-medium">One payment. Six complete AI video interviews. A report after every interview.</p>
      <p className="mt-3 text-sm text-muted-foreground">English, Urdu and Hindi · U.S., UK, France, Italy, Germany and Schengen routes available.</p>
     </div>
-    <ProductDemoVideo />
+    <HeroFixVisual />
    </Container>
    <div className="relative border-t bg-surface/90 backdrop-blur-sm">
     <Container className="grid grid-cols-2 lg:grid-cols-4">
      {proofPoints.map(([value,label],index)=><div key={label} className={`py-6 sm:py-8 ${index%2===1?"border-l":""} ${index>1?"border-t lg:border-t-0":""} lg:border-l lg:first:border-l-0`}><div className="px-4 sm:px-7"><p className="font-sans text-3xl font-bold tracking-tight text-primary sm:text-4xl">{value}</p><p className="mt-1 max-w-40 text-sm leading-snug text-muted-foreground">{label}</p></div></div>)}
     </Container>
    </div>
+  </section>
+  <section aria-label="Visa Prepper AI video interview demonstration">
+   <Container className="py-14 sm:py-20"><div className="mx-auto max-w-6xl"><ProductDemoVideo /></div></Container>
   </section>
   <section id="features" className="scroll-mt-24"><Container className="py-16">
    <SectionHeading eyebrow="Everything in one place" title="Prepare your documents, your answers and your confidence." description="Visa Prepper helps before, during and after your practice interview."/>

@@ -114,6 +114,54 @@ body {
   background-position: center top;
 }
 
+@keyframes hero-fix-card {
+  0%, 100% { transform: translateY(0); border-color: var(--vp-border); }
+  18% { transform: translateY(-3px); border-color: rgb(47 110 107 / 55%); }
+  36% { transform: translateY(0); border-color: var(--vp-border); }
+}
+
+@keyframes hero-fix-scan {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 0.75; }
+  75% { opacity: 0.4; }
+  100% { transform: translateY(430px); opacity: 0; }
+}
+
+@keyframes hero-fix-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(141 215 170 / 0%); }
+  45% { box-shadow: 0 0 0 8px rgb(141 215 170 / 16%); }
+}
+
+@keyframes hero-fix-orb {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(14px, -12px, 0); }
+}
+
+.hero-fix-card { animation: hero-fix-card 5.6s ease-in-out infinite; }
+.hero-fix-scan { animation: hero-fix-scan 4.8s ease-in-out infinite; }
+.hero-fix-pulse { animation: hero-fix-pulse 2s ease-out infinite; }
+.hero-fix-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(4px);
+  animation: hero-fix-orb 7s ease-in-out infinite;
+}
+.hero-fix-orb-one {
+  width: 11rem;
+  height: 11rem;
+  top: -4rem;
+  right: -3rem;
+  background: rgb(141 215 170 / 13%);
+}
+.hero-fix-orb-two {
+  width: 8rem;
+  height: 8rem;
+  bottom: 2rem;
+  left: -4rem;
+  background: rgb(255 255 255 / 8%);
+  animation-delay: -2.5s;
+}
+
 ::selection {
   background: var(--color-sage-soft);
   color: var(--color-foreground);

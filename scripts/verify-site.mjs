@@ -56,9 +56,12 @@ const product=[...home.matchAll(/<script type="application\/ld\+json">(.*?)<\/sc
 assert.deepEqual(product.offers.map(p=>p.price),[0,44]);
 assert.deepEqual(product.inLanguage,["en","ur","hi"]);
 for(const phrase of ["Six complete AI video interviews","Personalised document checklist","Document verification check","Full AI video interview","Personalised practice tips","Results and scores","10 document verification checks, including revised documents","90 days from purchase","France","Italy","United Kingdom","Germany","English, Urdu and Hindi","Google Play","Apple App Store"])assert.ok(home.includes(phrase),phrase);
+for(const phrase of ["Scared you will","fail your visa interview?","What we find before your interview","Form inconsistency","Answer problem","Confidence problem","Personalised practice plan ready"])assert.ok(home.includes(phrase),`hero ${phrase}`);
 const videoTag=home.match(/<video[^>]*>/i)?.[0]||"";
 for(const attribute of ["autoPlay","muted","loop","playsInline","controls"])assert.ok(videoTag.includes(`${attribute}=""`),`video ${attribute}`);
 for(const removed of ["See the full AI video interview","55 sec","The video starts muted"])assert.ok(!home.includes(removed),`bare hero video excludes ${removed}`);
+assert.ok(home.indexOf("What we find before your interview")<home.indexOf("<video"),"animated fix panel appears before the video");
+assert.ok(home.indexOf("<video")<home.indexOf('id="features"'),"video sits below the hero and before features");
 assert.ok((home.match(/href="https:\/\/app\.visaprepper\.com"/g)||[]).length>=6,"home signup CTAs link to app.visaprepper.com");
 assert.ok(!home.includes('href="https://app.visaprepper.com/login"'),"login does not use the missing /login route");
 assert.ok(!home.includes('href="/start'),"home does not route signup through /start");
