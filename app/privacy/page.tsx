@@ -18,7 +18,7 @@ export default function PrivacyPage() {
       </Container>
       <Container className="py-10 sm:py-14">
         <h1 className="font-display text-3xl font-semibold text-foreground sm:text-4xl">Privacy Policy</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Last updated: September 20, 2026</p>
+        <p className="mt-2 text-sm text-muted-foreground">Last updated: September 25, 2026</p>
 
         <div className="prose-vp mt-8 max-w-3xl">
           <p>
@@ -57,7 +57,7 @@ export default function PrivacyPage() {
 
           <h2>Partner applications</h2>
           <p>If you apply to become a partner, we use your contact, business, audience and application details to review the request and respond. Optional marketing consent is separate. Do not include passports, visa documents, bank details or applicant information.</p>
-          <p>Applications must be stored privately before a success message is shown. Authorised reviewers may record review notes and status changes. Applications and notes are not public testimonials. The same data access and deletion contact below applies. We do not accept applications while private storage is unavailable.</p>
+          <p>Partner applications are sent through FormSubmit, our email-form delivery provider, and then delivered to the Visa Prepper team by email. FormSubmit may temporarily process and retain submission data to provide that service. Applications are not public testimonials. The same data access and deletion contact below applies.</p>
           <h2>How we use your information</h2>
           <ul>
             <li>To generate and conduct your adaptive practice interviews</li>

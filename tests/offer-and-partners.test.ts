@@ -5,7 +5,7 @@ import { COMPLETE_OFFER } from "../lib/config/offer";
 import { PLANS } from "../lib/config/offering";
 import { APPROVED_TESTIMONIALS, PREPARATION_SURVEY } from "../lib/content/testimonials";
 import { partnerApplicationSchema } from "../lib/partners/validation";
-import { savePartnerApplication } from "../lib/partners/service";
+import { sendPartnerApplicationEmail } from "../lib/partners/email";
 
 const offer = {checkout_available:true,packages:{[COMPLETE_OFFER.id]:{enabled:true,price_cents:4400,interviews:6,documents:10,validity_days:90,currency:"USD"}}};
 const valid = {requestId:"fdf23d7a-716e-49cb-a061-2323ab56cf80",fullName:"Test Applicant",email:"test@example.test",businessName:"Test Creator",country:"Pakistan",partnerType:"Individual creator",profileUrl:"https://example.test/profile",phone:"+92 300 1234567",audienceCountries:["Pakistan","India"],audienceRange:"Not sure yet",introduction:"I share original preparation guides for applicants.",experience:"",privacy:true,marketing:false,website:""};
@@ -46,26 +46,23 @@ test("invalid partner inputs reject without throwing or accepting HTML",()=>{
  for(const profileUrl of ["javascript:alert(1)","http://127.0.0.1","http://192.168.1.1","http://172.16.0.1","https://user:pass@example.test"])assert.equal(partnerApplicationSchema.safeParse({...valid,profileUrl}).success,false,profileUrl);
  assert.equal(partnerApplicationSchema.safeParse({...valid,role:"admin"}).success,false);
 });
-test("unconfigured partner storage never reports success or sends a request",async()=>{
- let calls=0;
- const transport=(async()=>{calls++;throw new Error("Should not call");}) as typeof fetch;
- await assert.rejects(()=>savePartnerApplication(partnerApplicationSchema.parse(valid),transport,{} as NodeJS.ProcessEnv));
- assert.equal(calls,0);
-});
-test("partner adapter requires persisted ID, timestamp, pending status and stored=true",async()=>{
+test("partner email adapter sends validated contact and social details",async()=>{
  const data=partnerApplicationSchema.parse(valid);
- const env:NodeJS.ProcessEnv={NODE_ENV:"test",PARTNER_SUBMISSION_URL:"https://example.invalid/partners",PARTNER_SUBMISSION_TOKEN:"synthetic-test-token"};
- const saved={id:valid.requestId,created_at:"2026-09-20T00:00:00Z",status:"pending",stored:true};
+ const accepted={success:"true",message:"accepted"};
+ let observedUrl:unknown;
  let observed:RequestInit|undefined;
- const transport=(async(_url:unknown,init?:RequestInit)=>{observed=init;return Response.json(saved);})as typeof fetch;
- assert.deepEqual(await savePartnerApplication(data,transport,env),saved);
- assert.equal(new Headers(observed?.headers).get("Idempotency-Key"),valid.requestId);
- assert.equal(JSON.parse(String(observed?.body)).privacyVersion,"2026-09-20");
- // A repeated request uses the same key; durable deduplication belongs to the backend.
- await savePartnerApplication(data,transport,env);
- assert.equal(new Headers(observed?.headers).get("Idempotency-Key"),valid.requestId);
- for(const payload of [{}, {...saved,stored:false},{...saved,status:"approved"},{...saved,id:"not-an-id"},{...saved,created_at:"today"}]){
-  await assert.rejects(()=>savePartnerApplication(data,(async()=>Response.json(payload))as typeof fetch,env));
+ const transport=(async(url:unknown,init?:RequestInit)=>{observedUrl=url;observed=init;return Response.json(accepted);})as typeof fetch;
+ assert.deepEqual(await sendPartnerApplicationEmail(data,transport),{id:valid.requestId,sent:true});
+ assert.match(String(observedUrl),/^https:\/\/formsubmit\.co\/ajax\//);
+ const payload=JSON.parse(String(observed?.body));
+ assert.equal(payload.email,valid.email);
+ assert.equal(payload.socialProfile,valid.profileUrl);
+ assert.equal(payload.phone,valid.phone);
+ assert.equal(payload.audienceCountries,"Pakistan, India");
+ assert.equal(payload._replyto,valid.email);
+ assert.equal(new Headers(observed?.headers).get("Origin"),"https://visaprepper.com");
+ assert.equal(new Headers(observed?.headers).get("Referer"),"https://visaprepper.com/partners/apply");
+ for(const response of [Response.json({}, {status:200}),Response.json({success:false},{status:200}),Response.json({success:true},{status:503})]){
+  await assert.rejects(()=>sendPartnerApplicationEmail(data,(async()=>response)as typeof fetch));
  }
- await assert.rejects(()=>savePartnerApplication(data,(async()=>Response.json({},{status:503}))as typeof fetch,env));
 });

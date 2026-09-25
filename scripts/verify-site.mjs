@@ -76,7 +76,7 @@ assert.equal((await post("bad",{"Content-Type":"text/plain"})).status,415);
 assert.equal((await post("{")).status,400);
 assert.equal((await post("{}")).status,400);
 assert.equal((await post("x".repeat(17000))).status,413);
-const result=await post(JSON.stringify(fixture));assert.equal(result.status,503);
-assert.equal((await result.json()).id,undefined);
+// A valid submission is covered with a mocked relay in unit tests; never send
+// synthetic partner applications to the real inbox from the site crawler.
 }
-console.log(JSON.stringify({pages:routes.length,internalLinks:links.size,checks:"PASS: indexability, unique metadata, H1, canonicals, structured data, all internal links/anchors, signup CTAs, AI video and requested features, approved pricing, 30 supplied reviews plus hidden loop copy, languages, destinations, partner email, mobile app notices, sitemap, robots, 404, social image, checkout fail-closed, partner read-only route check. POST validation/failure tests run only on localhost."},null,2));
+console.log(JSON.stringify({pages:routes.length,internalLinks:links.size,checks:"PASS: indexability, unique metadata, H1, canonicals, structured data, all internal links/anchors, signup CTAs, AI video and requested features, approved pricing, 30 supplied reviews plus hidden loop copy, languages, destinations, private partner form, mobile app notices, sitemap, robots, 404, social image, checkout fail-closed, partner read-only route check. POST validation tests run only on localhost; live relay delivery is mocked in unit tests."},null,2));

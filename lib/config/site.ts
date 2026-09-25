@@ -10,7 +10,6 @@ export const EXTERNAL_APP_URL = "https://app.visaprepper.com";
 export const EXTERNAL_LOGIN_URL = "https://app.visaprepper.com/login";
 
 export const CONTACT_EMAIL = "hello@visaprepper.com";
-export const PARTNER_EMAIL = "ajmoon2202@gmail.com";
 
 export const CTA_PRIMARY_LABEL = "Start Preparing";
 export const CTA_SECONDARY_LABEL = "See prices";

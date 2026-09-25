@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { partnerApplicationSchema } from "@/lib/partners/validation";
-import { savePartnerApplication } from "@/lib/partners/service";
+import { sendPartnerApplicationEmail } from "@/lib/partners/email";
 export const runtime="nodejs";
 const requests=new Map<string,{count:number;until:number}>();
 const headers={"Cache-Control":"no-store"};
@@ -22,8 +22,8 @@ export async function POST(request:Request) {
   catch { return Response.json({error:"Invalid form format."},{status:400,headers}); }
   const parsed=partnerApplicationSchema.safeParse(payload);
   if(!parsed.success)return Response.json({error:"Please check the highlighted answers.",fields:parsed.error.flatten().fieldErrors},{status:400,headers});
-  const saved=await savePartnerApplication(parsed.data);
-  return Response.json({id:saved.id,message:"We have received your application. We will review it and contact you by email."},{status:201,headers});
+  const sent=await sendPartnerApplicationEmail(parsed.data);
+  return Response.json({id:sent.id,message:"Your application has been sent. We will review it and contact you by email."},{status:201,headers});
  }catch{
   // Never log application payloads, auth tokens or backend response bodies.
   return Response.json({error:"We could not submit your application. Your answers are still here. Please try again."},{status:503,headers});
