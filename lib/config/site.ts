@@ -7,7 +7,7 @@ export const SITE_CONTENT_UPDATED = "2026-09-25";
 // Every "Start Practicing" / "Log In" CTA on the marketing site should read
 // from these two constants rather than hardcoding a URL.
 export const EXTERNAL_APP_URL = "https://app.visaprepper.com";
-export const EXTERNAL_LOGIN_URL = "https://app.visaprepper.com/login";
+export const EXTERNAL_LOGIN_URL = EXTERNAL_APP_URL;
 
 export const CONTACT_EMAIL = "hello@visaprepper.com";
 

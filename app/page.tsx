@@ -36,9 +36,9 @@ export default function Home() {
  return <>
   <JsonLd data={buildSoftwareApplicationJsonLd()}/><JsonLd data={buildWebsiteJsonLd()}/>
   <section className="bg-gradient-to-b from-sage-soft/70 to-background">
-   <Container className="grid items-center gap-12 py-14 sm:py-20 lg:grid-cols-[1.1fr_0.9fr]">
+   <Container className="grid items-center gap-12 py-14 sm:py-20 lg:grid-cols-[0.9fr_1.1fr]">
     <div><p className="text-sm font-semibold text-primary">Complete AI video visa interview practice</p>
-     <h1 className="mt-5 max-w-2xl font-display text-4xl font-semibold leading-[1.12] sm:text-5xl lg:text-6xl">Scared you may fail your visa interview?</h1>
+     <h1 className="mt-5 max-w-2xl font-sans text-4xl font-semibold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">Scared you may fail your visa interview?</h1>
      <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">Sit in front of the camera and practise a full AI video interview that feels like the real visa interview. Questions come from your own form, documents and personal details.</p>
      <p className="mt-4 text-lg font-medium text-primary">Feeling worried is normal. We have got you.</p>
      <div className="mt-7 flex flex-wrap gap-3"><CtaButton label="Start Preparing — 6 Interviews for $44" size="lg"/><CtaButton intent="free" label="Check My Documents Free" size="lg" className="border bg-surface text-primary hover:bg-sage-soft"/></div>
@@ -58,7 +58,7 @@ export default function Home() {
    <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{problems.map(([heading,text])=><article key={heading} className="lift-card rounded-2xl border bg-surface p-6"><Check className="h-5 w-5 text-primary" aria-hidden="true"/><h3 className="mt-4 text-xl font-semibold">{heading}</h3><p className="mt-3 leading-relaxed text-muted-foreground">{text}</p></article>)}</div>
   </Container></section>
   <section className="bg-surface-muted"><Container className="py-16">
-   <SectionHeading eyebrow="How it works" title="A complete video interview, not just microphone practice."/>
+   <SectionHeading eyebrow="How it works" title="A complete video interview, not just microphone practice." titleClassName="font-sans tracking-tight"/>
    <ol className="mt-8 grid gap-6 md:grid-cols-3">{[
     ["Check your documents","Follow your personalised checklist, then check whether your forms are filled correctly and whether important details match."],
     ["Join a realistic AI video interview","Use your camera and microphone. The AI interviewer asks questions and follow-ups based on your own form and personal details."],

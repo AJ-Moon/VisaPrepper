@@ -6,6 +6,7 @@ export function SectionHeading({
   description,
   align = "start",
   className,
+  titleClassName,
   titleAs: TitleTag = "h2",
 }: {
   eyebrow?: string;
@@ -13,6 +14,7 @@ export function SectionHeading({
   description?: string;
   align?: "start" | "center";
   className?: string;
+  titleClassName?: string;
   titleAs?: "h2" | "h1";
 }) {
   return (
@@ -20,7 +22,7 @@ export function SectionHeading({
       {eyebrow && (
         <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-teal">{eyebrow}</p>
       )}
-      <TitleTag className="font-display text-3xl font-semibold leading-tight text-foreground sm:text-4xl">
+      <TitleTag className={cn("font-display text-3xl font-semibold leading-tight text-foreground sm:text-4xl", titleClassName)}>
         {title}
       </TitleTag>
       {description && (
