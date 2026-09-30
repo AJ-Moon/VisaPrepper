@@ -6,7 +6,7 @@ const sitemapResponse=await fetch(origin+"/sitemap.xml");
 assert.equal(sitemapResponse.status,200);
 const sitemap=await sitemapResponse.text();
 const routes=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>new URL(m[1]).pathname);
-assert.equal(routes.length,36);
+assert.equal(routes.length,37);
 assert.equal(new Set(routes).size,routes.length);
 assert.ok(!routes.includes("/start"));
 assert.ok(routes.includes("/blog/best-ai-visa-interview-tools"));

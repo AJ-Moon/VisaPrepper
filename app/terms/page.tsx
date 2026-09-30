@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CONTACT_EMAIL, SITE_NAME } from "@/lib/config/site";
@@ -18,7 +19,7 @@ export default function TermsPage() {
       </Container>
       <Container className="py-10 sm:py-14">
         <h1 className="font-display text-3xl font-semibold text-foreground sm:text-4xl">Terms of Service</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Last updated: September 20, 2026</p>
+        <p className="mt-2 text-sm text-muted-foreground">Last updated: September 30, 2026</p>
 
         <div className="prose-vp mt-8 max-w-3xl">
           <p>
@@ -50,7 +51,9 @@ export default function TermsPage() {
           <h2>New purchases and free access</h2>
           <p>The new package costs $44 USD once. It includes six complete AI video interviews and ten document verification checks, including revised documents. The allowance is valid for 90 days from purchase. Six means six interviews total. There is no monthly subscription.</p>
           <p>Free access includes one document verification check once, a personalised document checklist, preparation guides and a sample report. It does not include an AI video interview. You can buy the paid package again for more practice. Earlier purchases keep their original credits and terms. A new purchase must not remove valid remaining credits or reports.</p>
-          <p>Check the final currency, total and refund terms before paying. If refund terms are missing or unclear, contact us before purchase. No refund guarantee is made on this page. Checkout stays unavailable until the new package is connected and release checks are complete.</p>
+          <p>Check the final currency and total before paying, and read our <Link href="/refund-policy">Refund Policy</Link>.</p>
+          <h2>Refunds</h2>
+          <p>Refunds apply to verified service or billing failures, as described in our <Link href="/refund-policy">Refund Policy</Link>. We do not offer refunds simply because you change your mind or do not like the product when it works as described. Where possible, we correct a genuine failure or restore the affected service or credits. If the failure cannot be resolved within a reasonable time, a full or partial refund applies according to the part of your purchase affected. This does not limit rights that cannot be excluded under applicable law.</p>
           <h2>Your account and responsibilities</h2>
           <ul>
             <li>You must provide accurate information when creating an account.</li>

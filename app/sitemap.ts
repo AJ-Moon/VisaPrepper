@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/contact`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${SITE_URL}/privacy`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${SITE_URL}/terms`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/refund-policy`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   const visaTypeRoutes: MetadataRoute.Sitemap = getAllVisaTypeSlugs().map((slug) => ({

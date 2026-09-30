@@ -26,5 +26,6 @@ export function Pricing() {
     </div>
     <p className="mx-auto mt-6 max-w-3xl text-center text-base">Need more practice? Buy the same package again. Six interviews total—not six of each mode.</p>
     <p className="mx-auto mt-3 max-w-3xl text-center text-sm text-muted-foreground">Document checks find missing or different details. They do not certify documents. Final currency and total are shown at checkout. <Link href="/terms" className="underline">Read the terms</Link>.</p>
+    <p className="mx-auto mt-3 max-w-3xl text-center text-sm text-muted-foreground">Refunds apply to genuine service or billing failures. A change of mind or simply disliking the product does not qualify. <Link href="/refund-policy" className="underline">Read the Refund Policy</Link>.</p>
   </div>;
 }
