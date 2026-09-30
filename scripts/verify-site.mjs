@@ -42,6 +42,9 @@ for(const[path,html]of pages){
   if(!m[1].startsWith("/")&&!m[1].startsWith("#"))continue;
   const url=new URL(m[1].replaceAll("&amp;","&"),origin+path);
   if(url.pathname.startsWith("/_next/"))continue;
+  // Cloudflare replaces mailto links with this path, then decodes them in the
+  // browser. It is an email link, not an internal website page to crawl.
+  if(url.pathname==="/cdn-cgi/l/email-protection")continue;
   links.add(url.pathname+url.search);
   if(url.hash&&pages.has(url.pathname))assert.ok(pages.get(url.pathname).includes('id="'+url.hash.slice(1)+'"'),path+" anchor "+m[1]);
  }
