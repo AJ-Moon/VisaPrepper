@@ -20,7 +20,7 @@ export function CTASection({
           {description}
         </p>
         <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-          <CtaButton size="lg" className="bg-primary-foreground text-primary hover:bg-white" />
+          <CtaButton intent="free" label="Check My Documents Free" size="lg" className="bg-primary-foreground text-primary hover:bg-white" />
           <LinkButton
             href="/#pricing"
             variant="outline"
@@ -30,6 +30,7 @@ export function CTASection({
             {CTA_SECONDARY_LABEL}
           </LinkButton>
         </div>
+        <p className="max-w-xl text-sm leading-relaxed text-primary-foreground/85">One document check is free. Choose paid video interviews when you are ready. No monthly subscription.</p>
       </Container>
     </section>
   );

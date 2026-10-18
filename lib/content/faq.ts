@@ -1,6 +1,8 @@
 import type { FaqEntry } from "@/lib/seo/json-ld";
 export const HOMEPAGE_FAQ: FaqEntry[] = [
  {question:"Will Visa Prepper help me get my visa?",answer:"We help you prepare for the interview and find what to improve. The visa authority makes the decision. We do not guarantee approval."},
+ {question:"Can I start before paying for interviews?",answer:"Yes. Start with one free document verification check, a personalised checklist and free preparation guides. You can also view a sample report on this website. Choose the $44 video interview package only when you want more practice; video interviews are not included in the free option."},
+ {question:"What if my first practice interview goes badly?",answer:"Your first practice shows you what needs work. You receive a report with feedback on your answers, confidence and consistency, plus personalised tips. Use your remaining interviews to work on those areas. The paid package includes six interviews total, so your first attempt does not have to be perfect. A practice score is not a visa decision."},
  {question:"Are AI video interviews free?",answer:"No. Free access includes one document verification check, a personalised document checklist and preparation guides. Complete AI video interviews are included in the $44 package."},
  {question:"What do I get for $44?",answer:"Six complete AI video interviews, ten document verification checks, personalised practice tips, and results showing answer, confidence and consistency problems. You have 90 days from purchase to use the package."},
  {question:"Does the AI use my documents?",answer:"Yes. It can ask questions based on the information you provide. It can point out answers that may not match."},
