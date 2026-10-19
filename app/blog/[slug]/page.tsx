@@ -55,7 +55,7 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const related = getRelatedPosts(post.slug, post.tags);
-  const comingSoon = post.market === "india" || post.market === "bangladesh";
+  const comingSoon = post.market === "bangladesh";
 
   return (
     <>

@@ -6,11 +6,13 @@ const sitemapResponse=await fetch(origin+"/sitemap.xml");
 assert.equal(sitemapResponse.status,200);
 const sitemap=await sitemapResponse.text();
 const routes=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>new URL(m[1]).pathname);
-assert.equal(routes.length,37);
+assert.equal(routes.length,40);
 assert.equal(new Set(routes).size,routes.length);
 assert.ok(!routes.includes("/start"));
 assert.ok(routes.includes("/blog/best-ai-visa-interview-tools"));
 assert.ok(routes.includes("/blog/free-ai-visa-mock-interview-online"));
+const practiceRoutes=["/visa-interview-practice","/visa-interview-practice/india","/visa-interview-practice/pakistan"];
+for(const path of practiceRoutes)assert.ok(routes.includes(path),"practice route in sitemap "+path);
 const pages=new Map(),titles=new Set(),descriptions=new Set(),links=new Set();
 for(const path of routes){
  const response=await fetch(origin+path);assert.equal(response.status,200,path);
@@ -51,11 +53,21 @@ for(const[path,html]of pages){
 }
 for(const path of links)assert.equal((await fetch(origin+path)).status,200,"link "+path);
 const home=pages.get("/");
+assert.match(home,/<title>VisaPrepper \| AI Video Visa Interview Practice<\/title>/,"brand-first homepage title");
 assert.ok(!home.includes("Example scenario — not a customer review"));
 assert.equal([...home.matchAll(/data-review-id="review-\d+"/g)].length,60); // 30 + aria-hidden seamless copy
 assert.match(home,/data-review-set="original"/);
 assert.match(home,/data-review-set="duplicate"/);
 const product=[...home.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].map(m=>JSON.parse(m[1])).find(s=>s["@type"]==="SoftwareApplication");
+const website=[...home.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].map(m=>JSON.parse(m[1])).find(s=>s["@type"]==="WebSite");
+assert.equal(website.name,"VisaPrepper");
+assert.deepEqual(website.alternateName,["Visa Prepper","visaprepper.com"]);
+assert.deepEqual(product.publisher,website.publisher,"app and website share the brand publisher");
+for(const path of practiceRoutes){
+ const html=pages.get(path);
+ const alternates=[...html.matchAll(/<link\b[^>]*rel="alternate"[^>]*>/gi)].map(m=>m[0]);
+ for(const [language,href]of [["en","/visa-interview-practice"],["en-IN","/visa-interview-practice/india"],["en-PK","/visa-interview-practice/pakistan"],["x-default","/visa-interview-practice"]])assert.ok(alternates.some(tag=>new RegExp(`hreflang="${language}"`,"i").test(tag)&&tag.includes(`href="${canonicalOrigin}${href}"`)),path+" reciprocal regional alternate "+language);
+}
 assert.deepEqual(product.offers.map(p=>p.price),[0,44]);
 assert.deepEqual(product.inLanguage,["en","ur","hi"]);
 for(const phrase of ["Six complete AI video interviews","Personalised document checklist","Document verification check","Full AI video interview","Personalised practice tips","Results and scores","10 document verification checks, including revised documents","90 days from purchase","France","Italy","United Kingdom","Germany","English, Urdu and Hindi","Google Play","Apple App Store"])assert.ok(home.includes(phrase),phrase);
@@ -74,6 +86,7 @@ for(const phrase of ["Full name","Email","WhatsApp or phone","Website or social 
 for(const lang of ["ur","hi","bn"])assert.ok(home.includes('lang="'+lang+'"'),lang+" language tag");
 assert.match(await(await fetch(origin+"/start")).text(),/noindex/);
 assert.equal((await fetch(origin+"/does-not-exist")).status,404);
+assert.equal((await fetch(origin+"/visa-interview-practice/unsupported-country")).status,404);
 assert.match(await(await fetch(origin+"/robots.txt")).text(),/Sitemap: https:\/\/visaprepper.com\/sitemap.xml/);
 assert.equal((await fetch(origin+"/opengraph-image")).headers.get("content-type"),"image/png");
 assert.equal((await fetch(origin+"/api/checkout-entry",{redirect:"manual"})).status,503);
@@ -90,4 +103,4 @@ assert.equal((await post("x".repeat(17000))).status,413);
 // A valid submission is covered with a mocked relay in unit tests; never send
 // synthetic partner applications to the real inbox from the site crawler.
 }
-console.log(JSON.stringify({pages:routes.length,internalLinks:links.size,checks:"PASS: indexability, unique metadata, H1, canonicals, structured data, all internal links/anchors, signup CTAs, AI video and requested features, approved pricing, 30 supplied reviews plus hidden loop copy, languages, destinations, both new SEO guides, consistent practice spelling, private partner form, mobile app notices, sitemap, robots, 404, social image, checkout fail-closed, partner read-only route check. POST validation tests run only on localhost; live relay delivery is mocked in unit tests."},null,2));
+console.log(JSON.stringify({pages:routes.length,internalLinks:links.size,checks:"PASS: indexability, unique metadata, H1, canonicals, brand entities, reciprocal regional alternates, structured data, all internal links/anchors, signup CTAs, AI video and requested features, approved pricing, 30 supplied reviews plus hidden loop copy, languages, destinations, SEO guides, consistent practice spelling, private partner form, mobile app notices, sitemap, robots, 404, social image, checkout fail-closed, partner read-only route check. POST validation tests run only on localhost; live relay delivery is mocked in unit tests."},null,2));

@@ -1,7 +1,8 @@
 export const SITE_URL = "https://visaprepper.com";
-export const SITE_NAME = "Visa Prepper";
+export const SITE_NAME = "VisaPrepper";
+export const SITE_ALTERNATE_NAMES = ["Visa Prepper", "visaprepper.com"];
 // Date of the last substantive marketing content update, not the build time.
-export const SITE_CONTENT_UPDATED = "2026-10-18";
+export const SITE_CONTENT_UPDATED = "2026-10-19";
 
 // The external Visa Prepper application (mock interview product itself).
 // Every "Start Practicing" / "Log In" CTA on the marketing site should read
@@ -28,6 +29,9 @@ export const PRIMARY_NAV: NavLink[] = [
 ];
 
 export const FOOTER_PRODUCT_LINKS: NavLink[] = [
+  { label: "AI Visa Interview Practice", href: "/visa-interview-practice" },
+  { label: "Practice in India", href: "/visa-interview-practice/india" },
+  { label: "Practice in Pakistan", href: "/visa-interview-practice/pakistan" },
   { label: "Partners", href: "/partners" },
   { label: "Prices", href: "/#pricing" },
   { label: "What you get", href: "/features" },

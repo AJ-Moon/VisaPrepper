@@ -1,5 +1,5 @@
 import type { PublicPlan } from "@/lib/config/live-offering";
-import { SITE_NAME, SITE_URL } from "@/lib/config/site";
+import { CONTACT_EMAIL, SITE_ALTERNATE_NAMES, SITE_NAME, SITE_URL } from "@/lib/config/site";
 import { PLANS, SOCIAL_LINKS } from "@/lib/config/offering";
 
 export function JsonLd({ data }: { data: Record<string, unknown> }) {
@@ -16,12 +16,14 @@ export function buildOrganizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: SITE_NAME,
+    alternateName: SITE_ALTERNATE_NAMES,
     url: SITE_URL,
     "@id": `${SITE_URL}/#organization`,
     logo: `${SITE_URL}/images/brand/visaprepper.jpg`,
     sameAs: SOCIAL_LINKS.map((link) => link.href),
+    email: CONTACT_EMAIL,
     description:
-      "Visa Prepper is an independent visa interview preparation platform. It is not affiliated with the U.S. Department of State, USCIS, or any embassy or consulate.",
+      "VisaPrepper offers AI video visa interview practice, document checks and personalised feedback for applicants in India and Pakistan. Available in English, Urdu and Hindi. An independent preparation service.",
   };
 }
 
@@ -31,8 +33,8 @@ export function buildWebsiteJsonLd() {
     "@type": "WebSite",
     "@id": `${SITE_URL}/#website`,
     name: SITE_NAME,
-    alternateName: "Visa Prepper",
-    url: SITE_URL,
+    alternateName: SITE_ALTERNATE_NAMES,
+    url: `${SITE_URL}/`,
     inLanguage: "en",
     publisher: { "@id": `${SITE_URL}/#organization` },
   };
@@ -42,7 +44,11 @@ export function buildSoftwareApplicationJsonLd(plans:PublicPlan[] = [...PLANS]) 
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": `${SITE_URL}/#software`,
     name: SITE_NAME,
+    alternateName: SITE_ALTERNATE_NAMES,
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    mainEntityOfPage: `${SITE_URL}/`,
     applicationCategory: "EducationalApplication",
     operatingSystem: "Web",
     description:
@@ -126,6 +132,7 @@ export function buildArticleJsonLd(post: {
     },
     publisher: {
       "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       logo: {
         "@type": "ImageObject",

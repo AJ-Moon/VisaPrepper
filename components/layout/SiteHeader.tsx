@@ -11,7 +11,7 @@ export function SiteHeader() {
  function close(){dialog.current?.close();}
  return <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur">
   <Container className="flex min-h-18 items-center justify-between gap-3 py-3">
-   <Link href="/" aria-label="Visa Prepper home"><Logo className="max-[360px]:[&>span:last-child]:hidden"/></Link>
+   <Link href="/" aria-label="VisaPrepper home"><Logo className="max-[360px]:[&>span:last-child]:hidden"/></Link>
    <nav aria-label="Primary" className="hidden items-center gap-4 xl:flex">{PRIMARY_NAV.map(link=><Link key={link.href} href={link.href} className="text-sm font-medium hover:underline">{link.label}</Link>)}</nav>
    <div className="hidden items-center gap-4 xl:flex"><a href={EXTERNAL_LOGIN_URL} className="text-sm font-medium">Log In</a><CtaButton intent="free" label="Start Free"/></div>
    <div className="flex items-center gap-2 xl:hidden"><CtaButton intent="free" label="Start Free" className="px-3 text-sm"/><button type="button" aria-label="Open menu" onClick={()=>dialog.current?.showModal()} className="rounded-full p-3"><Menu className="h-5 w-5" aria-hidden="true"/></button></div>

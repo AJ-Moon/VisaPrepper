@@ -3,14 +3,14 @@ import { figtree, fraunces } from "@/lib/fonts";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { JsonLd, buildOrganizationJsonLd } from "@/lib/seo/json-ld";
-import { SITE_URL } from "@/lib/config/site";
+import { SITE_NAME, SITE_URL } from "@/lib/config/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "AI Video Visa Interview Practice | Visa Prepper",
-    template: "%s | Visa Prepper",
+    default: `${SITE_NAME} | AI Video Visa Interview Practice`,
+    template: `%s | ${SITE_NAME}`,
   },
   description:
     "Practice a complete AI video visa interview in English, Urdu or Hindi. Get document checks, personalised tips, answer feedback and confidence scores.",

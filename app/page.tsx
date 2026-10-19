@@ -16,8 +16,8 @@ import { FAQAccordion } from "@/components/faq/FAQAccordion";
 import { HOMEPAGE_FAQ } from "@/lib/content/faq";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { JsonLd, buildSoftwareApplicationJsonLd, buildWebsiteJsonLd } from "@/lib/seo/json-ld";
-const title = "AI Video Visa Interview Practice | Visa Prepper";
-export const metadata = {...buildPageMetadata({title,description:"Start with a free document check. Practice AI video visa interviews based on your own form, get clear feedback, and work on weak answers before interview day.",path:"/"}),title:{absolute:title}};
+const title = "VisaPrepper | AI Video Visa Interview Practice";
+export const metadata = {...buildPageMetadata({title,description:"Practice AI video visa interviews with VisaPrepper in India and Pakistan. Check your forms and improve your answers in English, Urdu or Hindi. Start free.",path:"/"}),title:{absolute:title}};
 const problems = [
  ["Scared you will go blank?","Practice answering out loud. Get used to explaining your plans."],
  ["Not sure what to say?","Work on clear answers about your trip, studies, job, money or family."],
@@ -46,7 +46,7 @@ export default function Home() {
    <div className="pointer-events-none absolute -right-32 -top-40 h-96 w-96 rounded-full bg-sage-soft/80 blur-3xl" aria-hidden="true"/>
    <Container className="relative grid items-center gap-12 py-14 sm:py-20 lg:min-h-[680px] lg:grid-cols-[0.88fr_1.12fr] lg:gap-16">
     <div>
-     <p className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-primary"><span className="h-0.5 w-9 bg-primary" aria-hidden="true"/>AI video visa interview practice</p>
+     <p className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-primary"><span className="h-0.5 w-9 shrink-0 bg-primary" aria-hidden="true"/>VisaPrepper · AI video visa interview practice</p>
      <h1 className="mt-6 max-w-2xl font-sans text-5xl font-semibold leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
       <span className="block">Scared you will</span>
       <span className="mt-2 block text-primary">fail your visa interview?</span>
@@ -70,8 +70,9 @@ export default function Home() {
    <Container className="py-14 sm:py-20"><div className="mx-auto max-w-6xl"><ProductDemoVideo /></div></Container>
   </section>
   <section id="features" className="scroll-mt-24"><Container className="py-16">
-   <SectionHeading eyebrow="Everything in one place" title="Prepare your documents, your answers and your confidence." description="Visa Prepper helps before, during and after your practice interview."/>
+   <SectionHeading eyebrow="Everything in one place" title="Prepare your documents, your answers and your confidence." description="VisaPrepper, also written Visa Prepper, brings document checks and a full AI video interview into one place."/>
    <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{features.map(([heading,text])=><article key={heading} className="lift-card rounded-2xl border bg-surface p-6"><Check className="h-5 w-5 text-primary" aria-hidden="true"/><h2 className="mt-4 text-xl font-semibold">{heading}</h2><p className="mt-3 leading-relaxed text-muted-foreground">{text}</p></article>)}</div>
+   <Link href="/visa-interview-practice" className="mt-6 inline-flex items-center gap-2 font-semibold text-primary underline underline-offset-4">Explore AI visa interview practice <ArrowRight className="h-4 w-4" aria-hidden="true"/></Link>
   </Container></section>
   <section id="how-it-helps" className="scroll-mt-24"><Container className="py-16">
    <SectionHeading eyebrow="Room to improve" title="A weak answer today gives you something to work on." description="You can pause after a practice interview, read your report and prepare a clearer answer for the next one."/>

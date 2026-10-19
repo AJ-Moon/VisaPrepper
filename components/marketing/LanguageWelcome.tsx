@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { APPLICANT_COUNTRIES } from "@/lib/config/offering";
 import { LOCALES } from "@/lib/config/site";
 import { NATIVE_SCRIPT_BY_LOCALE } from "@/lib/fonts";
@@ -14,7 +15,7 @@ export function LanguageWelcome() {
   return (
     <>
       <ul className="mb-8 flex flex-wrap gap-3">
-        {APPLICANT_COUNTRIES.map((country) => <li key={country.name} className="rounded-full border border-border bg-surface px-4 py-2 text-sm"><span aria-hidden="true">{country.flag} </span><span className="font-semibold">{country.name}</span><span className="text-muted-foreground"> · {country.status === "live" ? "Available now" : "Coming soon"}</span></li>)}
+        {APPLICANT_COUNTRIES.map((country) => <li key={country.name} className="rounded-full border border-border bg-surface px-4 py-2 text-sm"><span aria-hidden="true">{country.flag} </span>{country.status === "live" ? <Link href={`/visa-interview-practice/${country.name.toLowerCase()}`} className="font-semibold underline underline-offset-4">{country.name}</Link> : <span className="font-semibold">{country.name}</span>}<span className="text-muted-foreground"> · {country.status === "live" ? "Available now" : "Coming soon"}</span></li>)}
       </ul>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {LOCALES.map((locale) => {

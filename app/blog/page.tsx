@@ -37,6 +37,7 @@ export default function BlogIndexPage() {
         />
         <section className="mt-10" aria-labelledby="country-guides">
           <h2 id="country-guides" className="font-display text-2xl font-semibold">Start with your country</h2>
+          <p className="mt-3 text-muted-foreground">Looking for an interview practice app? Explore <Link href="/visa-interview-practice" className="text-primary underline">AI video interview practice</Link>, or see preparation for <Link href="/visa-interview-practice/india" className="text-primary underline">India</Link> and <Link href="/visa-interview-practice/pakistan" className="text-primary underline">Pakistan</Link>.</p>
           <div className="mt-5 grid gap-5 md:grid-cols-3">
             {countries.map((country) => {
               const post = posts.find((entry) => entry.market === country.market);
