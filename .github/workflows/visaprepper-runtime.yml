@@ -1,0 +1,127 @@
+# Install manually as .github/workflows/visaprepper-runtime.yml only after the
+# repository grants workflow-write access. This file is a preparation artifact.
+# No schedule, GPU rental, model-weight download or social publishing trigger.
+name: Build VisaPrepper runtime image
+run-name: VisaPrepper runtime ${{ inputs.source_sha256 }}
+on:
+  workflow_dispatch:
+    inputs:
+      source_asset_id:
+        description: ID of the reviewed VisaPrepper_Local_App.zip release asset in this repository
+        required: true
+        type: string
+      source_sha256:
+        description: Exact reviewed source ZIP SHA-256
+        required: true
+        type: string
+permissions:
+  contents: read
+  packages: write
+concurrency:
+  group: visaprepper-runtime-build
+  cancel-in-progress: false
+jobs:
+  build:
+    # Standard public-repository hosted runner only; no larger paid runner.
+    if: ${{ github.event.repository.private == false }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      SOURCE_ASSET_ID: ${{ inputs.source_asset_id }}
+      SOURCE_SHA256: ${{ inputs.source_sha256 }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Fetch and verify allowlisted source artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,os,re,stat,urllib.request,zipfile
+          from pathlib import Path
+          repo=os.environ['GITHUB_REPOSITORY']
+          if repo!='AJ-Moon/VisaPrepper':raise SystemExit('Wrong repository for this reviewed workflow')
+          asset=os.environ['SOURCE_ASSET_ID'];expected=os.environ['SOURCE_SHA256']
+          if not asset.isdigit() or not re.fullmatch('[a-f0-9]{64}',expected):raise SystemExit('Bounded asset ID and exact SHA-256 are required')
+          headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/octet-stream','X-GitHub-Api-Version':'2026-03-10'}
+          request=urllib.request.Request('https://api.github.com/repos/'+repo+'/releases/assets/'+asset,headers=headers)
+          # GitHub's asset API redirects to its own signed download service.
+          # Strip the account token on that cross-origin redirect.
+          class Redirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self,req,fp,code,msg,hdrs,url):
+                  out=super().redirect_request(req,fp,code,msg,hdrs,url)
+                  if out is not None:out.remove_header('Authorization')
+                  return out
+          with urllib.request.build_opener(Redirect).open(request,timeout=60) as response:
+              data=response.read(50_000_001)
+          if len(data)>50_000_000 or hashlib.sha256(data).hexdigest()!=expected:raise SystemExit('Source ZIP size/hash validation failed')
+          archive=Path('source.zip');archive.write_bytes(data);destination=Path('source').resolve();destination.mkdir()
+          allowed={'README.md','requirements.txt','setup.sh','vp','.env.example','.dockerignore','.gitignore','visaprepper','config','deploy','docs','tests','scripts'}
+          with zipfile.ZipFile(archive) as bundle:
+              if len(bundle.infolist())>1000 or sum(x.file_size for x in bundle.infolist())>100_000_000:raise SystemExit('Archive expansion exceeds bound')
+              for item in bundle.infolist():
+                  path=Path(item.filename);parts=path.parts
+                  if len(parts)<2 or parts[0]!='visaprepper' or parts[1] not in allowed or path.is_absolute() or '..' in parts or stat.S_ISLNK(item.external_attr>>16):raise SystemExit('Source ZIP contains a non-allowlisted path')
+                  if any(x in parts for x in ('data','work','outputs','node_modules','.wrangler','.git','.venv','__pycache__','.cache','.pytest_cache','logs')) or path.name in ('.env','.npmrc','.pypirc','.netrc','credentials.json','secrets.json') or path.suffix.lower() in ('.zip','.whl','.gz','.xz','.log','.token','.pem','.key','.sqlite','.sqlite3','.db','.dylib','.so','.dll','.exe','.pyc'):raise SystemExit('Private state and runtime binaries are excluded from image sources')
+                  if parts[1]=='scripts' and (len(parts)!=3 or parts[2] not in ('bootstrap_native_text.py','export_source.py','runtime_registry.py')):raise SystemExit('Unexpected source helper script')
+              bundle.extractall(destination)
+          root=destination/'visaprepper'
+          if not (root/'deploy/Dockerfile').is_file() or not (root/'deploy/Dockerfile.media').is_file():raise SystemExit('Reviewed build recipes missing')
+          PY
+      - name: Check disk headroom on this ephemeral runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          # These are preinstalled SDKs on this disposable build VM only.
+          # No user repository, mounted host files or persistent state is removed.
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /opt/hostedtoolcache/CodeQL
+          python - <<'PY'
+          import shutil
+          if shutil.disk_usage('.').free<35_000_000_000:raise SystemExit('Insufficient free build disk; use an approved independent builder, not a paid larger runner automatically')
+          PY
+      - name: Build and CPU-check pinned image layers
+        working-directory: source/visaprepper
+        shell: bash
+        run: |
+          set -euo pipefail
+          # A named stage in one build graph fixes the exact base. A mutable
+          # local image tag is never used as the extension's FROM reference.
+          python - <<'PY'
+          from pathlib import Path
+          base=Path('deploy/Dockerfile').read_text().splitlines()
+          if not base[0].startswith('FROM ') or '@sha256:' not in base[0]:raise SystemExit('Pinned upstream base is required')
+          base[0]+=' AS vp_verified_base'
+          media=Path('deploy/Dockerfile.media').read_text().splitlines()
+          if media.count('FROM ${VP_BASE_IMAGE}')!=1:raise SystemExit('Unexpected extension base recipe')
+          media=[line for line in media if line!='ARG VP_BASE_IMAGE']
+          media=[('FROM vp_verified_base AS vp_media' if line=='FROM ${VP_BASE_IMAGE}' else line) for line in media]
+          Path('deploy/Dockerfile.combined').write_text('\n'.join(base+media)+'\n')
+          PY
+          docker build --platform linux/amd64 --file deploy/Dockerfile.combined --target vp_verified_base --tag vp-base:reviewed .
+          docker image inspect vp-base:reviewed --format '{{.Id}}' > base-image-id.txt
+          IMAGE="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/visaprepper-runtime:source-${SOURCE_SHA256}"
+          docker build --platform linux/amd64 --file deploy/Dockerfile.combined --target vp_media --label "org.opencontainers.image.source=https://github.com/${GITHUB_REPOSITORY}" --label "org.visaprepper.source_zip_sha256=${SOURCE_SHA256}" --tag "$IMAGE" .
+          docker run --rm --network none --entrypoint /usr/local/bin/python "$IMAGE" -c 'import torch,transformers; print({"runtime":"ComfyUI base","torch":torch.__version__,"transformers":transformers.__version__,"CUDA_tested":False})'
+          docker run --rm --network none --entrypoint /opt/vp-tts/bin/python "$IMAGE" -c 'import torch,parler_tts,transformers,audiotools,dac; print({"runtime":"isolated TTS","torch":torch.__version__,"transformers":transformers.__version__,"CUDA_tested":False})'
+          printf '%s\n' "$IMAGE" > image-reference.txt
+      - name: Push image to GitHub Container Registry
+        working-directory: source/visaprepper
+        shell: bash
+        run: |
+          set -euo pipefail
+          IMAGE="$(cat image-reference.txt)"
+          printf '%s' "$GH_TOKEN" | docker login ghcr.io --username "$GITHUB_ACTOR" --password-stdin
+          docker push "$IMAGE"
+          docker image inspect "$IMAGE" --format '{{index .RepoDigests 0}}' > image-digest.txt
+          python - <<'PY'
+          import json,os,re
+          from pathlib import Path
+          reference=Path('image-digest.txt').read_text().strip()
+          if not re.fullmatch(r'ghcr.io/[a-z0-9._/-]+@sha256:[a-f0-9]{64}',reference):raise SystemExit('Registry did not return a pinned image digest')
+          receipt={'source_zip_sha256':os.environ['SOURCE_SHA256'],'image':reference,'base_image_id':Path('base-image-id.txt').read_text().strip(),'CPU_imports_verified':True,'GPU_or_model_inference_tested':False,'model_weights_in_image':False,'private_keys_in_image':False,'anonymous_pull_verified':False}
+          Path('runtime-image-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as summary:summary.write('## VisaPrepper runtime image\n\n```json\n'+json.dumps(receipt,indent=2)+'\n```\n\nThis records an image build, not a verified GPU deployment. Check registry pull access and independent termination before any rental.\n')
+          print(json.dumps(receipt))
+          PY
+      - name: Remove temporary registry login
+        if: ${{ always() }}
+        run: docker logout ghcr.io
