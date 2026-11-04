@@ -1,6 +1,7 @@
 import type { PublicPlan } from "@/lib/config/live-offering";
 import { CONTACT_EMAIL, SITE_ALTERNATE_NAMES, SITE_NAME, SITE_URL } from "@/lib/config/site";
 import { PLANS, SOCIAL_LINKS } from "@/lib/config/offering";
+import { INTERVIEW_LANGUAGE_SCOPE } from "@/lib/config/product-scope";
 
 export function JsonLd({ data }: { data: Record<string, unknown> }) {
   return (
@@ -23,7 +24,7 @@ export function buildOrganizationJsonLd() {
     sameAs: SOCIAL_LINKS.map((link) => link.href),
     email: CONTACT_EMAIL,
     description:
-      "VisaPrepper offers AI video visa interview practice, document checks and personalised feedback for applicants in India and Pakistan. Available in English, Urdu and Hindi. An independent preparation service.",
+      `VisaPrepper is an independent interview preparation and document-check service for applicants from Pakistan and India. ${INTERVIEW_LANGUAGE_SCOPE}`,
   };
 }
 
@@ -52,7 +53,7 @@ export function buildSoftwareApplicationJsonLd(plans:PublicPlan[] = [...PLANS]) 
     applicationCategory: "EducationalApplication",
     operatingSystem: "Web",
     description:
-      "Complete AI video visa interview practice for U.S., UK, France, Italy, Germany and Schengen applicants, with document checks, personalised tips, answer feedback and confidence scores.",
+      `Application-based AI visa interview practice and document consistency checks for supported categories. ${INTERVIEW_LANGUAGE_SCOPE}`,
     url: SITE_URL,
     inLanguage: ["en", "ur", "hi"],
     offers: plans.map((plan) => ({
@@ -63,6 +64,7 @@ export function buildSoftwareApplicationJsonLd(plans:PublicPlan[] = [...PLANS]) 
         : `${plan.interviews} complete AI video interviews, ${plan.checks} document verification checks, personalised practice tips, and results after each interview. 90 days from purchase. One-time payment.`,
       price: plan.price,
       priceCurrency: "USD",
+      ...(plan.price > 0 ? { availability: "https://schema.org/OutOfStock" } : {}),
       url: `${SITE_URL}/#pricing`,
       eligibleRegion: [
         { "@type": "Country", name: "Pakistan" },

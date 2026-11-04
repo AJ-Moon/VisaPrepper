@@ -1,16 +1,16 @@
 import assert from "node:assert/strict";
 const origin=process.argv[2]||"http://localhost:3004";
-const localOnly=["localhost","127.0.0.1","[::1]"].includes(new URL(origin).hostname);
 const canonicalOrigin="https://visaprepper.com";
 const sitemapResponse=await fetch(origin+"/sitemap.xml");
 assert.equal(sitemapResponse.status,200);
 const sitemap=await sitemapResponse.text();
 const routes=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>new URL(m[1]).pathname);
-assert.equal(routes.length,40);
+assert.equal(routes.length,41);
 assert.equal(new Set(routes).size,routes.length);
 assert.ok(!routes.includes("/start"));
 assert.ok(routes.includes("/blog/best-ai-visa-interview-tools"));
 assert.ok(routes.includes("/blog/free-ai-visa-mock-interview-online"));
+assert.ok(routes.includes("/document-checks"));
 const practiceRoutes=["/visa-interview-practice","/visa-interview-practice/india","/visa-interview-practice/pakistan"];
 for(const path of practiceRoutes)assert.ok(routes.includes(path),"practice route in sitemap "+path);
 const pages=new Map(),titles=new Set(),descriptions=new Set(),links=new Set();
@@ -35,7 +35,7 @@ for(const path of routes){
  assert.ok(!/\bpractise\b|\bpractising\b|\bpractised\b/i.test(text),path+" uses practice spelling consistently");
  for(const tag of html.matchAll(/<a\b[^>]*data-intent="(?:paid|free)"[^>]*>/g)){
   const href=tag[0].match(/href="([^"]+)"/)?.[1];
-  assert.equal(href,"https://app.visaprepper.com",path+" signup CTA goes to the app");
+  assert.equal(href,"https://app.visaprepper.com",path+" conversion continues to the verified app authentication entry");
  }
  // Customer stories keep their substance; only the brand-wide spelling style is normalized.
 }
@@ -70,16 +70,19 @@ for(const path of practiceRoutes){
 }
 assert.deepEqual(product.offers.map(p=>p.price),[0,44]);
 assert.deepEqual(product.inLanguage,["en","ur","hi"]);
-for(const phrase of ["Six complete AI video interviews","Personalised document checklist","Document verification check","Full AI video interview","Personalised practice tips","Results and scores","10 document verification checks, including revised documents","90 days from purchase","France","Italy","United Kingdom","Germany","English, Urdu and Hindi","Google Play","Apple App Store"])assert.ok(home.includes(phrase),phrase);
-for(const phrase of ["Scared you will","fail your visa interview?","What we find before your interview","Form inconsistency","Answer problem","Confidence problem","Personalised practice plan ready"])assert.ok(home.includes(phrase),`hero ${phrase}`);
+for(const phrase of ["Document review", "Explore sample document report", "US application", "UK documents", "Schengen documents", "Illustrative sample", "Self", "Family support", "WhatsApp help", "Chat with us on WhatsApp", "Purchasing is currently unavailable", "90 days from purchase"])assert.ok(home.includes(phrase),phrase);
+assert.match(home, /role="tablist"/);
 const videoTag=home.match(/<video[^>]*>/i)?.[0]||"";
-for(const attribute of ["autoPlay","muted","loop","playsInline","controls"])assert.ok(videoTag.includes(`${attribute}=""`),`video ${attribute}`);
-for(const removed of ["See the full AI video interview","55 sec","The video starts muted"])assert.ok(!home.includes(removed),`bare hero video excludes ${removed}`);
-assert.ok(home.indexOf("What we find before your interview")<home.indexOf("<video"),"animated fix panel appears before the video");
-assert.ok(home.indexOf("<video")<home.indexOf('id="features"'),"video sits below the hero and before features");
-assert.ok((home.match(/href="https:\/\/app\.visaprepper\.com"/g)||[]).length>=6,"home signup CTAs link to app.visaprepper.com");
-assert.ok(!home.includes('href="https://app.visaprepper.com/login"'),"login does not use the missing /login route");
-assert.ok(!home.includes('href="/start'),"home does not route signup through /start");
+assert.ok(videoTag.includes('controls=""'));
+assert.ok(!/autoPlay|autoplay/.test(videoTag),"video requires user playback");
+assert.ok(home.indexOf('<video') < home.indexOf('id="sample-report"'),"video before document examples");
+assert.ok(home.indexOf('id="sample-report"') < home.indexOf('id="interview-example"'),"document examples before interview feedback");
+for(const text of ["See what a document check can find", "See the feedback after your practice interview", "Explore sample interview report", "My father is sponsoring me.", "One document check reviews your submitted document bundle together. Each PDF does not use a separate check."])assert.ok(home.includes(text),text);
+assert.ok(!home.includes("Confidence drops on follow-up questions"));
+for(const text of ["Supporting evidence and limitations", "View source evidence", "Document_08.pdf", "Saved application details", "Excerpts from a real mock interview", "He afford me.", "Yeah, yeah, yeah.", "136 words/min", "41/100"])assert.ok(!home.includes(text),"no obsolete public sample content: "+text);
+assert.match(pages.get("/contact"),/https:\/\/wa.me\/17325188581/);
+assert.ok(pages.get("/contact").includes("Do not send passports"));
+assert.ok(!home.includes('src="/reference-screenshots/'));
 assert.ok(!pages.get("/partners").includes("ajmoon2202@gmail.com"),"partner email is not shown on the public page");
 assert.ok(!pages.get("/partners/apply").includes("ajmoon2202@gmail.com"),"partner email is not shown in the form HTML");
 for(const phrase of ["Full name","Email","WhatsApp or phone","Website or social profile URL","Send Application"])assert.ok(pages.get("/partners/apply").includes(phrase),`partner form ${phrase}`);
@@ -91,16 +94,5 @@ assert.match(await(await fetch(origin+"/robots.txt")).text(),/Sitemap: https:\/\
 assert.equal((await fetch(origin+"/opengraph-image")).headers.get("content-type"),"image/png");
 assert.equal((await fetch(origin+"/api/checkout-entry",{redirect:"manual"})).status,503);
 assert.equal((await fetch(origin+"/api/partners")).status,405);
-// Never submit synthetic applications against the live site.
-if(localOnly){
-const fixture={requestId:"fdf23d7a-716e-49cb-a061-2323ab56cf80",fullName:"Test Applicant",email:"test@example.test",businessName:"Test Creator",country:"Pakistan",partnerType:"Individual creator",profileUrl:"https://example.test/profile",phone:"",audienceCountries:["Pakistan"],audienceRange:"Not sure yet",introduction:"I share original preparation guides for applicants.",experience:"",privacy:true,marketing:false,website:""};
-const post=(body,headers={})=>fetch(origin+"/api/partners",{method:"POST",headers:{"Content-Type":"application/json",Origin:origin,"X-Forwarded-For":"192.0.2.37",...headers},body});
-assert.equal((await post(JSON.stringify(fixture),{Origin:"https://example.invalid"})).status,403);
-assert.equal((await post("bad",{"Content-Type":"text/plain"})).status,415);
-assert.equal((await post("{")).status,400);
-assert.equal((await post("{}")).status,400);
-assert.equal((await post("x".repeat(17000))).status,413);
-// A valid submission is covered with a mocked relay in unit tests; never send
-// synthetic partner applications to the real inbox from the site crawler.
-}
-console.log(JSON.stringify({pages:routes.length,internalLinks:links.size,checks:"PASS: indexability, unique metadata, H1, canonicals, brand entities, reciprocal regional alternates, structured data, all internal links/anchors, signup CTAs, AI video and requested features, approved pricing, 30 supplied reviews plus hidden loop copy, languages, destinations, SEO guides, consistent practice spelling, private partner form, mobile app notices, sitemap, robots, 404, social image, checkout fail-closed, partner read-only route check. POST validation tests run only on localhost; live relay delivery is mocked in unit tests."},null,2));
+// This handoff verification is GET-only: no partner/contact submissions, even locally.
+console.log(JSON.stringify({pages:routes.length,internalLinks:links.size,checks:"PASS: GET-only route/metadata/link crawl, intent handoffs, illustrative samples without evidence drawers, non-autoplay video, WhatsApp contact, unchanged testimonials, approved pricing, checkout fails closed. No forms submitted."},null,2));

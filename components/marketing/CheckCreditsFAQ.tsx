@@ -1,0 +1,9 @@
+const items = [
+  ["What does one document Check include?", "One Check reviews the selected bundle, not one credit per PDF. The current Application Check limits are 10 files, 30 pages total, 10 MB per file and 20 MB per bundle, up to 10 OCR pages and 100,000 extracted text characters. Readable applicant evidence and the required route facts are needed; an empty or unreadable bundle cannot start a Check."],
+  ["When is a check credit used?", "Uploading is separate from running a Check. A credit is reserved when the Check starts and consumed when a report is durably saved. A terminal processing failure before that point releases the reservation. If processing pauses, resume from history; do not start another Check while the original is pending."],
+  ["What if I revise my documents?", "Reviewing a revised selected bundle is a new Check and uses another allowance. Reopening a saved report does not run a new Check. The paid package includes ten checks; the free allowance is one Check once."],
+  ["Does the 90-day package keep my documents for 90 days?", "Package validity and document retention are separate. The package allowance expires 90 days from purchase. Reusable Application Check files have their own 90-day access period from upload. Scheduled cleanup removes expired files, extraction caches and associated report evidence, with an operational target of 24 hours after expiry. Accepted profile values remain editable. Legacy Document Check uploads follow different deletion rules; see Privacy."],
+];
+export default function CheckCreditsFAQ() {
+  return <div className="divide-y rounded-2xl border bg-surface px-5">{items.map(([question, answer]) => <details key={question} className="py-4"><summary className="cursor-pointer py-1 font-semibold">{question}</summary><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{answer}</p></details>)}</div>;
+}

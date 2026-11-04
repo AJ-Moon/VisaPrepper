@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { MDXComponents } from "mdx/types";
 import { DisclaimerCallout } from "@/components/blog/DisclaimerCallout";
+import { CtaButton } from "@/components/layout/CtaButton";
 
 function MdxLink({ href = "", children, ...rest }: React.ComponentPropsWithoutRef<"a">) {
   const isInternal = href.startsWith("/") || href.startsWith("#");
@@ -21,4 +22,5 @@ function MdxLink({ href = "", children, ...rest }: React.ComponentPropsWithoutRe
 export const mdxComponents: MDXComponents = {
   a: MdxLink,
   Disclaimer: DisclaimerCallout,
+  AppCTA: CtaButton,
 };

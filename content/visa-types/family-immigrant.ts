@@ -4,9 +4,8 @@ export const familyImmigrant: VisaTypeContent = {
   slug: "family-immigrant",
   code: "Family / Immigrant",
   name: "Family-Based Immigrant Visa",
-  metaTitle: "Family & Immigrant Visa Interview Practice — Practice Interviews for Petition-Based Applicants",
-  metaDescription:
-    "Practice your family-based immigrant visa interview with practice interviews built around your relationship history, petition, and background — with adaptive follow-ups and feedback.",
+  metaTitle: "Family Visa Interview Practice",
+  metaDescription: "Practice explaining your family relationship, petitioner and case details. Prepare for a supported U.S. family immigrant interview using your own facts.",
   h1: "Practice your family-based immigrant visa interview around your own relationship and petition",
   intro:
     "Family-based immigrant interviews focus heavily on your relationship history with your petitioner and consistency with your petition paperwork. Visa Prepper builds your practice interview around your specific relationship — spouse, parent, child, or sibling — and your case.",
@@ -45,6 +44,7 @@ export const familyImmigrant: VisaTypeContent = {
         "Making sure your answers match the relationship history and details described in your petition.",
     },
   ],
+  guideLinks: [{"label": "Organize case-specific interview documents", "href": "/blog/us-visa-interview-documents-checklist"}],
   faqs: [
     {
       question: "Can Visa Prepper help me prepare for a marriage-based interview?",

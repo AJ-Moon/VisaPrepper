@@ -1,31 +1,36 @@
+import BundleExplanation from "@/components/marketing/BundleExplanation";
+import CheckCreditsFAQ from "@/components/marketing/CheckCreditsFAQ";
 import Link from "next/link";
 import { Check, Minus } from "lucide-react";
 import { COMPLETE_OFFER } from "@/lib/config/offer";
 import { CtaButton } from "@/components/layout/CtaButton";
-export function Pricing() {
-  return <div>
+export function Pricing({ headingLevel = 3 }: { headingLevel?: 2 | 3 } = {}) {
+  const Heading = headingLevel === 2 ? "h2" : "h3";
+  return <div data-help-clearance>
     <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
       <article className="flex flex-col rounded-3xl border bg-surface p-7 sm:p-9">
         <p className="text-sm font-semibold text-primary">Start without a purchase</p>
-        <h3 className="mt-3 font-display text-2xl font-semibold">Free</h3>
+        <Heading className="mt-3 font-display text-2xl font-semibold">Free</Heading>
         <p className="mt-3 text-muted-foreground">Find out what needs attention before deciding whether to pay for interviews.</p>
         <p className="mt-6 text-5xl font-semibold">$0 <span className="text-base font-normal">USD</span></p>
-        <ul className="my-7 flex-1 space-y-4">{["1 document verification check, once only", "Personalised document checklist", "Free preparation guides", "Sample interview report"].map(text => <li key={text} className="flex gap-3"><Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true"/>{text}</li>)}<li className="flex gap-3 text-muted-foreground"><Minus className="mt-1 h-4 w-4 shrink-0" aria-hidden="true"/><span>No AI video interview</span></li></ul>
-        <CtaButton intent="free" label="Check My Documents Free" size="lg"/>
-        <Link href="/#sample-report" className="mt-4 text-center text-sm underline underline-offset-4">See the sample report</Link>
+        <ul className="my-7 flex-1 space-y-4">{["1 document check, once only", "Personalised document checklist", "Free preparation guides", "Selected document report examples"].map(text => <li key={text} className="flex gap-3"><Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true"/>{text}</li>)}<li className="flex gap-3 text-muted-foreground"><Minus className="mt-1 h-4 w-4 shrink-0" aria-hidden="true"/><span>No AI video interview</span></li></ul>
+        <CtaButton intent="free" label="Check my documents free" size="lg"/>
+        <Link href="/#sample-report" className="mt-4 text-center text-sm underline underline-offset-4">See the sample document report</Link>
       </article>
       <article className="flex flex-col rounded-3xl border border-primary bg-sage-soft p-7 sm:p-9">
         <p className="text-sm font-semibold text-primary">Six chances to learn and improve</p>
-        <h3 className="mt-3 font-display text-2xl font-semibold">{COMPLETE_OFFER.name}</h3>
+        <Heading className="mt-3 font-display text-2xl font-semibold">{COMPLETE_OFFER.name}</Heading>
         <p className="mt-3 text-muted-foreground">Your first attempt is a starting point. Use each report to work on the next one.</p>
         <p className="mt-6 text-5xl font-semibold">$44 <span className="text-base font-normal">USD · one time</span></p>
-        <ul className="my-7 flex-1 space-y-3">{["6 complete AI video interviews", "Questions based on your form and personal details", "Follow-up questions based on your answers", "10 document verification checks, including revised documents", "Personalised practice tips", "Results for answer, confidence and consistency problems", "All currently supported destinations and languages", "90 days from purchase to use the package"].map(text => <li key={text} className="flex gap-3"><Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true"/>{text}</li>)}</ul>
-        <CtaButton label="Get 6 Interviews — $44" size="lg"/>
-        <p className="mt-4 text-center text-sm">One payment. No monthly subscription. 90 days to practice.</p>
+        <ul className="my-7 flex-1 space-y-3">{["6 complete AI video interviews", "Questions based on your form and personal details", "Follow-up questions based on your answers", "10 document checks, including revised documents", "Personalised practice tips", "Results for answer clarity and consistency problems", "Supported routes and their available interview languages", "90 days from purchase to use the package"].map(text => <li key={text} className="flex gap-3"><Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true"/>{text}</li>)}</ul>
+        <CtaButton label="Continue to the app · $44 package" size="lg"/>
+        <p className="mt-4 text-center text-sm">One payment. No subscription. 90 days from purchase.</p>
       </article>
     </div>
-    <p className="mx-auto mt-6 max-w-3xl text-center text-base">Need more practice? Buy the same package again. Six interviews total—not six of each mode.</p>
+    <p className="mx-auto mt-5 max-w-3xl text-center text-sm font-medium text-primary">Purchasing is currently unavailable. You can still create an account and view the $44 package in the app. No payment is taken on this website.</p>
+    <div className="mx-auto mt-6 max-w-3xl"><BundleExplanation /><CheckCreditsFAQ /></div>
+    <p className="mx-auto mt-6 max-w-3xl text-center text-base">Need more practice? The package can be purchased again when purchasing is available. Six interviews total—not six of each mode.</p>
     <p className="mx-auto mt-3 max-w-3xl text-center text-sm text-muted-foreground">Document checks find missing or different details. They do not certify documents. Final currency and total are shown at checkout. <Link href="/terms" className="underline">Read the terms</Link>.</p>
-    <p className="mx-auto mt-3 max-w-3xl text-center text-sm text-muted-foreground">Something genuinely failed? Contact us so we can put it right. Refunds apply to verified service or billing failures under our <Link href="/refund-policy" className="underline">Refund Policy</Link>. A change of mind or simply disliking the product does not qualify.</p>
+    <p className="mx-auto mt-3 max-w-3xl text-center text-sm text-muted-foreground">Something genuinely failed? Contact us so we can put it right. Refunds apply to verified service or billing failures under our <Link href="/refund-policy" className="underline">Refund Policy</Link>. A change of mind or simply disliking the product does not qualify, except where applicable law requires otherwise.</p>
   </div>;
 }

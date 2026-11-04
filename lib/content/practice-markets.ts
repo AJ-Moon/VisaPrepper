@@ -28,10 +28,10 @@ export const PRACTICE_MARKETS: PracticeMarket[] = [
     countryCode: "IN",
     locale: "en-IN",
     href: "/visa-interview-practice/india",
-    title: "AI Video Visa Interview Practice in India",
-    description: "Practice visa interviews in India with AI video, English or Hindi, your own application details, document checks and personal feedback. Start with one free check.",
+    title: "Visa Interview Practice in India",
+    description: "Practice U.S. visa interviews from India in English, Hindi or Urdu. Supported international interviews are in English. Start with one free document check.",
     h1: "AI video visa interview practice for applicants in India.",
-    languages: "English and Hindi",
+    languages: "U.S.: English, Hindi and Urdu · International: English",
     nativeLang: "hi",
     nativeIntro: "अपने जवाब रटें नहीं। अपनी बात साफ़ कहने की तैयारी करें।",
     intro: "Your loan, work trip or family visit needs its own explanation. Practice a complete video conversation based on your form and personal details. Find unclear answers, then work on those points before your appointment.",
@@ -68,7 +68,7 @@ export const PRACTICE_MARKETS: PracticeMarket[] = [
     faqs: [
       {
         question: "Can I practice a visa interview in Hindi?",
-        answer: "Yes. English and Hindi practice are available. Follow your visa authority's language instructions for the real appointment.",
+        answer: "Yes, for supported U.S. visa interviews. International interviews are in English. Follow your visa authority's language instructions for the real appointment.",
       },
       {
         question: "Can I pay in Indian rupees?",
@@ -82,10 +82,10 @@ export const PRACTICE_MARKETS: PracticeMarket[] = [
     countryCode: "PK",
     locale: "en-PK",
     href: "/visa-interview-practice/pakistan",
-    title: "AI Video Visa Interview Practice in Pakistan",
-    description: "Practice visa interviews in Pakistan with AI video in English or Urdu. Check your form, explain your sponsor clearly and get feedback. One document check is free.",
+    title: "Visa Interview Practice in Pakistan",
+    description: "Practice U.S. visa interviews from Pakistan in English, Urdu or Hindi. Supported international interviews are in English. Start with one free document check.",
     h1: "AI video visa interview practice for applicants in Pakistan.",
-    languages: "English and Urdu",
+    languages: "U.S.: English, Urdu and Hindi · International: English",
     nativeLang: "ur",
     nativeIntro: "اپنے اصل حالات کے مطابق تیاری کریں، اعتماد سے جواب دیں۔",
     intro: "A difficult question can make familiar details hard to explain. Practice on video using your own form, documents and personal details. Find unclear answers and missing facts early, with feedback to use before trying again.",
@@ -122,7 +122,7 @@ export const PRACTICE_MARKETS: PracticeMarket[] = [
     faqs: [
       {
         question: "Can I practice my visa interview in Urdu?",
-        answer: "Yes. English and Urdu practice are available. Follow the language arrangements given for your real appointment.",
+        answer: "Yes, for supported U.S. visa interviews. International interviews are in English; international preparation questions also have Urdu versions. Follow the language arrangements given for your real appointment.",
       },
       {
         question: "Can I use a form prepared by an agent?",

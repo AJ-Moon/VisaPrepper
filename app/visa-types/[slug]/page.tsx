@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const visaType = getVisaTypeBySlug((await params).slug);
   if (!visaType) return {};
   return buildPageMetadata({
-    title: `${visaType.code} Visa Interview Practice with AI Video`,
-    description: `Practice your U.S. ${visaType.code} visa interview in India or Pakistan. AI video interviews and form checks in English, Urdu or Hindi. Start with a free check.`,
+    title: visaType.metaTitle,
+    description: visaType.metaDescription,
     path: `/visa-types/${visaType.slug}`,
   });
 }
@@ -45,6 +45,11 @@ export default async function VisaTypePage({ params }: { params: Promise<{ slug:
       <div className="mt-8 grid gap-4 sm:grid-cols-2">{visaType.topics.map((topic) => <div key={topic.title} className="rounded-2xl border border-border bg-surface p-5"><h3 className="font-semibold">{topic.title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{topic.description}</p></div>)}</div>
       <h2 className="mt-12 font-display text-2xl font-semibold">Have these details ready</h2>
       <ul className="mt-5 grid list-disc gap-x-10 gap-y-3 ps-5 text-sm text-muted-foreground sm:grid-cols-2">{visaType.informationUsed.map((item) => <li key={item}>{item}</li>)}</ul>
+      <div className="mt-10 rounded-2xl border border-border bg-sage-soft p-6">
+        <h2 className="font-display text-2xl font-semibold">See the preparation in practice</h2>
+        <p className="mt-3 text-sm leading-relaxed">An answer can sound reasonable and still leave a detail unexplained. Our <Link href="/#interview-example" className="text-primary underline">illustrative interview feedback</Link> connects an answer to a specific next practice step. A <Link href="/document-checks" className="text-primary underline">document check</Link> compares the information in your selected bundle instead.</p>
+        <ul className="mt-4 space-y-2 text-sm">{visaType.guideLinks.map(link => <li key={link.href}><Link href={link.href} className="text-primary underline">{link.label}</Link></li>)}</ul>
+      </div>
       <div className="mt-12"><FAQAccordion items={visaType.faqs} /></div>
     </Container>
     <CTASection title={`Feel more prepared for your ${visaType.code} interview.`} description="Start with one free document check. Paid interviews include personal feedback and tips based on your answers." />

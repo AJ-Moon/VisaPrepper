@@ -6,7 +6,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Privacy Policy",
-  description: "How Visa Prepper collects, uses, and protects your information, including application details and practice interview recordings.",
+  description: "How Visa Prepper collects, uses, and protects your information, including application details and practice interview records.",
   path: "/privacy",
 });
 
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
       </Container>
       <Container className="py-10 sm:py-14">
         <h1 className="font-display text-3xl font-semibold text-foreground sm:text-4xl">Privacy Policy</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Last updated: September 25, 2026</p>
+        <p className="mt-2 text-sm text-muted-foreground">Last updated: November 1, 2026</p>
 
         <div className="prose-vp mt-8 max-w-3xl">
           <p>
@@ -42,10 +42,7 @@ export default function PrivacyPage() {
               similar circumstances.
             </li>
             <li>
-              <strong>Interview recordings</strong> — audio and, where you use
-              video, video recordings of your practice interview sessions,
-              together with transcripts and the analysis generated from them
-              (such as pacing, filler words, and feedback notes).
+              <strong>Interview records</strong> — questions, typed or transcribed answers, and feedback. Voice is streamed for live transcription; the app stores transcripts rather than applicant audio. Optional camera coaching is analysed on your device; summary measurements are sent to the service, rather than images or video.
             </li>
             <li>
               <strong>Usage and device information</strong>, such as browser
@@ -72,19 +69,22 @@ export default function PrivacyPage() {
             We use reasonable technical and organizational safeguards to
             protect your information, including encryption in transit and
             access controls limiting who can view your application details
-            and recordings. No method of transmission or storage is
+            and interview records. No method of transmission or storage is
             completely secure, and we cannot guarantee absolute security.
           </p>
 
           <h2>How long we keep your information</h2>
           <p>
-            We retain account information, application details, and interview
-            recordings for as long as your account is active, or as needed to
-            provide the Service, and for a reasonable period afterward for
-            legal, security, or record-keeping purposes. You may request
-            deletion of your data as described below.
+            Account information, saved application details, pre-fill extractions and interview records are kept until you delete your account. A paid package’s 90-day validity is an allowance period, not a promise to retain reports for that period.
+
           </p>
 
+          <p>Reusable Application Check files have a separate 90-day access period from upload. Previously issued private links last up to two minutes. Scheduled cleanup removes expired files, extraction caches and associated report evidence, with an operational target of 24 hours after expiry. You can delete files sooner. Deleting an Application Check report alone leaves reusable assets available until you delete them or they expire. Values you have accepted into your profile remain editable there.</p>
+          <p>Legacy Document Check PDFs are retained until that check, application or account is deleted. Deleting a check removes its PDF, extracted text, report and file name; a minimal billing record remains. Pre-fill PDFs are not retained, but extracted text and suggested values are stored. Account deletion first removes uploaded files and then linked records; an unsuccessful file deletion is reported so you can retry. Provider backups and security records may remain on their own schedules.</p>
+          <h2>Document review, interview processing and help</h2>
+          <p>Document text, OCR evidence and relevant application facts are processed to produce a review. Suggested profile values are saved only when you accept them. Review does not authenticate an issuer or establish visa eligibility.</p>
+          <p>The app uses OpenAI for document and interview processing, LiveKit for live audio transport, and AssemblyAI or Soniox for transcription. Storage is turned off on the app’s OpenAI requests; this does not establish a provider retention guarantee. Hosting, account and private file services also process data as needed to operate the app.</p>
+          <p>WhatsApp help is an optional external link. Opening it takes you to WhatsApp under its own terms and privacy practices. Do not send passports, bank statements or payment details there; use the secure app for documents.</p>
           <h2>Sharing your information</h2>
           <p>
             We do not sell your personal information. We may share

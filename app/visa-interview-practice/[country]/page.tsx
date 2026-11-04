@@ -70,12 +70,12 @@ export default async function CountryPracticePage({ params }: Props) {
 
     <Container className="grid gap-10 py-12 sm:py-16 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
       <div>
-        <p className="text-sm font-semibold text-primary">{SITE_NAME} · {market.languages} available</p>
+        <p className="text-sm font-semibold text-primary">{SITE_NAME} · {market.languages}</p>
         <h1 className="mt-4 max-w-3xl font-sans text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">{market.h1}</h1>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">{market.intro}</p>
         <p lang={market.nativeLang} dir={market.nativeLang === "ur" ? "rtl" : "ltr"} className={`mt-5 max-w-xl text-lg leading-loose text-primary ${NATIVE_SCRIPT_BY_LOCALE[market.nativeLang].className}`}>{market.nativeIntro}</p>
         <div className="mt-7 flex flex-wrap items-center gap-4">
-          <CtaButton intent="free" label="Check My Documents Free" size="lg" />
+          <CtaButton intent="free" label="Check my documents free" size="lg" />
           <Link href="/how-it-works" className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline underline-offset-4">See how it works <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
         </div>
       </div>
@@ -97,8 +97,8 @@ export default async function CountryPracticePage({ params }: Props) {
     <Container className="py-12 sm:py-16">
       <SectionHeading title="Start free. Choose video practice when you are ready." />
       <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-muted-foreground">
-        <p>Free access includes one document verification check, a personalised checklist, guides and a sample report. Live AI video interviews are paid.</p>
-        <p>One ${COMPLETE_OFFER.price} USD payment includes {COMPLETE_OFFER.interviews} complete AI video interviews and {COMPLETE_OFFER.checks} document checks, valid for {COMPLETE_OFFER.validityDays} days. Get answer, confidence and consistency feedback plus tips after each attempt. <Link href="/pricing" className="font-semibold text-primary underline underline-offset-4">See the full package.</Link></p>
+        <p>Free access includes one document check, a personalised checklist, guides and a sample report. Live AI video interviews are paid.</p>
+        <p>One ${COMPLETE_OFFER.price} USD payment includes {COMPLETE_OFFER.interviews} complete AI video interviews and {COMPLETE_OFFER.checks} document checks, valid for {COMPLETE_OFFER.validityDays} days. Get answer clarity and consistency feedback plus tips after each attempt. <Link href="/pricing" className="font-semibold text-primary underline underline-offset-4">See the full package.</Link></p>
         <p>Prepare for supported U.S., UK, France, Italy, Germany and Schengen routes. The web app is live; Google Play and Apple App Store apps are coming soon.</p>
         <p className="text-sm">Document checks flag missing or conflicting details; they do not certify documents. Practice cannot guarantee visa approval. Follow your visa authority&apos;s current instructions.</p>
       </div>

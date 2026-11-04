@@ -4,9 +4,8 @@ export const h1b: VisaTypeContent = {
   slug: "h1b",
   code: "H1B",
   name: "Work Visa",
-  metaTitle: "H1B Visa Interview Practice — Employer, Job & Petition Practice Interviews",
-  metaDescription:
-    "Practice your H1B work visa interview with practice interviews built around your employer, job role, and petition details — with adaptive follow-ups and detailed feedback.",
+  metaTitle: "H1B Visa Interview Practice",
+  metaDescription: "Practice explaining your employer, job duties, worksite and petition details. Application-based H1B mock interviews with follow-up questions.",
   h1: "Practice your H1B work visa interview around your own role and petition",
   intro:
     "H1B interviews focus on your job, your employer, and whether your role genuinely requires your specific qualifications. Visa Prepper builds your practice interview around your actual petition and role, so you can explain your own job clearly and confidently.",
@@ -51,6 +50,7 @@ export const h1b: VisaTypeContent = {
         "Prior roles, any change of employer, and how your career path led to this position.",
     },
   ],
+  guideLinks: [{"label": "Prepare your H1B job and employer answers", "href": "/blog/h1b-visa-interview-questions"}],
   faqs: [
     {
       question: "Does Visa Prepper know the exact questions my H1B officer will ask?",

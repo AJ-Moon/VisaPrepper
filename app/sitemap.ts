@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL, SITE_CONTENT_UPDATED } from "@/lib/config/site";
+import { SITE_URL } from "@/lib/config/site";
+import { PAGE_UPDATED } from "@/lib/seo/content-dates";
 import { getAllVisaTypeSlugs } from "@/lib/content/visa-types";
 import { getAllPosts } from "@/lib/content/posts";
 
@@ -13,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/`, changeFrequency: "weekly", priority: 1 },
     { url: `${SITE_URL}/how-it-works`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE_URL}/features`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/document-checks`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/visa-interview-practice`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE_URL}/visa-interview-practice/india`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/visa-interview-practice/pakistan`, changeFrequency: "monthly", priority: 0.8 },
@@ -40,8 +42,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   return [
-    ...staticRoutes.map((route) => ({ ...route, lastModified: SITE_CONTENT_UPDATED })),
-    ...visaTypeRoutes.map((route) => ({ ...route, lastModified: SITE_CONTENT_UPDATED })),
+    ...[...staticRoutes, ...visaTypeRoutes].map((route) => {
+      const date = PAGE_UPDATED[new URL(route.url).pathname];
+      return date ? { ...route, lastModified: date } : route;
+    }),
     ...blogRoutes,
   ];
 }

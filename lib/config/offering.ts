@@ -1,11 +1,11 @@
 import { COMPLETE_OFFER, FREE_OFFER } from "./offer";
 
 export const DESTINATIONS = [
-  { name: "United States", flag: "🇺🇸", status: "live", detail: "Student, visitor, work & family visas" },
-  { name: "France & Schengen", flag: "🇫🇷", status: "live", detail: "Student, visitor, work & family visas" },
-  { name: "Italy & Schengen", flag: "🇮🇹", status: "live", detail: "Student, visitor, work & family visas" },
-  { name: "United Kingdom", flag: "🇬🇧", status: "live", detail: "Student, visitor, work & family visas" },
-  { name: "Germany & general Schengen", flag: "🇩🇪", status: "live", detail: "Student, visitor, work & family visas" },
+  { name: "United States", flag: "🇺🇸", status: "live", detail: "Preparation topics · check route access in the app" },
+  { name: "France & Schengen", flag: "🇫🇷", status: "live", detail: "Preparation topics · check route access in the app" },
+  { name: "Italy & Schengen", flag: "🇮🇹", status: "live", detail: "Preparation topics · check route access in the app" },
+  { name: "United Kingdom", flag: "🇬🇧", status: "live", detail: "Preparation topics · check route access in the app" },
+  { name: "Germany & general Schengen", flag: "🇩🇪", status: "live", detail: "Preparation topics · check route access in the app" },
 ] as const;
 
 export const APPLICANT_COUNTRIES = [

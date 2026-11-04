@@ -293,3 +293,53 @@ body {
     box-shadow: 0 14px 30px -18px rgb(24 75 60 / 25%);
   }
 }
+
+/* Faithful, selectable report excerpts; colors follow the supplied report hierarchy. */
+.sample-report { background: #f4f7f4; color: #203d3d; overflow-wrap: anywhere; }
+.sample-finding { border: 1px solid #dce5df; border-left-width: 4px; border-radius: 12px; padding: 1.1rem; }
+.sample-finding-difference { border-left-color: #a253e0; background: #f8f4fc; }
+.sample-finding-likely { border-left-color: #a67420; background: #faf7ed; }
+.sample-finding-verify { border-left-color: #2f807b; background: #f0f8f6; }
+.sample-finding-confirmed { border-left-color: #ab5151; background: #fbf3f1; }
+.sample-dialog { margin: auto; width: min(1100px, calc(100% - 1.5rem)); max-width: none; max-height: 88dvh; padding: 0; overscroll-behavior: contain; }
+.sample-dialog::backdrop { background: rgb(20 37 30 / 60%); }
+body:has(dialog[open]) { overflow: hidden; }
+
+.help-rail {
+  padding-bottom: max(.625rem, env(safe-area-inset-bottom));
+  padding-inline-start: max(1rem, env(safe-area-inset-left));
+}
+
+html { scroll-padding-block-end: calc(4.5rem + env(safe-area-inset-bottom)); }
+body:has(dialog[open]) .help-rail { visibility: hidden; }
+
+@media (max-width: 63.999rem) {
+  body { padding-bottom: calc(4rem + env(safe-area-inset-bottom)); }
+  .help-rail {
+    inset-inline-end: 0;
+    border-top: 1px solid var(--vp-border);
+    background: var(--vp-background);
+  }
+}
+
+.home-forest {
+  background: radial-gradient(ellipse at top right, var(--vp-primary), transparent 76%), var(--vp-primary-hover);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    @keyframes home-enter {
+      from { translate: 0 var(--home-entry-distance, 7px); }
+      to { translate: 0 0; }
+    }
+
+    .home-enter {
+      animation: home-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 85%;
+    }
+
+    .home-enter:nth-child(3n + 2) { --home-entry-distance: 10px; }
+    .home-enter:nth-child(3n) { --home-entry-distance: 13px; }
+  }
+}

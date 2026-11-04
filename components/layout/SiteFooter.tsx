@@ -5,15 +5,17 @@ import { Logo } from "@/components/ui/Logo";
 import { LanguageChip } from "@/components/marketing/LanguageChip";
 import {
   CONTACT_EMAIL,
+  CONTACT_PHONE_URL,
   FOOTER_LEGAL_LINKS,
   FOOTER_PRODUCT_LINKS,
   LOCALES,
   SITE_NAME,
+  WHATSAPP_NUMBER,
 } from "@/lib/config/site";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-charcoal-800 text-on-charcoal">
+    <footer data-help-clearance className="bg-charcoal-800 text-on-charcoal">
       <Container className="grid gap-10 py-14 sm:py-16 md:grid-cols-[1.3fr_1fr_1fr]">
         <div className="max-w-sm">
           <Logo onCharcoal />
@@ -79,6 +81,14 @@ export function SiteFooter() {
                 className="text-sm text-on-charcoal-muted transition-colors hover:text-on-charcoal"
               >
                 {CONTACT_EMAIL}
+              </a>
+            </li>
+            <li>
+              <a
+                href={CONTACT_PHONE_URL}
+                className="whitespace-nowrap text-sm text-on-charcoal-muted underline-offset-4 transition-colors hover:text-on-charcoal hover:underline"
+              >
+                {WHATSAPP_NUMBER}
               </a>
             </li>
           </ul>

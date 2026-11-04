@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { figtree, fraunces } from "@/lib/fonts";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import WhatsAppHelp from "@/components/layout/WhatsAppHelp";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { JsonLd, buildOrganizationJsonLd } from "@/lib/seo/json-ld";
 import { SITE_NAME, SITE_URL } from "@/lib/config/site";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Practice a complete AI video visa interview in English, Urdu or Hindi. Get document checks, personalised tips, answer feedback and confidence scores.",
+    "Prepare with application-based AI visa interviews and document checks. For Pakistan and India; interview languages depend on the visa route.",
   icons: {
     icon: "/icon.jpg",
     apple: "/icon.jpg",
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         <SiteFooter />
+        <WhatsAppHelp />
       </body>
     </html>
   );

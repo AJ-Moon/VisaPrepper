@@ -4,9 +4,8 @@ export const f1: VisaTypeContent = {
   slug: "f1",
   code: "F1",
   name: "Student Visa",
-  metaTitle: "F1 Student Visa Interview Practice — Adaptive AI Practice Interviews",
-  metaDescription:
-    "Practice your F1 student visa interview with practice interviews built around your school, program, funding, and academic background — with adaptive follow-ups and detailed feedback.",
+  metaTitle: "F1 Visa Mock Interview Practice",
+  metaDescription: "Practice explaining your university choice, study funding and plans after graduation. AI follow-ups use your F1 application details. For Pakistan and India.",
   h1: "Practice your F1 student visa interview around your own application",
   intro:
     "F1 interviews focus on your school, your program, how you'll fund your studies, and your plans after graduation. Visa Prepper builds your practice interview around those specifics — your I-20, your university, and your circumstances — instead of a generic student-visa question list.",
@@ -51,6 +50,7 @@ export const f1: VisaTypeContent = {
         "If you've applied before, being able to explain what's changed or clarify a previous refusal.",
     },
   ],
+  guideLinks: [{"label": "F1 interview questions and preparation", "href": "/blog/f1-visa-interview-questions-and-answers"}, {"label": "Explain who will pay for your studies", "href": "/blog/f1-visa-interview-who-will-pay"}],
   faqs: [
     {
       question: "Does Visa Prepper know what my F1 visa officer will ask me?",

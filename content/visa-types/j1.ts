@@ -4,9 +4,8 @@ export const j1: VisaTypeContent = {
   slug: "j1",
   code: "J1",
   name: "Exchange Visitor Visa",
-  metaTitle: "J1 Visa Interview Practice — Exchange Visitor Practice Interviews",
-  metaDescription:
-    "Practice your J1 exchange visitor visa interview with practice interviews built around your program, sponsor, and plans — with adaptive follow-ups and detailed feedback.",
+  metaTitle: "J1 Visa Interview Practice",
+  metaDescription: "Practice your J1 exchange interview around your program, sponsor, funding and plans. Prepare for specific follow-ups using your application details.",
   h1: "Practice your J1 exchange visitor visa interview around your own program",
   intro:
     "J1 interviews focus on your specific exchange program, your sponsor, and your plans during and after the program. Visa Prepper builds your practice interview around your actual program category — student, scholar, intern, trainee, au pair, or work-and-travel.",
@@ -45,6 +44,7 @@ export const j1: VisaTypeContent = {
         "Your connections to your home country and your intentions to return after the exchange program.",
     },
   ],
+  guideLinks: [{"label": "J1 exchange program interview questions", "href": "/blog/j1-visa-interview-questions"}],
   faqs: [
     {
       question: "Does Visa Prepper cover all types of J1 programs?",

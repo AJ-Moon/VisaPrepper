@@ -4,9 +4,8 @@ export const h4: VisaTypeContent = {
   slug: "h4",
   code: "H4",
   name: "Dependent Visa",
-  metaTitle: "H4 Visa Interview Practice — Spouse & Dependent Practice Interviews",
-  metaDescription:
-    "Practice your H4 dependent visa interview with practice interviews built around your relationship, your principal applicant's status, and your plans in the U.S.",
+  metaTitle: "H4 Visa Interview Practice",
+  metaDescription: "Practice explaining your relationship, the principal applicant’s status and your plans. Application-based H4 interview preparation with specific feedback.",
   h1: "Practice your H4 dependent visa interview around your own family situation",
   intro:
     "H4 interviews focus on your relationship to the principal H1B holder and your plans while in the U.S. Visa Prepper builds your practice interview around your actual relationship and circumstances, including staying consistent with your spouse's or parent's answers.",
@@ -45,6 +44,7 @@ export const h4: VisaTypeContent = {
         "Making sure your answers about your relationship and circumstances match what the principal applicant has said.",
     },
   ],
+  guideLinks: [{"label": "H4 dependent interview questions", "href": "/blog/h4-visa-interview-questions"}],
   faqs: [
     {
       question: "Do I need to know everything about my spouse's job for the H4 interview?",

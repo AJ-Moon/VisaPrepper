@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Check } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
@@ -8,8 +9,8 @@ import { FeedbackExampleCard } from "@/components/marketing/FeedbackExampleCard"
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "AI Video Visa Interview Features",
-  description: "Get a document checklist, form verification, personalised tips, complete AI video interviews, and scores for answer and confidence problems.",
+  title: "Visa Interview Practice & Document Checks",
+  description: "Compare application details and documents, practice an AI video interview, and get specific feedback on unclear answers and consistency.",
   path: "/features",
 });
 export default function FeaturesPage() {
@@ -19,13 +20,14 @@ export default function FeaturesPage() {
       <SectionHeading titleAs="h1" eyebrow="What you get" title="Everything you need to prepare for the real interview." description="From checking your forms to facing the AI interviewer on camera, every step shows you what to improve." />
       <div className="mt-10 grid gap-5 sm:grid-cols-2">{[
         ["Personalised document checklist", "See the documents you should prepare for your visa route and personal situation."],
-        ["Document verification check", "Check whether your form is filled correctly and find missing, unclear or conflicting information."],
+        ["Document review", "Compare selected evidence and saved answers. Review missing, unclear or conflicting information with a practical next step."],
         ["Complete AI video interview", "Use your camera and microphone in a realistic interview based on your own form, documents and personal details."],
         ["Personalised practice tips", "Get simple advice based on the answers, pauses and weak areas found during your interview."],
-        ["Results and scores", "See answer problems, confidence problems, missing details and inconsistencies so you know what to improve next."],
+        ["Results and scores", "Find unclear explanations, missing details and inconsistencies so you know what to check or practice next."],
       ].map(([title, text]) => <div key={title} className="rounded-2xl border border-border bg-surface p-6"><Check className="h-5 w-5 text-primary" aria-hidden="true" /><h2 className="mt-4 text-xl font-semibold">{title}</h2><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p></div>)}</div>
+      <p className="mt-7 text-sm leading-relaxed text-muted-foreground">Explore <Link href="/document-checks" className="text-primary underline">document-check scope and examples</Link>, <Link href="/#interview-example" className="text-primary underline">illustrative interview feedback</Link>, and the <Link href="/languages" className="text-primary underline">languages available for each practice route</Link>.</p>
     </Container>
-    <section className="bg-surface-muted"><Container className="grid items-center gap-8 py-12 md:grid-cols-2"><SectionHeading eyebrow="Your next step" title="A low practice score gives you a place to start." description="Your report shows which answers need more explanation and where confidence or consistency needs work. Use the tips, check your own facts and try again with your remaining interviews." /><div className="flex justify-center"><FeedbackExampleCard /></div></Container></section>
+    <section className="bg-surface-muted"><Container className="grid items-center gap-8 py-12 md:grid-cols-2"><SectionHeading eyebrow="Your next step" title="A low practice score gives you a place to start." description="Your report shows which answers need more explanation and where detail or consistency needs work. Use the tips, check your own facts and try again with your remaining interviews." /><div className="flex justify-center"><FeedbackExampleCard /></div></Container></section>
     <CTASection title="See what needs work before you commit to more." description="Start with one free document check. Choose six complete AI video interviews and ten document checks for $44 when you want to take the next step." />
   </>;
 }

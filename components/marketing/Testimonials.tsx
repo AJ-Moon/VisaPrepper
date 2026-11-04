@@ -81,7 +81,7 @@ export function Testimonials() {
   }
 
   return (
-    <section id="testimonials" aria-labelledby="testimonials-heading" className="min-w-0 scroll-mt-24 bg-surface-muted py-14 sm:py-20">
+    <section id="testimonials" aria-labelledby="testimonials-heading" className="min-w-0 scroll-mt-24 border-y bg-gradient-to-b from-surface-muted to-background py-14 sm:py-20">
       <Container>
         <p className="text-sm font-semibold text-primary">From our customers</p>
         <div className="mt-3 flex flex-wrap items-end justify-between gap-6">
@@ -115,7 +115,7 @@ export function Testimonials() {
             {[false, true].map(copy => (
               <ul key={String(copy)} ref={copy ? undefined : firstSet} aria-label={copy ? undefined : "Applicant reviews"} aria-hidden={copy || undefined} inert={copy || undefined} data-review-set={copy ? "duplicate" : "original"} className={copy ? "testimonial-set testimonial-copy" : "testimonial-set"}>
                 {APPROVED_TESTIMONIALS.map(review => (
-                  <li key={review.id} data-review-id={review.id} className="testimonial-card flex flex-col rounded-2xl border bg-surface p-6 sm:p-7">
+                  <li key={review.id} data-review-id={review.id} className="testimonial-card flex flex-col rounded-2xl border border-t-2 border-t-sage bg-surface p-6 sm:p-7">
                     <Quote className="h-6 w-6 text-primary/45" aria-hidden="true" />
                     <blockquote className="mt-5 flex-1 text-base leading-relaxed text-foreground">“{review.quote}”</blockquote>
                     <div className="mt-7 border-t pt-5">

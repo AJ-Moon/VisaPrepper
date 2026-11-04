@@ -12,8 +12,8 @@ import { SITE_NAME, SITE_URL } from "@/lib/config/site";
 import { PRACTICE_LANGUAGE_ALTERNATES, PRACTICE_MARKETS } from "@/lib/content/practice-markets";
 
 const pageMetadata = buildPageMetadata({
-  title: "AI Video Visa Interview Practice Online",
-  description: "Practice a full AI visa video interview based on your own form. Get document checks, follow-up questions and answer feedback in English, Urdu or Hindi.",
+  title: "AI Visa Mock Interview & Simulator",
+  description: "Practice a visa mock interview around your application. Get follow-up questions and answer feedback; start with one free document check.",
   path: "/visa-interview-practice",
 });
 export const metadata = {
@@ -36,15 +36,15 @@ export default function VisaInterviewPracticePage() {
       name: `${SITE_NAME} AI video visa interview practice`,
       serviceType: "Online visa interview preparation",
       url: `${SITE_URL}/visa-interview-practice`,
-      description: "Application-based AI video interviews, document consistency checks and personalised practice feedback in English, Urdu and Hindi.",
+      description: "Application-based AI video interview practice for Pakistan and India. U.S. interviews support English, Urdu and Hindi; international interviews are in English.",
       provider: { "@id": `${SITE_URL}/#organization` },
       areaServed: [{ "@type": "Country", name: "India" }, { "@type": "Country", name: "Pakistan" }],
     }} />
     <Container className="pt-8"><Breadcrumbs entries={[{ name: "Home", path: "/" }, { name: "Visa interview practice", path: "/visa-interview-practice" }]} /></Container>
     <Container className="py-12 sm:py-16">
       <SectionHeading titleAs="h1" eyebrow="VisaPrepper" title="AI video visa interview practice, built around your application." description="A real interview is about your plans. Practice explaining them on camera, answer follow-up questions and leave knowing what to work on." />
-      <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">If you are looking for an online visa mock interview, VisaPrepper offers a complete video conversation using your camera and microphone. Your own form and personal details guide the questions. You get feedback on your answers, confidence and consistency after each paid interview.</p>
-      <div className="mt-7 flex flex-wrap gap-4"><CtaButton intent="free" label="Check My Documents Free" size="lg" /><Link href="/pricing" className="self-center font-semibold text-primary underline underline-offset-4">See the interview package</Link></div>
+      <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">If you are looking for an online visa mock interview or visa interview simulator, VisaPrepper offers a complete video conversation using your camera and microphone. Your own form and personal details guide the questions. You get feedback on your answer clarity and consistency after each paid interview.</p>
+      <div className="mt-7 flex flex-wrap gap-4"><CtaButton intent="free" label="Check my documents free" size="lg" /><Link href="/pricing" className="self-center font-semibold text-primary underline underline-offset-4">See the interview package</Link></div>
       <p className="mt-4 text-sm text-muted-foreground">One free document check. Complete AI video interviews are included in the paid package.</p>
     </Container>
 
@@ -54,8 +54,8 @@ export default function VisaInterviewPracticePage() {
     </Container></section>
 
     <Container className="grid gap-10 py-12 sm:py-16 lg:grid-cols-2">
-      <div><h2 className="font-display text-3xl font-semibold">More than a list of visa interview questions</h2><p className="mt-5 leading-relaxed text-muted-foreground">A question list helps you understand the topics. AI video practice lets you try your actual answers out loud, respond to follow-ups and notice details that are unclear. Start with your document checklist and verification check, then use your interview report to prepare for the next attempt.</p><p className="mt-4 leading-relaxed text-muted-foreground">The one-time $44 package includes six complete AI video interviews, ten document verification checks and 90 days to use them. Free access includes one document check, a personalised checklist, guides and a sample report. A document check can flag missing or inconsistent details; it does not certify a document or submit a visa application.</p><Link href="/how-it-works" className="mt-5 inline-block font-semibold text-primary underline underline-offset-4">See how a practice interview works</Link></div>
-      <div><h2 className="font-display text-3xl font-semibold">Choose the preparation that fits your case</h2><p className="mt-5 leading-relaxed text-muted-foreground">Practice for student, visitor, work or family routes to the United States, United Kingdom, France, Italy, Germany and Schengen destinations. Interview requirements depend on your own route and appointment. Follow the visa authority&apos;s instructions for the real process.</p><p className="mt-4 leading-relaxed text-muted-foreground">English, Urdu and Hindi practice is available. Current app support covers applicants in India and Pakistan; Bengali and Bangladesh support are coming soon. International readers can use the free English guides and compare preparation methods before choosing a service.</p><Link href="/visa-types" className="mt-5 inline-block font-semibold text-primary underline underline-offset-4">Explore supported visa routes</Link></div>
+      <div><h2 className="font-display text-3xl font-semibold">More than a list of visa interview questions</h2><p className="mt-5 leading-relaxed text-muted-foreground">A question list helps you understand the topics. AI video practice lets you try your actual answers out loud, respond to follow-ups and notice details that are unclear. Start with your document checklist and document review, then use your interview report to prepare for the next attempt.</p><p className="mt-4 leading-relaxed text-muted-foreground">The one-time $44 package includes six complete AI video interviews, ten document checks and 90 days to use them. Free access includes one document check, a personalised checklist, guides and a sample report. A document check can flag missing or inconsistent details; it does not certify a document or submit a visa application.</p><Link href="/how-it-works" className="mt-5 inline-block font-semibold text-primary underline underline-offset-4">See how a practice interview works</Link></div>
+      <div><h2 className="font-display text-3xl font-semibold">Choose the preparation that fits your case</h2><p className="mt-5 leading-relaxed text-muted-foreground">Practice for student, visitor, work or family routes to the United States, United Kingdom, France, Italy, Germany and Schengen destinations. Interview requirements depend on your own route and appointment. Follow the visa authority&apos;s instructions for the real process.</p><p className="mt-4 leading-relaxed text-muted-foreground">U.S. interview practice supports English, Urdu and Hindi. Supported international interviews are in English, with preparation questions in English and Urdu. Current app support covers applicants from India and Pakistan; Bengali and Bangladesh support are coming soon. International readers can use the free English guides and compare preparation methods before choosing a service.</p><Link href="/visa-types" className="mt-5 inline-block font-semibold text-primary underline underline-offset-4">Explore supported visa routes</Link></div>
     </Container>
 
     <section className="bg-sage-soft"><Container className="py-12 sm:py-16">

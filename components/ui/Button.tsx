@@ -57,7 +57,7 @@ export function LinkButton({
   }
 
   return (
-    <Link href={href} className={classes}>
+    <Link href={href} className={classes} data-intent={dataIntent}>
       {children}
     </Link>
   );

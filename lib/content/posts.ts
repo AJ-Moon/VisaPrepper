@@ -8,6 +8,7 @@ const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 
 const frontmatterSchema = z.object({
   title: z.string(),
+  seoTitle: z.string().optional(),
   slug: z.string(),
   description: z.string(),
   publishDate: z.string(),

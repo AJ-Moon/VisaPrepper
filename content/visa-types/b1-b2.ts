@@ -4,9 +4,8 @@ export const b1b2: VisaTypeContent = {
   slug: "b1-b2",
   code: "B1/B2",
   name: "Tourist & Business Visa",
-  metaTitle: "B1/B2 Visa Interview Practice — Tourist & Business Visa Practice Interviews",
-  metaDescription:
-    "Practice your B1/B2 tourist or business visa interview with practice interviews built around your trip purpose, finances, and ties to home — with adaptive follow-ups and detailed feedback.",
+  metaTitle: "B1/B2 Visa Mock Interview Practice",
+  metaDescription: "Practice explaining your visitor or business trip, itinerary and funding. Prepare for follow-ups around your B1/B2 application from Pakistan or India.",
   h1: "Practice your B1/B2 tourist or business visa interview around your own trip",
   intro:
     "B1/B2 interviews are short, and officers focus on why you're traveling, whether you can afford the trip, and whether you're likely to return home. Visa Prepper builds your practice interview around your actual trip — your purpose, your itinerary, and your circumstances.",
@@ -51,6 +50,7 @@ export const b1b2: VisaTypeContent = {
         "Your role, your company, and the purpose of the specific meetings or events for business travel.",
     },
   ],
+  guideLinks: [{"label": "B1/B2 visitor and business interview questions", "href": "/blog/b1-b2-visa-interview-questions"}, {"label": "Review your DS-160 details", "href": "/blog/ds-160-interview-consistency"}],
   faqs: [
     {
       question: "Does Visa Prepper guarantee my B1/B2 visa will be approved?",

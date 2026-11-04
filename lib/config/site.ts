@@ -1,8 +1,6 @@
 export const SITE_URL = "https://visaprepper.com";
 export const SITE_NAME = "VisaPrepper";
 export const SITE_ALTERNATE_NAMES = ["Visa Prepper", "visaprepper.com"];
-// Date of the last substantive marketing content update, not the build time.
-export const SITE_CONTENT_UPDATED = "2026-10-19";
 
 // The external Visa Prepper application (mock interview product itself).
 // Every "Start Practicing" / "Log In" CTA on the marketing site should read
@@ -30,6 +28,7 @@ export const PRIMARY_NAV: NavLink[] = [
 
 export const FOOTER_PRODUCT_LINKS: NavLink[] = [
   { label: "AI Visa Interview Practice", href: "/visa-interview-practice" },
+  { label: "Document Checks", href: "/document-checks" },
   { label: "Practice in India", href: "/visa-interview-practice/india" },
   { label: "Practice in Pakistan", href: "/visa-interview-practice/pakistan" },
   { label: "Partners", href: "/partners" },
@@ -80,3 +79,10 @@ export const VISA_TYPES: VisaTypeSummary[] = [
   { slug: "j1", code: "J1", name: "Exchange Visitor Visa", shortLabel: "Exchange Visitors" },
   { slug: "family-immigrant", code: "Family / Immigrant", name: "Family-Based Immigrant Visa", shortLabel: "Family-Based Applicants" },
 ];
+
+// Owner-supplied click-to-chat link; registration has not been independently verified.
+export const WHATSAPP_URL = "https://wa.me/17325188581";
+export const WHATSAPP_NUMBER = "+1 732 518 8581";
+export const CONTACT_PHONE_URL = "tel:+17325188581";
+// Public host currently returns 404 for /documents and /signup. Use the verified root entry.
+export const DOCUMENT_APP_URL = EXTERNAL_APP_URL;

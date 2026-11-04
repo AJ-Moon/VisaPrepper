@@ -42,6 +42,10 @@ test("application offers retain the current price and applicant availability", (
     ]);
     assert.ok(offer.url.startsWith(`${SITE_URL}/`));
   }
+  assert.equal(application.offers.find(offer => offer.price === 44)?.availability, "https://schema.org/OutOfStock");
+  assert.match(application.description, /U.S. interview practice supports English, Urdu and Hindi/);
+  assert.match(application.description, /interviews are in English/);
+  assert.doesNotMatch(application.description, /confidence scores/);
 });
 
 test("brand entities do not advertise unsupported review ratings", () => {

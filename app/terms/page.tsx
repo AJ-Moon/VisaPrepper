@@ -19,7 +19,7 @@ export default function TermsPage() {
       </Container>
       <Container className="py-10 sm:py-14">
         <h1 className="font-display text-3xl font-semibold text-foreground sm:text-4xl">Terms of Service</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Last updated: September 30, 2026</p>
+        <p className="mt-2 text-sm text-muted-foreground">Last updated: November 1, 2026</p>
 
         <div className="prose-vp mt-8 max-w-3xl">
           <p>
@@ -49,9 +49,11 @@ export default function TermsPage() {
           </p>
 
           <h2>New purchases and free access</h2>
-          <p>The new package costs $44 USD once. It includes six complete AI video interviews and ten document verification checks, including revised documents. The allowance is valid for 90 days from purchase. Six means six interviews total. There is no monthly subscription.</p>
-          <p>Free access includes one document verification check once, a personalised document checklist, preparation guides and a sample report. It does not include an AI video interview. You can buy the paid package again for more practice. Earlier purchases keep their original credits and terms. A new purchase must not remove valid remaining credits or reports.</p>
+          <p>The new package costs $44 USD once. It includes six complete AI video interviews and ten document checks, including revised documents. The allowance is valid for 90 days from purchase. Six means six interviews total. There is no monthly subscription.</p>
+          <p>Free access includes one document check once, a personalised document checklist, preparation guides and a sample report. It does not include an AI video interview. You can buy the paid package again for more practice. Earlier purchases keep their original credits and terms. A new purchase must not remove valid remaining credits or reports.</p>
           <p>Check the final currency and total before paying, and read our <Link href="/refund-policy">Refund Policy</Link>.</p>
+          <p>Checkout is not available yet. Package details describe the configured offer and do not activate purchasing. One document Check reviews a selected bundle, rather than charging separately for every PDF. A revised bundle requires another Check; reopening an existing report does not consume another allowance. Processing reserves a credit and consumes it when a report is durably saved. Terminal failures before that point release the reservation; a paused Check should be resumed from history.</p>
+          <p>The package’s 90-day validity is separate from document retention. Reusable Application Check files have their own access expiry from upload, and deletion can remove report evidence sooner. Accepted profile values remain editable. See our <Link href="/privacy">Privacy Policy</Link> for file, extraction and interview-record deletion behavior. Document review does not authenticate documents or decide eligibility.</p>
           <h2>Refunds</h2>
           <p>Refunds apply to verified service or billing failures, as described in our <Link href="/refund-policy">Refund Policy</Link>. We do not offer refunds simply because you change your mind or do not like the product when it works as described. Where possible, we correct a genuine failure or restore the affected service or credits. If the failure cannot be resolved within a reasonable time, a full or partial refund applies according to the part of your purchase affected. This does not limit rights that cannot be excluded under applicable law.</p>
           <h2>Your account and responsibilities</h2>
@@ -79,7 +81,7 @@ export default function TermsPage() {
             The Service, including its design, software, and content, is
             owned by {SITE_NAME} or its licensors and is protected by
             applicable intellectual property laws. You retain ownership of
-            the information and recordings you provide, and grant us the
+            the information and interview records you provide, and grant us the
             right to process them to operate the Service as described in our{" "}
             <a href="/privacy">Privacy Policy</a>.
           </p>

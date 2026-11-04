@@ -29,7 +29,7 @@ export async function generateMetadata({
   if (!post) return {};
 
   const metadata = buildPageMetadata({
-    title: post.title,
+    title: post.seoTitle ?? post.title,
     description: post.description,
     path: `/blog/${post.slug}`,
   });
@@ -84,7 +84,7 @@ export default async function BlogPostPage({
         <div className="grid gap-10 lg:grid-cols-[1fr_260px]">
           <article>
             <BlogPostHeader post={post} />
-            {comingSoon && <p className="mt-6 rounded-xl border border-border bg-sage-soft p-4 text-sm leading-relaxed">This free guide is available to everyone. Visa Prepper currently supports applicants in Pakistan and India in English, Urdu and Hindi. Bengali and support for applicants in Bangladesh are coming soon.</p>}
+            {comingSoon && <p className="mt-6 rounded-xl border border-border bg-sage-soft p-4 text-sm leading-relaxed">This free guide is available to everyone. VisaPrepper supports applicants from Pakistan and India for supported categories. U.S. interviews support English, Urdu and Hindi; international interviews are in English. Bengali and Bangladesh support are coming soon.</p>}
 
             <div className="prose-vp mt-8">
               <MDXRemote
@@ -127,7 +127,7 @@ export default async function BlogPostPage({
 
       {!comingSoon && <CTASection
         title="Ready to practice your own answers?"
-        description="For applicants in Pakistan and India, in English, Urdu or Hindi. Start with a free document check, or choose a complete AI video interview package. Bangladesh support is coming soon."
+        description="For applicants from Pakistan and India on supported routes. Start with one free document check. U.S. interview practice supports English, Urdu and Hindi; international interviews are in English."
       />}
     </>
   );

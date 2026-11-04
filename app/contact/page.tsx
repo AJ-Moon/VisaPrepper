@@ -3,7 +3,8 @@ import { Mail } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { CONTACT_EMAIL } from "@/lib/config/site";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import { CONTACT_EMAIL, WHATSAPP_NUMBER } from "@/lib/config/site";
 import { SOCIAL_LINKS } from "@/lib/config/offering";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -41,6 +42,12 @@ export default function ContactPage() {
             address associated with your Visa Prepper account so we can help
             faster.
           </p>
+        </div>
+        <div data-help-clearance className="mx-auto mt-6 max-w-md rounded-2xl border bg-sage-soft p-6">
+          <h2 className="font-semibold">Help on WhatsApp</h2>
+          <p className="mt-2 text-lg font-semibold text-primary">{WHATSAPP_NUMBER}</p>
+          <div className="mt-3"><WhatsAppButton /></div>
+          <p className="mt-4 text-sm leading-relaxed">Do not send passports, bank statements or payment details through WhatsApp. Use the secure app for documents.</p>
         </div>
         <div className="mx-auto mt-8 max-w-md">
           <h2 className="font-semibold">Follow @visaprepper</h2>

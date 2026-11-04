@@ -12,4 +12,5 @@ export type VisaTypeContent = {
   informationUsed: string[];
   topics: { title: string; description: string }[];
   faqs: FaqEntry[];
+  guideLinks: { label: string; href: string }[];
 };
