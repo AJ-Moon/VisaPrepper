@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Pricing } from "@/components/marketing/Pricing";
 import { Testimonials } from "@/components/marketing/Testimonials";
 import { SurveyResult } from "@/components/marketing/SurveyResult";
-import { DestinationGrid } from "@/components/marketing/DestinationGrid";
+import { DestinationExplorer } from "@/components/marketing/DestinationExplorer";
 import { LanguageWelcome } from "@/components/marketing/LanguageWelcome";
 import { MobileApps } from "@/components/marketing/MobileApps";
 import { ProductDemoVideo } from "@/components/marketing/ProductDemoVideo";
@@ -94,7 +94,7 @@ export default function Home() {
 
   <Testimonials/><SurveyResult/>
   <section id="pricing" className="scroll-mt-24 border-y bg-gradient-to-b from-background to-sage-soft/55"><Container className="py-14 sm:py-20"><SectionHeading eyebrow="Start small" title="Check your documents free. Decide what comes next." description="Choose six AI video interviews for $44 when you want more practice. One payment, with 90 days to use your package."/><div className="mt-9 [&_article]:shadow-sm [&_article]:shadow-primary/10"><Pricing/></div></Container></section>
-  <section id="destinations" className="bg-surface-muted"><Container className="py-14"><SectionHeading eyebrow="More than student interviews" title="Prepare for the plans that matter to you." description="Students, visitors, workers, business travellers, dependants and family applicants. Choose a supported route for your own case."/><div className="mt-7"><DestinationGrid/></div><Link href="/visa-types" className="mt-6 inline-flex items-center gap-2 font-semibold underline">See visa types <ArrowRight className="h-4 w-4" aria-hidden="true"/></Link></Container></section>
+  <section id="destinations" className="scroll-mt-10 bg-surface-muted"><Container className="py-14"><SectionHeading eyebrow="More than student interviews" title="Prepare for the plans that matter to you." description="Students, visitors, workers, business travellers, dependants and family applicants. Choose a supported route for your own case."/><div className="mt-7"><DestinationExplorer/></div><Link href="/visa-types" className="mt-6 inline-flex items-center gap-2 font-semibold underline">See visa types <ArrowRight className="h-4 w-4" aria-hidden="true"/></Link></Container></section>
   <section id="languages"><Container className="py-14"><SectionHeading eyebrow="Closer to home" title="Practice in words you understand." description="U.S. interviews support English, Urdu and Hindi. Supported international interviews are in English. Bengali and Bangladesh support are coming soon."/><div className="mt-8"><LanguageWelcome/></div></Container></section>
   <MobileApps/>
   <section><Container className="py-14"><SectionHeading eyebrow="Free guides" title="Start with the question worrying you."/><div className="mt-7 grid gap-4 md:grid-cols-3">{[
