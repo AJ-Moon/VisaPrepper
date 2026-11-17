@@ -23,7 +23,7 @@ export default function LanguagesPage() {
       </div>
       <h2 className="mt-10 font-display text-2xl font-semibold">Explanations and website language</h2>
       <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">The report&apos;s Urdu explanation option is separate from the language you speak during practice. We do not promise a complete Hindi report translation or a fully translated app interface. This website is mainly in English, with short native-language introductions.</p>
-      <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">Applicants from Pakistan and India can use supported routes. Bengali and Bangladesh support are coming soon. For the real visa process, follow the language instructions on your official appointment notice; practice-language availability does not determine those arrangements.</p>
+      <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">VisaPrepper supports U.S. visa applicants worldwide, with AI interview practice and document checking for supported U.S. visa routes. International applicants can select “Other” as their applicant country in the app. UK and European routes retain their applicant-country eligibility rules; check the supported route for your country in the app. Bengali interviews are coming soon. For the real visa process, follow the language instructions on your official appointment notice; practice-language availability does not determine those arrangements.</p>
     </Container>
     <CTASection title="Take the first step in your preparation." description="Start with one free document check and relevant preparation resources. Choose your route in the app." />
   </>;

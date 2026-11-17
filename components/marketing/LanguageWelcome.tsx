@@ -14,14 +14,21 @@ const MESSAGES: Record<string, { text: string; status: string }> = {
 export function LanguageWelcome() {
   return (
     <>
-      <ul className="mb-8 flex flex-wrap gap-3">
-        {APPLICANT_COUNTRIES.map((country) => <li key={country.name} className="rounded-full border border-border bg-surface px-4 py-2 text-sm"><span aria-hidden="true">{country.flag} </span>{country.status === "live" ? <Link href={`/visa-interview-practice/${country.name.toLowerCase()}`} className="font-semibold underline underline-offset-4">{country.name}</Link> : <span className="font-semibold">{country.name}</span>}<span className="text-muted-foreground"> · {country.status === "live" ? "Available now" : "Coming soon"}</span></li>)}
-      </ul>
+      <div className="mb-6 rounded-2xl border border-border bg-sage-soft p-5 sm:p-6">
+        <p className="text-sm font-semibold text-primary"><span aria-hidden="true">🌍 </span>U.S. visa preparation · Worldwide</p>
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed">If your applicant country is not listed, select <strong>“Other”</strong> in the app for supported U.S. visa routes.</p>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">UK and European routes have country-specific eligibility.</p>
+        <nav aria-label="Country preparation guides" className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+          <span className="text-muted-foreground">Local guides:</span>
+          {APPLICANT_COUNTRIES.filter((country) => country.name !== "Worldwide").map((country) => <Link key={country.name} href={country.href} className="font-medium text-primary underline underline-offset-4">{country.name}</Link>)}
+        </nav>
+      </div>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {LOCALES.map((locale) => {
           const script = NATIVE_SCRIPT_BY_LOCALE[locale.code];
           return <div key={locale.code} className="rounded-2xl border border-border bg-surface p-5">
             <LanguageChip locale={locale} size="sm" />
+            {locale.status === "live" && <p className="mt-3 text-sm font-semibold text-primary">{locale.code === "en" ? "U.S. and international interviews" : "U.S. interviews"}</p>}
             <p lang={locale.code} dir={script?.dir} className={`mt-5 text-lg leading-loose ${script?.className ?? ""}`}>{MESSAGES[locale.code].text}</p>
             {locale.code !== "en" && <p lang={locale.code} dir={script?.dir} className={`mt-3 text-sm text-muted-foreground ${script?.className ?? ""}`}>{MESSAGES[locale.code].status}</p>}
           </div>;

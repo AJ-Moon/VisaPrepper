@@ -1,7 +1,7 @@
 import type { PublicPlan } from "@/lib/config/live-offering";
 import { CONTACT_EMAIL, SITE_ALTERNATE_NAMES, SITE_NAME, SITE_URL } from "@/lib/config/site";
 import { PLANS, SOCIAL_LINKS } from "@/lib/config/offering";
-import { INTERVIEW_LANGUAGE_SCOPE } from "@/lib/config/product-scope";
+import { APPLICANT_SCOPE, INTERVIEW_LANGUAGE_SCOPE } from "@/lib/config/product-scope";
 
 export function JsonLd({ data }: { data: Record<string, unknown> }) {
   return (
@@ -24,7 +24,7 @@ export function buildOrganizationJsonLd() {
     sameAs: SOCIAL_LINKS.map((link) => link.href),
     email: CONTACT_EMAIL,
     description:
-      `VisaPrepper is an independent interview preparation and document-check service for applicants from Pakistan and India. ${INTERVIEW_LANGUAGE_SCOPE}`,
+      `VisaPrepper offers independent visa interview preparation and document checks, with free educational guides for readers worldwide. ${APPLICANT_SCOPE} ${INTERVIEW_LANGUAGE_SCOPE}`,
   };
 }
 
@@ -53,23 +53,20 @@ export function buildSoftwareApplicationJsonLd(plans:PublicPlan[] = [...PLANS]) 
     applicationCategory: "EducationalApplication",
     operatingSystem: "Web",
     description:
-      `Application-based AI visa interview practice and document consistency checks for supported categories. ${INTERVIEW_LANGUAGE_SCOPE}`,
+      `Application-based AI visa interview practice and document consistency checks for supported categories. ${APPLICANT_SCOPE} ${INTERVIEW_LANGUAGE_SCOPE}`,
     url: SITE_URL,
     inLanguage: ["en", "ur", "hi"],
     offers: plans.map((plan) => ({
       "@type": "Offer",
       name: plan.name,
-      description: plan.price === 0
-        ? "One free document check and preparation tips. No interviews."
-        : `${plan.interviews} complete AI video interviews, ${plan.checks} document verification checks, personalised practice tips, and results after each interview. 90 days from purchase. One-time payment.`,
+      description: `${plan.price === 0
+        ? "One free document check and preparation tips for eligible users. No interviews."
+        : `${plan.interviews} complete AI video interviews, ${plan.checks} document checks, personalised practice tips, and results after each interview. 90 days from purchase. One-time payment.`} ${APPLICANT_SCOPE}`,
       price: plan.price,
       priceCurrency: "USD",
-      ...(plan.price > 0 ? { availability: "https://schema.org/OutOfStock" } : {}),
+      ...(plan.price > 0 ? { availability: "https://schema.org/InStock" } : {}),
       url: `${SITE_URL}/#pricing`,
-      eligibleRegion: [
-        { "@type": "Country", name: "Pakistan" },
-        { "@type": "Country", name: "India" },
-      ],
+      eligibleRegion: { "@type": "Place", name: "Worldwide" },
     })),
   };
 }

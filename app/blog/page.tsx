@@ -8,18 +8,18 @@ import { getAllPosts } from "@/lib/content/posts";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Visa Interview Guides for Pakistan, India & Bangladesh",
+  title: "U.S. Visa Interview Preparation Guides & Practice Plans",
   description:
-    "Free U.S. visa interview questions and preparation tips for Pakistan, India and Bangladesh. Find student, visitor, work visa, DS-160 and document guides.",
+    "Free U.S. visa interview guides, mock interview exercises and document checklists. Prepare for student, visitor and work interviews using your own facts.",
   path: "/blog",
 });
 
 export default function BlogIndexPage() {
   const posts = getAllPosts();
   const countries = [
-    { market: "pakistan", name: "Pakistan", localName: "پاکستان", lang: "ur", description: "Family visits, student funding, and practice in English or Urdu.", status: "Interview practice available" },
-    { market: "india", name: "India", localName: "भारत", lang: "hi", description: "Education loans, H1B work details, and visiting family.", status: "India support & Hindi available now" },
-    { market: "bangladesh", name: "Bangladesh", localName: "বাংলাদেশ", lang: "bn", description: "Student funding, family support, and planning for your appointment.", status: "Bangladesh support & Bengali coming soon" },
+    { market: "pakistan", name: "Pakistan", localName: "پاکستان", lang: "ur", description: "Family visits, student funding, and practice in English or Urdu.", status: "App access available" },
+    { market: "india", name: "India", localName: "भारत", lang: "hi", description: "Education loans, H1B work details, and visiting family.", status: "App access available · Hindi for U.S. interviews" },
+    { market: "bangladesh", name: "Bangladesh", localName: "বাংলাদেশ", lang: "bn", description: "Student funding, family support, and planning for your appointment.", status: "U.S. app access via Other · Bengali coming soon" },
   ];
 
   return (
@@ -32,11 +32,11 @@ export default function BlogIndexPage() {
         <SectionHeading
           titleAs="h1"
           eyebrow="Free preparation tips"
-          title="Visa interview guides for Pakistan, India and Bangladesh"
-          description="Questions to practice. Documents to understand. Simple steps for your next interview. Start with your country, then choose the guide that fits your plans."
+          title="Prepare your U.S. visa answers, one step at a time."
+          description="Free guidance for readers worldwide: understand your documents, practice specific answers and prepare for follow-up questions. Choose a topic or explore a country guide."
         />
         <section className="mt-10" aria-labelledby="country-guides">
-          <h2 id="country-guides" className="font-display text-2xl font-semibold">Start with your country</h2>
+          <h2 id="country-guides" className="font-display text-2xl font-semibold">Country-specific guidance</h2>
           <p className="mt-3 text-muted-foreground">Looking for an interview practice app? Explore <Link href="/visa-interview-practice" className="text-primary underline">AI video interview practice</Link>, or see preparation for <Link href="/visa-interview-practice/india" className="text-primary underline">India</Link> and <Link href="/visa-interview-practice/pakistan" className="text-primary underline">Pakistan</Link>.</p>
           <div className="mt-5 grid gap-5 md:grid-cols-3">
             {countries.map((country) => {

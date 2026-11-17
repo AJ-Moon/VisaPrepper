@@ -18,8 +18,8 @@ import { FAQAccordion } from "@/components/faq/FAQAccordion";
 import { HOMEPAGE_FAQ } from "@/lib/content/faq";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { JsonLd, buildSoftwareApplicationJsonLd, buildWebsiteJsonLd } from "@/lib/seo/json-ld";
-const title = "VisaPrepper | AI Video Visa Interview Practice";
-export const metadata = {...buildPageMetadata({title,description:"AI video visa interview practice and document checks for applicants from Pakistan and India. U.S. interviews: English, Urdu or Hindi; international: English.",path:"/"}),title:{absolute:title}};
+const title = "VisaPrepper | U.S. Visa Interview Practice & Document Checks";
+export const metadata = {...buildPageMetadata({title,description:"Prepare for U.S. visa interviews worldwide with AI video practice, document checks and personal feedback for supported U.S. routes.",path:"/"}),title:{absolute:title}};
 const problems = [
  ["Scared you will go blank?","Practice answering out loud. Get used to explaining your plans."],
  ["Not sure what to say?","Work on clear answers about your trip, studies, job, money or family."],
@@ -49,16 +49,16 @@ export default function Home() {
    <Container className="relative grid items-center gap-12 py-14 sm:py-20 lg:min-h-[680px] lg:grid-cols-[0.88fr_1.12fr] lg:gap-16">
     <div>
      <p className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-primary"><span className="h-0.5 w-9 shrink-0 bg-primary" aria-hidden="true"/>VisaPrepper · AI video visa interview practice</p>
-     <h1 className="mt-6 max-w-2xl font-sans text-5xl font-semibold leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
-      <span className="block">Prepare for your</span>
-      <span className="mt-2 block text-primary">visa interview.</span>
+     <h1 className="mt-6 max-w-2xl font-sans text-4xl font-semibold leading-[1.06] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+      <span className="block">Your U.S. visa interview</span>
+      <span className="mt-2 block text-primary">starts with better preparation.</span>
      </h1>
-     <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">Start with a free document review. Spot conflicting answers and figures that need explaining, then prepare for the follow-up questions about your plans and funding.</p>
-     <p className="mt-4 text-lg font-semibold text-primary">Make your next answer clearer.</p>
+     <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">Practice realistic AI video interviews, review application documents, and get personalized feedback before interview day.</p>
+     <p className="mt-4 text-lg font-semibold text-primary">AI-powered visa interview practice &amp; document checking in one platform.</p>
+     <p className="mt-3 text-sm text-muted-foreground">U.S. visa preparation for applicants worldwide. International applicants can select “Other” in the app. UK and European routes have country-specific eligibility.</p>
      <div className="mt-7 flex flex-wrap gap-3"><CtaButton intent="free" label="Check my documents free" size="lg"/><CtaButton label="Explore interview practice" size="lg" className="border bg-surface text-primary hover:bg-sage-soft"/></div>
-     <p className="mt-5 text-sm font-medium">Your first document Check costs $0. Optional profile details can wait; required route facts still apply.</p>
+     <p className="mt-5 text-sm font-medium">One free document check for eligible users. The $44 USD one-time package includes 6 interviews and 10 document checks, valid for 90 days.</p>
      <Link href="/#sample-report" className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary underline underline-offset-4">Explore sample document report <ArrowRight className="h-4 w-4" aria-hidden="true"/></Link>
-     <p className="mt-3 text-sm text-muted-foreground">Review route and language availability in the app. Interview purchasing is not available yet.</p>
     </div>
     <HeroFixVisual />
    </Container>
@@ -74,8 +74,8 @@ export default function Home() {
   <DocumentSamples showcase />
   <InterviewSamples />
   <section id="features" className="scroll-mt-24 bg-surface"><Container className="py-14 sm:py-20">
-   <SectionHeading eyebrow="Everything in one place" title="Prepare your documents, your answers and your confidence." description="VisaPrepper, also written Visa Prepper, brings document checks and a full AI video interview into one place."/>
-   <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{features.map(([heading,text])=><article key={heading} className="home-enter lift-card rounded-2xl border bg-background p-6"><Check className="h-5 w-5 text-primary" aria-hidden="true"/><h2 className="mt-4 text-xl font-semibold">{heading}</h2><p className="mt-3 leading-relaxed text-muted-foreground">{text}</p></article>)}</div>
+   <SectionHeading eyebrow="Everything in one place" title="Connect your documents to the answers you practice." description="VisaPrepper, also written Visa Prepper, brings document checks and a full AI video interview into one place."/>
+   <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{features.map(([heading,text])=><article key={heading} className="home-enter lift-card rounded-2xl border bg-background p-6"><Check className="h-5 w-5 text-primary" aria-hidden="true"/><h3 className="mt-4 text-xl font-semibold">{heading}</h3><p className="mt-3 leading-relaxed text-muted-foreground">{text}</p></article>)}</div>
    <Link href="/visa-interview-practice" className="mt-6 inline-flex items-center gap-2 font-semibold text-primary underline underline-offset-4">Explore AI visa interview practice <ArrowRight className="h-4 w-4" aria-hidden="true"/></Link>
   </Container></section>
   <section id="how-it-helps" className="scroll-mt-24 border-y bg-sage-soft"><Container className="py-14 sm:py-20">
@@ -95,15 +95,15 @@ export default function Home() {
   <Testimonials/><SurveyResult/>
   <section id="pricing" className="scroll-mt-24 border-y bg-gradient-to-b from-background to-sage-soft/55"><Container className="py-14 sm:py-20"><SectionHeading eyebrow="Start small" title="Check your documents free. Decide what comes next." description="Choose six AI video interviews for $44 when you want more practice. One payment, with 90 days to use your package."/><div className="mt-9 [&_article]:shadow-sm [&_article]:shadow-primary/10"><Pricing/></div></Container></section>
   <section id="destinations" className="scroll-mt-10 bg-surface-muted"><Container className="py-14"><SectionHeading eyebrow="More than student interviews" title="Prepare for the plans that matter to you." description="Students, visitors, workers, business travellers, dependants and family applicants. Choose a supported route for your own case."/><div className="mt-7"><DestinationExplorer/></div><Link href="/visa-types" className="mt-6 inline-flex items-center gap-2 font-semibold underline">See visa types <ArrowRight className="h-4 w-4" aria-hidden="true"/></Link></Container></section>
-  <section id="languages"><Container className="py-14"><SectionHeading eyebrow="Closer to home" title="Practice in words you understand." description="U.S. interviews support English, Urdu and Hindi. Supported international interviews are in English. Bengali and Bangladesh support are coming soon."/><div className="mt-8"><LanguageWelcome/></div></Container></section>
+  <section id="languages"><Container className="py-14"><SectionHeading eyebrow="Language and app access" title="Choose your interview language." description="English for every supported interview route. Urdu and Hindi are additional options for U.S. interviews."/><div className="mt-8"><LanguageWelcome/></div></Container></section>
   <MobileApps/>
   <section><Container className="py-14"><SectionHeading eyebrow="Free guides" title="Start with the question worrying you."/><div className="mt-7 grid gap-4 md:grid-cols-3">{[
-   ["visa-interview-nervous-forget-answer","What if I go blank?"],
-   ["f1-visa-interview-who-will-pay","How do I explain who will pay?"],
-   ["visa-interview-follow-up-questions","What if there is a follow-up question?"]
-  ].map(([slug,label])=><Link href={`/blog/${slug}`} key={slug} className="rounded-2xl border bg-surface p-6 font-semibold hover:border-primary">{label} →</Link>)}</div><Link href="/blog" className="mt-6 inline-block underline">All free guides for Pakistan, India and Bangladesh</Link></Container></section>
+   ["f1-visa-mock-interview-online-7-day-plan","F-1: a 7-day practice plan"],
+   ["us-visa-interview-preparation-any-country","What changes by embassy?"],
+   ["b1-b2-visa-mock-interview-scenarios","B1/B2: practice realistic follow-ups"]
+  ].map(([slug,label])=><Link href={`/blog/${slug}`} key={slug} className="rounded-2xl border bg-surface p-6 font-semibold hover:border-primary">{label} →</Link>)}</div><Link href="/blog" className="mt-6 inline-block underline">Explore all free visa preparation guides</Link></Container></section>
   <section className="bg-sage-soft"><Container className="py-14"><h2 className="max-w-3xl font-display text-3xl font-semibold">Help your applicants prepare. Earn when they join Visa Prepper.</h2><p className="mt-4 max-w-2xl text-lg">Do you help visa applicants or create visa content? Apply to become a partner. Earn commission on eligible paid referrals.</p><div className="mt-6"><LinkButton href="/partners/apply">Apply to Become a Partner</LinkButton></div></Container></section>
   <section id="faq" className="scroll-mt-24"><Container className="grid gap-8 py-16 lg:grid-cols-[1fr_1.5fr]"><SectionHeading eyebrow="Before you begin" title="A few things to know."/><FAQAccordion items={HOMEPAGE_FAQ}/></Container></section>
-  <section className="home-forest text-primary-foreground"><Container className="py-16 text-center sm:py-24"><h2 className="mx-auto max-w-3xl font-display text-3xl font-semibold sm:text-4xl">Take one free step toward feeling prepared.</h2><p className="mx-auto mt-5 max-w-2xl text-lg">Check your documents today. Choose interview practice when you are ready. You do not need perfect answers to begin.</p><div className="mt-7 flex flex-wrap justify-center gap-3"><CtaButton intent="free" label="Check my documents free" size="lg" className="bg-primary-foreground text-primary hover:bg-white"/><LinkButton href="/#sample-report" variant="outline" size="lg" className="border-primary-foreground/40 text-primary-foreground hover:bg-white/10">Explore sample document report</LinkButton></div><p className="mt-5 text-sm">One free document check. Paid video interviews are optional. The visa authority makes the final decision.</p></Container></section>
+  <section className="home-forest text-primary-foreground"><Container className="py-16 text-center sm:py-24"><h2 className="mx-auto max-w-3xl font-display text-3xl font-semibold sm:text-4xl">Take one free step toward feeling prepared.</h2><p className="mx-auto mt-5 max-w-2xl text-lg">Check your documents today. Choose interview practice when you are ready. You do not need perfect answers to begin.</p><div className="mt-7 flex flex-wrap justify-center gap-3"><CtaButton intent="free" label="Check my documents free" size="lg" className="bg-primary-foreground text-primary hover:bg-white"/><LinkButton href="/#sample-report" variant="outline" size="lg" className="border-primary-foreground/40 text-primary-foreground hover:bg-white/10">Explore sample document report</LinkButton></div><p className="mt-5 text-sm">One free document check for eligible users, including international applicants on supported U.S. routes. The visa authority makes the final decision.</p></Container></section>
  </>;
 }

@@ -5,7 +5,7 @@ const sitemapResponse=await fetch(origin+"/sitemap.xml");
 assert.equal(sitemapResponse.status,200);
 const sitemap=await sitemapResponse.text();
 const routes=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>new URL(m[1]).pathname);
-assert.equal(routes.length,41);
+assert.equal(routes.length,44);
 assert.equal(new Set(routes).size,routes.length);
 assert.ok(!routes.includes("/start"));
 assert.ok(routes.includes("/blog/best-ai-visa-interview-tools"));
@@ -33,6 +33,9 @@ for(const path of routes){
  const text=html.replace(/<script\b[^>]*>.*?<\/script>/gs,"").replace(/<[^>]+>/g," ").replace(/\s+/g," ");
  assert.ok(!/\$(15|35)\b|Unlimited document checks|3 realistic interviews|5 practice interviews/.test(text),path+" no superseded offers");
  assert.ok(!/\bpractise\b|\bpractising\b|\bpractised\b/i.test(text),path+" uses practice spelling consistently");
+ assert.ok(!/App access: Pakistan and India|app(?:lication)? (?:access )?currently supports (?:applicants from )?Pakistan and India|Bangladesh support (?:is|are) coming soon|more applicant countries are planned/i.test(text),path+" no obsolete country gate in public copy");
+ assert.ok(!/purchas(?:ing|es) (?:is|are) (?:currently )?unavailable|(?:checkout|interview purchasing) is not available yet/i.test(text),path+" no obsolete purchasing notice");
+ for(const img of html.matchAll(/<img\b[^>]*>/g))assert.ok(/\balt="[^"]*"/.test(img[0]),path+" image alt attribute");
  for(const tag of html.matchAll(/<a\b[^>]*data-intent="(?:paid|free)"[^>]*>/g)){
   const href=tag[0].match(/href="([^"]+)"/)?.[1];
   assert.equal(href,"https://app.visaprepper.com",path+" conversion continues to the verified app authentication entry");
@@ -53,7 +56,7 @@ for(const[path,html]of pages){
 }
 for(const path of links)assert.equal((await fetch(origin+path)).status,200,"link "+path);
 const home=pages.get("/");
-assert.match(home,/<title>VisaPrepper \| AI Video Visa Interview Practice<\/title>/,"brand-first homepage title");
+assert.match(home,/<title>VisaPrepper \| U.S. Visa Interview Practice &amp; Document Checks<\/title>/,"brand-first homepage title");
 assert.ok(!home.includes("Example scenario — not a customer review"));
 assert.equal([...home.matchAll(/data-review-id="review-\d+"/g)].length,60); // 30 + aria-hidden seamless copy
 assert.match(home,/data-review-set="original"/);
@@ -70,7 +73,17 @@ for(const path of practiceRoutes){
 }
 assert.deepEqual(product.offers.map(p=>p.price),[0,44]);
 assert.deepEqual(product.inLanguage,["en","ur","hi"]);
-for(const phrase of ["Document review", "Explore sample document report", "US application", "UK documents", "Schengen documents", "Illustrative sample", "Self", "Family support", "WhatsApp help", "Chat with us on WhatsApp", "Purchasing is currently unavailable", "90 days from purchase"])assert.ok(home.includes(phrase),phrase);
+for(const phrase of ["Document review", "Explore sample document report", "US application", "UK documents", "Schengen documents", "Illustrative sample", "Self", "Family support", "WhatsApp help", "Chat with us on WhatsApp", "Payments processed by Stripe", "90 days from purchase"])assert.ok(home.includes(phrase),phrase);
+for(const offer of product.offers){assert.equal(offer.eligibleRegion.name,"Worldwide");assert.match(offer.description,/UK and European routes retain their applicant-country eligibility rules/);}
+assert.equal(product.offers.find(p=>p.price===44).availability,"https://schema.org/InStock");
+for(const phrase of ["U.S. visa preparation for applicants worldwide", "International applicants can select “Other”", "UK and European routes have country-specific eligibility"])assert.ok(home.includes(phrase),phrase);
+for(const slug of ["f1-visa-mock-interview-online-7-day-plan","us-visa-interview-preparation-any-country","b1-b2-visa-mock-interview-scenarios"]){
+ const path="/blog/"+slug;assert.ok(routes.includes(path),"new article in sitemap "+path);
+ assert.ok(home.includes(path),"new article linked from home "+path);
+ assert.ok(pages.get("/blog").includes(path),"new article linked from blog "+path);
+ const html=pages.get(path);assert.ok(html.includes("2026-11-17"),"accurate new article date "+path);
+ assert.ok(html.includes("https://travel.state.gov/"),"official article source "+path);
+}
 assert.match(home, /role="tablist"/);
 const videoTag=home.match(/<video[^>]*>/i)?.[0]||"";
 assert.ok(videoTag.includes('controls=""'));
@@ -92,7 +105,6 @@ assert.equal((await fetch(origin+"/does-not-exist")).status,404);
 assert.equal((await fetch(origin+"/visa-interview-practice/unsupported-country")).status,404);
 assert.match(await(await fetch(origin+"/robots.txt")).text(),/Sitemap: https:\/\/visaprepper.com\/sitemap.xml/);
 assert.equal((await fetch(origin+"/opengraph-image")).headers.get("content-type"),"image/png");
-assert.equal((await fetch(origin+"/api/checkout-entry",{redirect:"manual"})).status,503);
 assert.equal((await fetch(origin+"/api/partners")).status,405);
 // This handoff verification is GET-only: no partner/contact submissions, even locally.
-console.log(JSON.stringify({pages:routes.length,internalLinks:links.size,checks:"PASS: GET-only route/metadata/link crawl, intent handoffs, illustrative samples without evidence drawers, non-autoplay video, WhatsApp contact, unchanged testimonials, approved pricing, checkout fails closed. No forms submitted."},null,2));
+console.log(JSON.stringify({pages:routes.length,internalLinks:links.size,checks:"PASS: GET-only route/metadata/link crawl, app-entry handoffs, illustrative samples, non-autoplay video, WhatsApp contact, unchanged testimonials, live-offer messaging, three linked articles. No forms submitted or checkout sessions created; live payment processing was not tested."},null,2));

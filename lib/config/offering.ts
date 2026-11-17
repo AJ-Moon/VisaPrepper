@@ -1,17 +1,18 @@
 import { COMPLETE_OFFER, FREE_OFFER } from "./offer";
 
 export const DESTINATIONS = [
-  { name: "United States", flag: "🇺🇸", status: "live", detail: "Preparation topics · check route access in the app" },
-  { name: "France & Schengen", flag: "🇫🇷", status: "live", detail: "Preparation topics · check route access in the app" },
-  { name: "Italy & Schengen", flag: "🇮🇹", status: "live", detail: "Preparation topics · check route access in the app" },
-  { name: "United Kingdom", flag: "🇬🇧", status: "live", detail: "Preparation topics · check route access in the app" },
-  { name: "Germany & general Schengen", flag: "🇩🇪", status: "live", detail: "Preparation topics · check route access in the app" },
+  { name: "United States", flag: "🇺🇸", status: "live", detail: "Interview practice and document checks" },
+  { name: "France & Schengen", flag: "🇫🇷", status: "live", detail: "Interview practice and document checks" },
+  { name: "Italy & Schengen", flag: "🇮🇹", status: "live", detail: "Interview practice and document checks" },
+  { name: "United Kingdom", flag: "🇬🇧", status: "live", detail: "Interview practice and document checks" },
+  { name: "Germany & general Schengen", flag: "🇩🇪", status: "live", detail: "Interview practice and document checks" },
 ] as const;
 
 export const APPLICANT_COUNTRIES = [
-  { name: "Pakistan", flag: "🇵🇰", status: "live" },
-  { name: "India", flag: "🇮🇳", status: "live" },
-  { name: "Bangladesh", flag: "🇧🇩", status: "coming-soon" },
+  { name: "Worldwide", flag: "🌍", href: "/visa-interview-practice", detail: "Supported U.S. routes · select Other" },
+  { name: "Pakistan", flag: "🇵🇰", href: "/visa-interview-practice/pakistan", detail: "U.S. and eligible international routes" },
+  { name: "India", flag: "🇮🇳", href: "/visa-interview-practice/india", detail: "U.S. and eligible international routes" },
+  { name: "Bangladesh", flag: "🇧🇩", href: "/blog/us-visa-interview-questions-bangladesh", detail: "Supported U.S. routes · select Other" },
 ] as const;
 
 export const SOCIAL_LINKS = [

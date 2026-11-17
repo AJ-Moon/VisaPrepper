@@ -55,7 +55,7 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const related = getRelatedPosts(post.slug, post.tags);
-  const comingSoon = post.market === "bangladesh";
+  const bangladeshGuide = post.market === "bangladesh";
 
   return (
     <>
@@ -81,10 +81,10 @@ export default async function BlogPostPage({
       </Container>
 
       <Container className="py-8 sm:py-10">
-        <div className="grid gap-10 lg:grid-cols-[1fr_260px]">
-          <article>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
+          <article className="min-w-0">
             <BlogPostHeader post={post} />
-            {comingSoon && <p className="mt-6 rounded-xl border border-border bg-sage-soft p-4 text-sm leading-relaxed">This free guide is available to everyone. VisaPrepper supports applicants from Pakistan and India for supported categories. U.S. interviews support English, Urdu and Hindi; international interviews are in English. Bengali and Bangladesh support are coming soon.</p>}
+            {bangladeshGuide && <p className="mt-6 rounded-xl border border-border bg-sage-soft p-4 text-sm leading-relaxed">Applicants from Bangladesh can select “Other” for supported U.S. routes. U.S. interviews support English, Urdu and Hindi. Bengali interviews are coming soon; UK and European routes retain country-specific eligibility.</p>}
 
             <div className="prose-vp mt-8">
               <MDXRemote
@@ -125,10 +125,10 @@ export default async function BlogPostPage({
         )}
       </Container>
 
-      {!comingSoon && <CTASection
+      <CTASection
         title="Ready to practice your own answers?"
-        description="For applicants from Pakistan and India on supported routes. Start with one free document check. U.S. interview practice supports English, Urdu and Hindi; international interviews are in English."
-      />}
+        description="U.S. visa applicants worldwide can start with one free document check if eligible. Select Other if your applicant country is not listed. U.S. interviews support English, Urdu and Hindi; UK and European routes have country-specific eligibility."
+      />
     </>
   );
 }

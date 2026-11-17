@@ -20,11 +20,11 @@ test("free and package conversion buttons always use the public app entry", () =
 
 test("sitemap includes the distinct document page and only known route dates", () => {
   const entries = sitemap();
-  assert.equal(entries.length, 41);
+  assert.equal(entries.length, 44);
   assert.equal(new Set(entries.map(e => e.url)).size, entries.length);
   assert.ok(entries.some(e => e.url.endsWith("/document-checks")));
   assert.ok(!entries.some(e => /\/start|\/api\//.test(e.url)));
-  for (const route of ["/privacy", "/terms", "/refund-policy", "/partners", "/contact"]) {
+  for (const route of ["/refund-policy", "/partners", "/contact"]) {
     assert.equal(entries.find(e => new URL(e.url).pathname === route)?.lastModified, undefined);
   }
   for (const post of getAllPosts()) {
@@ -49,7 +49,7 @@ test("priority article updates retain established URLs and separate SEO titles f
     const post = getAllPosts().find(p => p.slug === slug)!;
     assert.ok(post, slug);
     assert.ok(post.seoTitle && post.seoTitle.length < 65, slug);
-    assert.equal(post.updatedDate, "2026-11-04");
+    assert.equal(post.updatedDate, ["best-ai-visa-interview-tools", "free-ai-visa-mock-interview-online", "b1-b2-visa-interview-questions", "us-visa-interview-documents-checklist", "visa-interview-nervous-forget-answer", "214b-visa-refusal-guide"].includes(slug) ? "2026-11-17" : "2026-11-04");
     assert.ok(post.content.includes("/#interview-example") || post.content.includes("/#sample-report"), slug);
   }
   const oldPublishDate = getAllPosts().find(p => p.slug === "us-visa-interview-questions-pakistan")?.publishDate;
