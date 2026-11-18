@@ -40,7 +40,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h2 className="text-sm font-semibold text-on-charcoal">Product</h2>
+          <h2 className="footer-heading text-sm font-semibold text-on-charcoal">Product</h2>
           <ul className="mt-4 space-y-3">
             {FOOTER_PRODUCT_LINKS.map((link) => (
               <li key={link.href}>
@@ -56,7 +56,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h2 className="text-sm font-semibold text-on-charcoal">Company</h2>
+          <h2 className="footer-heading text-sm font-semibold text-on-charcoal">Company</h2>
           <ul className="mt-4 space-y-3">
             <li>
               <Link

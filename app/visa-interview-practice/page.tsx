@@ -44,7 +44,7 @@ export default function VisaInterviewPracticePage() {
     <Container className="py-12 sm:py-16">
       <SectionHeading titleAs="h1" eyebrow="VisaPrepper" title="AI video visa interview practice, built around your application." description="A real interview is about your plans. Practice explaining them on camera, answer follow-up questions and leave knowing what to work on." />
       <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">If you are looking for an online visa mock interview or visa interview simulator, VisaPrepper offers a complete video conversation using your camera and microphone. Your own form and personal details guide the questions. You get feedback on your answer clarity and consistency after each paid interview.</p>
-      <div className="mt-7 flex flex-wrap gap-4"><CtaButton intent="free" label="Check my documents free" size="lg" /><Link href="/pricing" className="self-center font-semibold text-primary underline underline-offset-4">See the interview package</Link></div>
+      <div className="mt-7 flex flex-wrap gap-4"><CtaButton intent="free" label="Check my documents free" size="lg" variant="accent" /><Link href="/pricing" className="self-center font-semibold text-primary underline underline-offset-4">See the interview package</Link></div>
       <p className="mt-4 max-w-3xl text-sm text-muted-foreground">One free document check for eligible users. Complete AI video interviews are included in the paid package. Supported U.S. routes welcome applicants worldwide. Select “Other” in the app if your applicant country is not listed.</p>
     </Container>
 

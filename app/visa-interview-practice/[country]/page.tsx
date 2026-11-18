@@ -70,17 +70,17 @@ export default async function CountryPracticePage({ params }: Props) {
 
     <Container className="grid gap-10 py-12 sm:py-16 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
       <div>
-        <p className="text-sm font-semibold text-primary">{SITE_NAME} · {market.languages}</p>
+        <p className="section-eyebrow text-sm font-semibold text-primary">{SITE_NAME} · {market.languages}</p>
         <h1 className="mt-4 max-w-3xl font-sans text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">{market.h1}</h1>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">{market.intro}</p>
         <p lang={market.nativeLang} dir={market.nativeLang === "ur" ? "rtl" : "ltr"} className={`mt-5 max-w-xl text-lg leading-loose text-primary ${NATIVE_SCRIPT_BY_LOCALE[market.nativeLang].className}`}>{market.nativeIntro}</p>
         <div className="mt-7 flex flex-wrap items-center gap-4">
-          <CtaButton intent="free" label="Check my documents free" size="lg" />
+          <CtaButton intent="free" label="Check my documents free" size="lg" variant="accent" />
           <Link href="/how-it-works" className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline underline-offset-4">See how it works <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
         </div>
       </div>
       <aside className="rounded-3xl border border-border bg-surface-muted p-6 sm:p-8">
-        <Video className="h-8 w-8 text-primary" aria-hidden="true" />
+        <Video className="h-12 w-12 rounded-xl bg-marigold-soft p-3 text-primary" aria-hidden="true" />
         <h2 className="mt-4 text-xl font-semibold">Bring your own details.</h2>
         <ul className="mt-5 space-y-4">{market.checklist.map((item) => <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />{item}</li>)}</ul>
         <p className="mt-6 text-sm leading-relaxed text-muted-foreground">Use a camera, microphone and a quiet place. Get follow-up questions and personal feedback.</p>

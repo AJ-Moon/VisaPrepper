@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils/cn";
 
-type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
+type ButtonVariant = "primary" | "accent" | "secondary" | "outline" | "ghost";
 type ButtonSize = "md" | "lg";
 
 const variantClasses: Record<ButtonVariant, string> = {
+  accent: "cta-marigold bg-marigold text-primary-hover hover:bg-marigold-hover",
   primary:
     "bg-primary text-primary-foreground hover:bg-primary-hover shadow-sm shadow-primary/10",
   secondary:

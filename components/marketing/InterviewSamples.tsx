@@ -87,7 +87,7 @@ export default function InterviewSamples() {
         <div className="p-4 sm:p-6">
           <div role="tablist" aria-label="Interview report sections" className="flex gap-1 overflow-x-auto rounded-xl bg-surface-muted p-1">
             {INTERVIEW_REPORT_TABS.map((label, index) => (
-              <button key={label} type="button" role="tab" id={`${id}-tab-${index}`} aria-controls={`${id}-panel`} aria-selected={selected === index} tabIndex={selected === index ? 0 : -1} className={`min-h-11 shrink-0 rounded-lg px-4 py-2 text-sm font-semibold ${selected === index ? "bg-surface text-primary shadow-sm" : "text-muted-foreground"}`} onClick={() => setSelected(index)} onKeyDown={event => {
+              <button key={label} type="button" role="tab" id={`${id}-tab-${index}`} aria-controls={`${id}-panel`} aria-selected={selected === index} tabIndex={selected === index ? 0 : -1} className={`sample-tab min-h-11 shrink-0 rounded-lg px-4 py-2 text-sm font-semibold ${selected === index ? "bg-surface text-primary shadow-sm" : "text-muted-foreground"}`} onClick={() => setSelected(index)} onKeyDown={event => {
                 let next = selected;
                 if (event.key === "ArrowRight") next = (selected + 1) % INTERVIEW_REPORT_TABS.length;
                 else if (event.key === "ArrowLeft") next = (selected + INTERVIEW_REPORT_TABS.length - 1) % INTERVIEW_REPORT_TABS.length;

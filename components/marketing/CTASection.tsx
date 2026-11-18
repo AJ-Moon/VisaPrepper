@@ -11,7 +11,7 @@ export function CTASection({
   description: string;
 }) {
   return (
-    <section className="bg-primary">
+    <section className="brand-cta bg-primary">
       <Container className="flex flex-col items-center gap-6 py-16 text-center sm:py-20">
         <h2 className="max-w-2xl font-display text-3xl font-semibold text-primary-foreground sm:text-4xl">
           {title}
@@ -20,7 +20,7 @@ export function CTASection({
           {description}
         </p>
         <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-          <CtaButton intent="free" label="Check my documents free" size="lg" className="bg-primary-foreground text-primary hover:bg-white" />
+          <CtaButton intent="free" label="Check my documents free" size="lg" variant="accent" />
           <LinkButton
             href="/#pricing"
             variant="outline"

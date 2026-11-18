@@ -17,13 +17,13 @@ export function Pricing({ headingLevel = 3 }: { headingLevel?: 2 | 3 } = {}) {
         <CtaButton intent="free" label="Check my documents free" size="lg"/>
         <Link href="/#sample-report" className="mt-4 text-center text-sm underline underline-offset-4">See the sample document report</Link>
       </article>
-      <article className="flex flex-col rounded-3xl border border-primary bg-sage-soft p-7 sm:p-9">
-        <p className="text-sm font-semibold text-primary">Six chances to learn and improve</p>
+      <article className="pricing-featured flex flex-col rounded-3xl border border-primary bg-sage-soft p-7 sm:p-9">
+        <p className="pricing-featured-eyebrow text-sm font-semibold text-primary">Six chances to learn and improve</p>
         <Heading className="mt-3 font-display text-2xl font-semibold">{COMPLETE_OFFER.name}</Heading>
         <p className="mt-3 text-muted-foreground">Your first attempt is a starting point. Use each report to work on the next one.</p>
         <p className="mt-6 text-5xl font-semibold">$44 <span className="text-base font-normal">USD · one time</span></p>
-        <ul className="my-7 flex-1 space-y-3">{["6 complete AI video interviews", "Questions based on your form and personal details", "Follow-up questions based on your answers", "10 document checks, including revised documents", "Personalised practice tips", "Results for answer clarity and consistency problems", "Supported routes and their available interview languages", "90 days from purchase to use the package"].map(text => <li key={text} className="flex gap-3"><Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true"/>{text}</li>)}</ul>
-        <CtaButton label="Continue to the app · $44 package" size="lg"/>
+        <ul className="my-7 flex-1 space-y-3">{["6 complete AI video interviews", "Questions based on your form and personal details", "Follow-up questions based on your answers", "10 document checks, including revised documents", "Personalised practice tips", "Results for answer clarity and consistency problems", "Supported routes and their available interview languages", "90 days from purchase to use the package"].map(text => <li key={text} className="flex gap-3"><Check className="mt-1 h-4 w-4 shrink-0 pricing-check" aria-hidden="true"/>{text}</li>)}</ul>
+        <CtaButton variant="accent" label="Continue to the app · $44 package" size="lg"/>
         <p className="mt-4 text-center text-sm">One payment. No subscription. 90 days from purchase.</p>
       </article>
     </div>

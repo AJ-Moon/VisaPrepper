@@ -30,7 +30,7 @@ export default async function VisaTypePage({ params }: { params: Promise<{ slug:
   return <>
     <Container className="pt-8"><Breadcrumbs entries={[{ name: "Home", path: "/" }, { name: "Visa types", path: "/visa-types" }, { name: visaType.code, path: `/visa-types/${visaType.slug}` }]} /></Container>
     <Container className="py-12 sm:py-16">
-      <p className="text-sm font-semibold text-primary">U.S. applicants worldwide · English, Urdu & Hindi</p>
+      <p className="section-eyebrow text-sm font-semibold text-primary">U.S. applicants worldwide · English, Urdu & Hindi</p>
       <h1 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">{visaType.h1}</h1>
       <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">{visaType.intro}</p>
       <Link href="/pricing" className="mt-6 inline-flex items-center gap-2 font-semibold text-primary underline underline-offset-4">Six interviews for $44 <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
@@ -45,7 +45,7 @@ export default async function VisaTypePage({ params }: { params: Promise<{ slug:
       <div className="mt-8 grid gap-4 sm:grid-cols-2">{visaType.topics.map((topic) => <div key={topic.title} className="rounded-2xl border border-border bg-surface p-5"><h3 className="font-semibold">{topic.title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{topic.description}</p></div>)}</div>
       <h2 className="mt-12 font-display text-2xl font-semibold">Have these details ready</h2>
       <ul className="mt-5 grid list-disc gap-x-10 gap-y-3 ps-5 text-sm text-muted-foreground sm:grid-cols-2">{visaType.informationUsed.map((item) => <li key={item}>{item}</li>)}</ul>
-      <div className="mt-10 rounded-2xl border border-border bg-sage-soft p-6">
+      <div className="preparation-callout mt-10 rounded-2xl border border-border bg-sage-soft p-6">
         <h2 className="font-display text-2xl font-semibold">See the preparation in practice</h2>
         <p className="mt-3 text-sm leading-relaxed">An answer can sound reasonable and still leave a detail unexplained. Our <Link href="/#interview-example" className="text-primary underline">illustrative interview feedback</Link> connects an answer to a specific next practice step. A <Link href="/document-checks" className="text-primary underline">document check</Link> compares the information in your selected bundle instead.</p>
         <ul className="mt-4 space-y-2 text-sm">{visaType.guideLinks.map(link => <li key={link.href}><Link href={link.href} className="text-primary underline">{link.label}</Link></li>)}</ul>

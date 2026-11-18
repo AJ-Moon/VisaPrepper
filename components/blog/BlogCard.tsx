@@ -10,7 +10,7 @@ export function BlogCard({ post }: { post: Post }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex flex-col justify-between rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-primary/40 hover:bg-surface-muted"
+      className="editorial-card group flex flex-col justify-between rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-marigold-border"
     >
       <div>
         <p className="text-xs font-medium text-muted-foreground">
@@ -23,7 +23,7 @@ export function BlogCard({ post }: { post: Post }) {
       </div>
       <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-teal">
         Read article
-        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+        <ArrowRight className="editorial-arrow h-7 w-7 rounded-full bg-marigold-soft p-1.5 text-marigold-ink transition-colors" aria-hidden="true" />
       </span>
     </Link>
   );

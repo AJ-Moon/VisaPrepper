@@ -29,7 +29,7 @@ export const mdxComponents: MDXComponents = {
       </div>
     </div>
   ),
-  th: ({ children, ...props }) => <th {...props} scope="col" className="border-b bg-sage-soft px-4 py-3 align-top font-semibold text-foreground">{children}</th>,
+  th: ({ children, ...props }) => <th {...props} scope="col" className="border-b bg-marigold-soft px-4 py-3 align-top font-semibold text-foreground">{children}</th>,
   td: ({ children, ...props }) => <td {...props} className="border-b px-4 py-3 align-top">{children}</td>,
   Disclaimer: DisclaimerCallout,
   AppCTA: CtaButton,

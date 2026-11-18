@@ -33,7 +33,7 @@ export default function DocumentSamples({ showcase = false }: { showcase?: boole
   function close() { dialog.current?.close(); }
   function tabs(location: string) {
     return <div role="tablist" aria-label="Sample document reports" className="grid grid-cols-3 gap-1 rounded-xl bg-surface-muted p-1">
-      {REPORT_SAMPLES.map((sample, index) => <button key={sample.id} type="button" role="tab" id={`${id}-${location}-tab-${index}`} aria-selected={selected === index} aria-controls={`${id}-${location}-panel`} tabIndex={selected === index ? 0 : -1} className={`min-h-12 rounded-lg px-2 py-2 text-sm font-semibold transition-colors sm:px-4 ${selected === index ? "bg-surface text-primary shadow-sm" : "text-muted-foreground hover:bg-white/60"}`} onClick={() => setSelected(index)} onKeyDown={event => {
+      {REPORT_SAMPLES.map((sample, index) => <button key={sample.id} type="button" role="tab" id={`${id}-${location}-tab-${index}`} aria-selected={selected === index} aria-controls={`${id}-${location}-panel`} tabIndex={selected === index ? 0 : -1} className={`sample-tab min-h-12 rounded-lg px-2 py-2 text-sm font-semibold transition-colors sm:px-4 ${selected === index ? "bg-surface text-primary shadow-sm" : "text-muted-foreground hover:bg-white/60"}`} onClick={() => setSelected(index)} onKeyDown={event => {
         let next = selected;
         if (event.key === "ArrowRight") next = (selected + 1) % REPORT_SAMPLES.length;
         else if (event.key === "ArrowLeft") next = (selected + REPORT_SAMPLES.length - 1) % REPORT_SAMPLES.length;

@@ -86,7 +86,7 @@ export default async function BlogPostPage({
             <BlogPostHeader post={post} />
             {bangladeshGuide && <p className="mt-6 rounded-xl border border-border bg-sage-soft p-4 text-sm leading-relaxed">Applicants from Bangladesh can select “Other” for supported U.S. routes. U.S. interviews support English, Urdu and Hindi. Bengali interviews are coming soon; UK and European routes retain country-specific eligibility.</p>}
 
-            <div className="prose-vp mt-8">
+            <div className="prose-vp article-prose mt-8">
               <MDXRemote
                 source={post.content}
                 components={mdxComponents}
