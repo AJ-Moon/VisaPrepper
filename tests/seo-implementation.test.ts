@@ -6,15 +6,20 @@ import { CtaButton } from "../components/layout/CtaButton";
 import sitemap from "../app/sitemap";
 import { getAllPosts } from "../lib/content/posts";
 import { getAllVisaTypes } from "../lib/content/visa-types";
-import { EXTERNAL_APP_URL } from "../lib/config/site";
+import { EXTERNAL_APP_URL, EXTERNAL_LOGIN_URL, EXTERNAL_SIGNUP_URL } from "../lib/config/site";
 
-test("free and package conversion buttons always use the public app entry", () => {
-  for (const intent of ["free", "paid"] as const) {
-    for (const label of ["Start Free", "Start Preparing", "Check My Documents", "Try VisaPrepper", "$44 package"]) {
-      const html = renderToStaticMarkup(CtaButton({ intent, label }));
-      assert.ok(html.includes(`href="${EXTERNAL_APP_URL}"`));
-      assert.doesNotMatch(html, /href="[^\"]*(?:signup|billing|api\/checkout|\/start)/);
-    }
+test("free buttons open sign-up, package buttons keep the app entry, and Log In stays sign-in", () => {
+  assert.equal(EXTERNAL_SIGNUP_URL, "https://app.visaprepper.com/signup");
+  assert.equal(EXTERNAL_LOGIN_URL, EXTERNAL_APP_URL);
+  for (const label of ["Start Free", "Start Preparing", "Check My Documents", "Try VisaPrepper"]) {
+    const html = renderToStaticMarkup(CtaButton({ intent: "free", label }));
+    assert.ok(html.includes(`href="${EXTERNAL_SIGNUP_URL}"`), label);
+    assert.doesNotMatch(html, /href="[^\"]*(?:login|billing|api\/checkout|\/start)/);
+  }
+  for (const label of ["Start Preparing", "$44 package"]) {
+    const html = renderToStaticMarkup(CtaButton({ intent: "paid", label }));
+    assert.ok(html.includes(`href="${EXTERNAL_APP_URL}"`));
+    assert.doesNotMatch(html, /href="[^\"]*(?:signup|billing|api\/checkout|\/start)/);
   }
 });
 

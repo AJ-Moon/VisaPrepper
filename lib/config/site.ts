@@ -7,6 +7,10 @@ export const SITE_ALTERNATE_NAMES = ["Visa Prepper", "visaprepper.com"];
 // from these two constants rather than hardcoding a URL.
 export const EXTERNAL_APP_URL = "https://app.visaprepper.com";
 export const EXTERNAL_LOGIN_URL = EXTERNAL_APP_URL;
+// New visitors create an account; the app's sign-up page links to sign in for
+// existing users, and signed-in users are sent on to their dashboard.
+// Verified 2026-11-19: app.visaprepper.com/signup serves the sign-up page.
+export const EXTERNAL_SIGNUP_URL = `${EXTERNAL_APP_URL}/signup`;
 
 export const CONTACT_EMAIL = "hello@visaprepper.com";
 
@@ -84,5 +88,6 @@ export const VISA_TYPES: VisaTypeSummary[] = [
 export const WHATSAPP_URL = "https://wa.me/17325188581";
 export const WHATSAPP_NUMBER = "+1 732 518 8581";
 export const CONTACT_PHONE_URL = "tel:+17325188581";
-// Public host currently returns 404 for /documents and /signup. Use the verified root entry.
+// /signup now serves the app's sign-up page (see EXTERNAL_SIGNUP_URL); /documents
+// still needs a session, so document CTAs keep the root entry.
 export const DOCUMENT_APP_URL = EXTERNAL_APP_URL;
