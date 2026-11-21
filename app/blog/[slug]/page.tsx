@@ -84,7 +84,7 @@ export default async function BlogPostPage({
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
           <article className="min-w-0">
             <BlogPostHeader post={post} />
-            {bangladeshGuide && <p className="mt-6 rounded-xl border border-border bg-sage-soft p-4 text-sm leading-relaxed">Applicants from Bangladesh can select “Other” for supported U.S. routes. U.S. interviews support English, Urdu and Hindi. Bengali interviews are coming soon; UK and European routes retain country-specific eligibility.</p>}
+            {bangladeshGuide && <p className="mt-6 rounded-xl border border-border bg-sage-soft p-4 text-sm leading-relaxed">Applicants from Bangladesh can choose “Another country”, select Bangladesh as their nationality and use supported U.S. routes. U.S. interviews support English, Urdu and Hindi. Bengali interviews are coming soon; UK and European routes retain country-specific eligibility.</p>}
 
             <div className="prose-vp article-prose mt-8">
               <MDXRemote
@@ -127,7 +127,7 @@ export default async function BlogPostPage({
 
       <CTASection
         title="Ready to practice your own answers?"
-        description="U.S. visa applicants worldwide can start with one free document check if eligible. Select Other if your applicant country is not listed. U.S. interviews support English, Urdu and Hindi; UK and European routes have country-specific eligibility."
+        description="U.S. visa applicants worldwide can start with one free document check if eligible. Choose Another country, then select your actual nationality. U.S. interviews support English, Urdu and Hindi; UK and European routes have country-specific eligibility."
       />
     </>
   );

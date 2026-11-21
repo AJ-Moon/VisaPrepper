@@ -19,7 +19,7 @@ export default function BlogIndexPage() {
   const countries = [
     { market: "pakistan", name: "Pakistan", localName: "پاکستان", lang: "ur", description: "Family visits, student funding, and practice in English or Urdu.", status: "App access available" },
     { market: "india", name: "India", localName: "भारत", lang: "hi", description: "Education loans, H1B work details, and visiting family.", status: "App access available · Hindi for U.S. interviews" },
-    { market: "bangladesh", name: "Bangladesh", localName: "বাংলাদেশ", lang: "bn", description: "Student funding, family support, and planning for your appointment.", status: "U.S. app access via Other · Bengali coming soon" },
+    { market: "bangladesh", name: "Bangladesh", localName: "বাংলাদেশ", lang: "bn", description: "Student funding, family support, and planning for your appointment.", status: "U.S. preparation available · Bengali coming soon" },
   ];
 
   return (

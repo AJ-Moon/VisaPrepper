@@ -27,7 +27,7 @@ export function Pricing({ headingLevel = 3 }: { headingLevel?: 2 | 3 } = {}) {
         <p className="mt-4 text-center text-sm">One payment. No subscription. 90 days from purchase.</p>
       </article>
     </div>
-    <p className="mx-auto mt-5 max-w-3xl text-center text-sm font-medium text-primary">Purchase the $44 USD package in the app after signing in. Payments processed by Stripe. Eligible U.S. visa applicants worldwide can purchase; select “Other” if your applicant country is not listed. UK and European routes have country-specific eligibility.</p>
+    <p className="mx-auto mt-5 max-w-3xl text-center text-sm font-medium text-primary">Purchase the $44 USD package in the app after signing in. Payments processed by Stripe. Eligible U.S. visa applicants worldwide can purchase; choose “Another country”, then select your actual nationality. UK and European routes have country-specific eligibility. Payment methods and authorization depend on Stripe and your card issuer.</p>
     <div className="mx-auto mt-6 max-w-3xl"><BundleExplanation /><CheckCreditsFAQ /></div>
     <p className="mx-auto mt-6 max-w-3xl text-center text-base">Need more practice? You can purchase the package again. Each package includes six interviews total.</p>
     <p className="mx-auto mt-3 max-w-3xl text-center text-sm text-muted-foreground">Document checks find missing or different details. They do not certify documents. Final currency and total are shown at checkout. <Link href="/terms" className="underline">Read the terms</Link>.</p>

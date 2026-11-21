@@ -39,7 +39,8 @@ test("worldwide U.S. application access remains distinct from non-U.S. route eli
   assert.match(global.content, /DS-260/);
   assert.match(global.content, /nationality or residence/);
   assert.match(global.content, /supports U.S. visa applicants worldwide/);
-  assert.match(global.content, /Other/);
+  assert.match(global.content, /Another country/);
+  assert.match(global.content, /actual nationality/);
   assert.match(global.content, /UK and European routes retain their applicant-country eligibility rules/);
   const offers = buildSoftwareApplicationJsonLd().offers;
   assert.equal(offers.find(p => p.price === 44)?.availability, "https://schema.org/InStock");

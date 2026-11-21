@@ -27,7 +27,7 @@ export default function VisaTypesIndexPage() {
           titleAs="h1"
           eyebrow="Destinations"
           title="Where will your next chapter take you?"
-          description="Interview practice and document checking are available for supported United States, United Kingdom, France, Italy, Germany and Schengen routes. Supported U.S. routes welcome applicants worldwide through the “Other” applicant-country option. UK and European routes have country-specific eligibility."
+          description="Interview practice and document checking are available for supported United States, United Kingdom, France, Italy, Germany and Schengen routes. Supported U.S. routes welcome applicants worldwide by choosing “Another country” and their actual nationality. UK and European routes have country-specific eligibility."
         />
         <div className="mt-8"><DestinationGrid /></div>
         <h2 className="mt-12 font-display text-2xl font-semibold">Choose your U.S. visa type</h2>

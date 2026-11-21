@@ -90,7 +90,7 @@ assert.ok(videoTag.includes('controls=""'));
 assert.ok(!/autoPlay|autoplay/.test(videoTag),"video requires user playback");
 assert.ok(home.indexOf('<video') < home.indexOf('id="sample-report"'),"video before document examples");
 assert.ok(home.indexOf('id="sample-report"') < home.indexOf('id="interview-example"'),"document examples before interview feedback");
-for(const text of ["See what a document check can find", "See the feedback after your practice interview", "Explore sample interview report", "My father is sponsoring me.", "One document check reviews your submitted document bundle together. Each PDF does not use a separate check."])assert.ok(home.includes(text),text);
+for(const text of ["See what a document check can find", "See the feedback after your practice interview", "Explore sample interview report", "My father is sponsoring me.", "On bundle-supported routes, one document check reviews your selected files together. U.S. Checks review one route-specific application PDF."])assert.ok(home.includes(text),text);
 assert.ok(!home.includes("Confidence drops on follow-up questions"));
 for(const text of ["Supporting evidence and limitations", "View source evidence", "Document_08.pdf", "Saved application details", "Excerpts from a real mock interview", "He afford me.", "Yeah, yeah, yeah.", "136 words/min", "41/100"])assert.ok(!home.includes(text),"no obsolete public sample content: "+text);
 assert.match(pages.get("/contact"),/https:\/\/wa.me\/17325188581/);

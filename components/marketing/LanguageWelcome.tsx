@@ -16,7 +16,7 @@ export function LanguageWelcome() {
     <>
       <div className="mb-6 rounded-2xl border border-border bg-sage-soft p-5 sm:p-6">
         <p className="text-sm font-semibold text-primary"><span aria-hidden="true">🌍 </span>U.S. visa preparation · Worldwide</p>
-        <p className="mt-3 max-w-3xl text-sm leading-relaxed">If your applicant country is not listed, select <strong>“Other”</strong> in the app for supported U.S. visa routes.</p>
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed">For supported U.S. routes, choose <strong>“Another country”</strong>, then select your actual nationality. Applicants from Bangladesh select <strong>Bangladesh</strong>; your real nationality is saved.</p>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">UK and European routes have country-specific eligibility.</p>
         <nav aria-label="Country preparation guides" className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
           <span className="text-muted-foreground">Local guides:</span>

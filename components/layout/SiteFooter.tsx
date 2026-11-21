@@ -23,7 +23,7 @@ export function SiteFooter() {
             Complete AI video visa interviews built around your own application.
           </p>
           <p className="mt-6 text-sm text-on-charcoal-muted">
-            U.S. visa preparation for applicants worldwide. Select “Other” in the app if your applicant country is not listed. UK and European routes have country-specific eligibility.
+            U.S. visa preparation for applicants worldwide. Choose “Another country” in the app, then select your actual nationality. UK and European routes have country-specific eligibility.
           </p>
           <ul className="mt-5 flex flex-wrap gap-2">
             {LOCALES.map((locale) => (

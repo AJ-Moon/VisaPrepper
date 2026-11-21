@@ -9,10 +9,10 @@ export const DESTINATIONS = [
 ] as const;
 
 export const APPLICANT_COUNTRIES = [
-  { name: "Worldwide", flag: "🌍", href: "/visa-interview-practice", detail: "Supported U.S. routes · select Other" },
+  { name: "Worldwide", flag: "🌍", href: "/visa-interview-practice", detail: "Supported U.S. routes · choose your nationality" },
   { name: "Pakistan", flag: "🇵🇰", href: "/visa-interview-practice/pakistan", detail: "U.S. and eligible international routes" },
   { name: "India", flag: "🇮🇳", href: "/visa-interview-practice/india", detail: "U.S. and eligible international routes" },
-  { name: "Bangladesh", flag: "🇧🇩", href: "/blog/us-visa-interview-questions-bangladesh", detail: "Supported U.S. routes · select Other" },
+  { name: "Bangladesh", flag: "🇧🇩", href: "/blog/us-visa-interview-questions-bangladesh", detail: "Supported U.S. routes · choose your nationality" },
 ] as const;
 
 export const SOCIAL_LINKS = [
