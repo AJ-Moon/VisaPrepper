@@ -20,7 +20,7 @@ test("free and package conversion buttons always use the public app entry", () =
 
 test("sitemap includes the distinct document page and only known route dates", () => {
   const entries = sitemap();
-  assert.equal(entries.length, 44);
+  assert.equal(entries.length, 51);
   assert.equal(new Set(entries.map(e => e.url)).size, entries.length);
   assert.ok(entries.some(e => e.url.endsWith("/document-checks")));
   assert.ok(!entries.some(e => /\/start|\/api\//.test(e.url)));

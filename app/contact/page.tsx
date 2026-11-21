@@ -10,7 +10,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact Visa Prepper",
-  description: "Get in touch with the Visa Prepper team with questions about the platform, your account, or press inquiries.",
+  description: "Contact the VisaPrepper team by email or WhatsApp for help choosing a package, using your account or billing. Use the secure app for visa documents.",
   path: "/contact",
 });
 

@@ -19,8 +19,12 @@ export const metadata: Metadata = {
     icon: "/icon.jpg",
     apple: "/icon.jpg",
   },
-  alternates: {
-    canonical: "/",
+  // Each page declares its own canonical via buildPageMetadata. No root
+  // canonical, so error pages do not inherit the homepage canonical.
+  robots: {
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
   },
 };
 

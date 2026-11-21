@@ -11,7 +11,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Visa Interview Practice by Visa Type",
   description:
-    "AI video visa interview practice is available for the United States, United Kingdom, France, Italy, Germany and general Schengen routes.",
+    "Practice B1/B2, F1, H1B, H4, J1 and family immigrant visa interviews for the U.S., plus supported UK, France, Italy, Germany and Schengen routes.",
   path: "/visa-types",
 });
 

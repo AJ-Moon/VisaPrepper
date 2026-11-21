@@ -1,0 +1,10 @@
+Discovered - currently not indexed|/blog/ds-160-interview-consistency
+Discovered - currently not indexed|/blog/j1-visa-interview-questions
+Discovered - currently not indexed|/document-checks
+Discovered - currently not indexed|/partners/apply
+Discovered - currently not indexed|/visa-interview-practice/pakistan
+Discovered - currently not indexed|/visa-types/b1-b2
+Crawled - currently not indexed|/opengraph-image (last crawl Nov 16, 2026)
+Page with redirect|http://visaprepper.com/ (Nov 15, 2026)
+Page with redirect|http://www.visaprepper.com/ (Nov 11, 2026)
+Page with redirect|https://www.visaprepper.com/ (Nov 11, 2026)

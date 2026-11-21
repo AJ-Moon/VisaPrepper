@@ -18,7 +18,7 @@ export function buildOrganizationJsonLd() {
     "@type": "Organization",
     name: SITE_NAME,
     alternateName: SITE_ALTERNATE_NAMES,
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     "@id": `${SITE_URL}/#organization`,
     logo: `${SITE_URL}/images/brand/visaprepper.jpg`,
     sameAs: SOCIAL_LINKS.map((link) => link.href),
@@ -54,7 +54,7 @@ export function buildSoftwareApplicationJsonLd(plans:PublicPlan[] = [...PLANS]) 
     operatingSystem: "Web",
     description:
       `Application-based AI visa interview practice and document consistency checks for supported categories. ${APPLICANT_SCOPE} ${INTERVIEW_LANGUAGE_SCOPE}`,
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     inLanguage: ["en", "ur", "hi"],
     offers: plans.map((plan) => ({
       "@type": "Offer",
@@ -109,6 +109,10 @@ export function buildFaqJsonLd(entries: FaqEntry[]) {
   };
 }
 
+// Bylines that name the in-house team rather than a person. The `name` in the
+// markup must stay identical to the visible byline.
+const ORGANIZATION_AUTHORS = new Set(["Visa Prepper Editorial Team"]);
+
 export function buildArticleJsonLd(post: {
   title: string;
   description: string;
@@ -117,18 +121,27 @@ export function buildArticleJsonLd(post: {
   updatedDate?: string;
   author: string;
 }) {
+  const url = `${SITE_URL}/blog/${post.slug}`;
   return {
     "@context": "https://schema.org",
     "@type": "Article",
+    "@id": `${url}#article`,
+    url,
     inLanguage: "en",
     headline: post.title,
     description: post.description,
+    image: [`${SITE_URL}/opengraph-image`],
     datePublished: post.publishDate,
     dateModified: post.updatedDate ?? post.publishDate,
-    author: {
-      "@type": post.author === "Visa Prepper Editorial Team" ? "Organization" : "Person",
-      name: post.author,
-    },
+    author: ORGANIZATION_AUTHORS.has(post.author)
+      ? {
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#editorial-team`,
+          name: post.author,
+          url: `${SITE_URL}/about`,
+          parentOrganization: { "@id": `${SITE_URL}/#organization` },
+        }
+      : { "@type": "Person", name: post.author },
     publisher: {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
@@ -136,8 +149,11 @@ export function buildArticleJsonLd(post: {
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/images/brand/visaprepper.jpg`,
+        width: 1254,
+        height: 1254,
       },
     },
-    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    mainEntityOfPage: url,
   };
 }

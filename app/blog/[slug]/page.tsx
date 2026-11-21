@@ -14,6 +14,7 @@ import { CTASection } from "@/components/marketing/CTASection";
 import { JsonLd, buildArticleJsonLd } from "@/lib/seo/json-ld";
 import { getAllPostSlugs, getPostBySlug, getRelatedPosts } from "@/lib/content/posts";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+import { SITE_URL } from "@/lib/config/site";
 
 export function generateStaticParams() {
   return getAllPostSlugs().map((slug) => ({ slug }));
@@ -30,7 +31,7 @@ export async function generateMetadata({
 
   const metadata = buildPageMetadata({
     title: post.seoTitle ?? post.title,
-    description: post.description,
+    description: post.seoDescription ?? post.description,
     path: `/blog/${post.slug}`,
   });
   return {
@@ -40,7 +41,7 @@ export async function generateMetadata({
       type: "article",
       publishedTime: post.publishDate,
       modifiedTime: post.updatedDate ?? post.publishDate,
-      authors: [post.author],
+      authors: [`${SITE_URL}/about`],
     },
   };
 }

@@ -6,7 +6,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Privacy Policy",
-  description: "How Visa Prepper collects, uses, and protects your information, including application details and practice interview records.",
+  description: "How VisaPrepper collects, uses, and protects your information, including application details and practice interview records.",
   path: "/privacy",
 });
 

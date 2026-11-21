@@ -11,13 +11,13 @@ import { JsonLd } from "@/lib/seo/json-ld";
 import { SITE_URL } from "@/lib/config/site";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 export const metadata = buildPageMetadata({
-  title: "Visa Application & Document Consistency Checks",
-  description: "Compare your application details and supporting documents. Review differences, missing information and next steps. All supported routes; one free check for eligible users.",
+  title: "Visa Document Check: DS-160 Consistency Review",
+  description: "Compare your DS-160 or DS-260 PDF with supporting documents to find missing, unclear or conflicting details. One free document check for eligible users.",
   path: "/document-checks",
 });
 export default function DocumentChecksPage() {
   return <>
-    <JsonLd data={{ "@context": "https://schema.org", "@type": "Service", name: "VisaPrepper application and document consistency checks", url: `${SITE_URL}/document-checks`, serviceType: "Visa application preparation", description: "Compare selected application details and supporting evidence on supported routes, with explanations and practical next steps. Available worldwide for supported U.S. routes; UK and European routes retain country-specific eligibility. Not document certification or a visa decision.", provider: { "@id": `${SITE_URL}/#organization` }, areaServed: { "@type": "Place", name: "Worldwide for supported U.S. visa routes" } }} />
+    <JsonLd data={{ "@context": "https://schema.org", "@type": "Service", "@id": `${SITE_URL}/document-checks#service`, name: "VisaPrepper application and document consistency checks", url: `${SITE_URL}/document-checks`, serviceType: "Visa application preparation", description: "Compare selected application details and supporting evidence on supported routes, with explanations and practical next steps. Available worldwide for supported U.S. routes; UK and European routes retain country-specific eligibility. Not document certification or a visa decision.", provider: { "@id": `${SITE_URL}/#organization` }, areaServed: { "@type": "Place", name: "Worldwide for supported U.S. visa routes" } }} />
     <Container className="pt-8"><Breadcrumbs entries={[{ name: "Home", path: "/" }, { name: "Document checks", path: "/document-checks" }]} /></Container>
     <Container className="py-12 sm:py-16">
       <SectionHeading titleAs="h1" eyebrow="Before you practice" title="Check how your visa documents fit together." description="A form, a letter and a supporting record can describe the same plan differently. Compare the information in your selected bundle, understand what needs attention and decide what to check next." />

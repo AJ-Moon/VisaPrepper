@@ -4,8 +4,8 @@ export const b1b2: VisaTypeContent = {
   slug: "b1-b2",
   code: "B1/B2",
   name: "Tourist & Business Visa",
-  metaTitle: "B1/B2 Visa Mock Interview Practice",
-  metaDescription: "Practice explaining your visitor or business trip, itinerary and funding. Prepare for follow-ups around your B1/B2 application, wherever you are applying from.",
+  metaTitle: "B1/B2 Tourist Visa Mock Interview (AI Video)",
+  metaDescription: "AI video B1/B2 mock interview built on your own trip: purpose, who pays, itinerary and plans afterward, with follow-up questions. For applicants worldwide.",
   h1: "Practice your B1/B2 tourist or business visa interview around your own trip",
   intro:
     "B1/B2 interviews are short, and officers focus on why you're traveling, whether you can afford the trip, and whether you're likely to return home. Visa Prepper builds your practice interview around your actual trip — your purpose, your itinerary, and your circumstances.",

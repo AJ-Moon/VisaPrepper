@@ -13,7 +13,7 @@ import { PRACTICE_LANGUAGE_ALTERNATES, PRACTICE_MARKETS } from "@/lib/content/pr
 
 const pageMetadata = buildPageMetadata({
   title: "AI Visa Mock Interview & Simulator",
-  description: "Practice a visa mock interview around your application. Get follow-up questions and answer feedback; start with one free document check.",
+  description: "AI video visa mock interview built on your own application, with follow-up questions and answer feedback. One free document check; 6 interviews for $44.",
   path: "/visa-interview-practice",
 });
 export const metadata = {

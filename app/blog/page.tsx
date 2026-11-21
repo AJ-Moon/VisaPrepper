@@ -8,7 +8,7 @@ import { getAllPosts } from "@/lib/content/posts";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "U.S. Visa Interview Preparation Guides & Practice Plans",
+  title: "U.S. Visa Interview Guides & Practice Plans",
   description:
     "Free U.S. visa interview guides, mock interview exercises and document checklists. Prepare for student, visitor and work interviews using your own facts.",
   path: "/blog",

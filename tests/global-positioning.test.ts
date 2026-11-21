@@ -9,7 +9,7 @@ const newSlugs = ["f1-visa-mock-interview-online-7-day-plan", "us-visa-interview
 
 test("new guides have distinct intent, original publication dates, valid schema and sitemap entries", () => {
   const posts = getAllPosts();
-  assert.equal(posts.length, 20);
+  assert.equal(posts.length, 27);
   assert.equal(new Set(posts.map(p => p.slug)).size, posts.length);
   assert.equal(new Set(posts.map(p => p.primaryKeyword)).size, posts.length);
   for (const slug of newSlugs) {

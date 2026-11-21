@@ -18,8 +18,8 @@ import { FAQAccordion } from "@/components/faq/FAQAccordion";
 import { HOMEPAGE_FAQ } from "@/lib/content/faq";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { JsonLd, buildSoftwareApplicationJsonLd, buildWebsiteJsonLd } from "@/lib/seo/json-ld";
-const title = "VisaPrepper | U.S. Visa Interview Practice & Document Checks";
-export const metadata = {...buildPageMetadata({title,description:"Prepare for U.S. visa interviews worldwide with AI video practice, document checks and personal feedback for supported U.S. routes.",path:"/"}),title:{absolute:title}};
+const title = "VisaPrepper (Visa Prepper): AI U.S. Visa Interview Practice";
+export const metadata = {...buildPageMetadata({title,description:"VisaPrepper: AI video mock interviews built on your U.S. visa application, plus document checks. One free check for eligible users; $44 for 6 interviews.",path:"/"}),title:{absolute:title}};
 const problems = [
  ["Scared you will go blank?","Practice answering out loud. Get used to explaining your plans."],
  ["Not sure what to say?","Work on clear answers about your trip, studies, job, money or family."],

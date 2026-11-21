@@ -4,8 +4,8 @@ export const familyImmigrant: VisaTypeContent = {
   slug: "family-immigrant",
   code: "Family / Immigrant",
   name: "Family-Based Immigrant Visa",
-  metaTitle: "Family Visa Interview Practice",
-  metaDescription: "Practice explaining your family relationship, petitioner and case details. Prepare for a supported U.S. family immigrant interview using your own facts.",
+  metaTitle: "Family Immigrant Visa Mock Interview Practice",
+  metaDescription: "Practice your family immigrant visa interview as a spouse, parent, child or sibling: relationship history, petitioner and case details in your own words.",
   h1: "Practice your family-based immigrant visa interview around your own relationship and petition",
   intro:
     "Family-based immigrant interviews focus heavily on your relationship history with your petitioner and consistency with your petition paperwork. Visa Prepper builds your practice interview around your specific relationship — spouse, parent, child, or sibling — and your case.",

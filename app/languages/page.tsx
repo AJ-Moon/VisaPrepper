@@ -7,7 +7,7 @@ import { LanguageWelcome } from "@/components/marketing/LanguageWelcome";
 import { CTASection } from "@/components/marketing/CTASection";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildPageMetadata({
-  title: "Visa Interview Preparation Languages",
+  title: "U.S. Visa Interview Practice in Urdu & Hindi",
   description: "U.S. visa practice in English, Urdu or Hindi; international interviews in English. Compare interview languages, preparation questions and report explanations.",
   path: "/languages",
 });

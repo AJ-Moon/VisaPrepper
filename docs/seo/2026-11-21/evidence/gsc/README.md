@@ -1,0 +1,16 @@
+# Search Console readout (read-only) — 2026-11-21
+Property: sc-domain:visaprepper.com (Domain property; accessible to the owner account in Chrome = verified).
+Read via Claude in Chrome, UI page text. Search type: Web. Range: "Last 16 months" -> data available 2026-09-05 to 2026-11-19.
+Overview: 22 web clicks (3 months); Page indexing: 37 indexed, 10 not indexed; Videos: 1 page with video, 0 videos indexed; CWV: no data (mobile/desktop); HTTPS: 20 HTTPS URLs, 0 non-HTTPS; Breadcrumbs: 16 valid, 0 invalid.
+Performance totals: clicks 22, impressions 1.45K, CTR 1.5%, average position 25.9. 109 queries reported; their clicks sum to 1 (the rest are anonymized queries).
+No query containing "visaprepper" or "visa prepper" appears in the 109 reported queries. Brand-adjacent queries seen: "visa prep" (13 impr, pos 3.5), "prepper interview" (2, 14.5), "visaper" (1, 3.0), "visa hopper" (1, 2.0).
+Sitemaps: https://visaprepper.com/sitemap.xml — submitted Nov 20, 2026; last read Nov 20, 2026; Success; 44 discovered pages; 0 videos.
+Page indexing (All known pages): Indexed 37 (35 on visaprepper.com + app.visaprepper.com/ and /signup). Not indexed 10: Page with redirect 3 (http/www variants), Discovered-currently not indexed 6, Crawled-currently not indexed 1 (/opengraph-image). Lists in indexed-2026-11-21.txt / not-indexed-2026-11-21.txt.
+Branded filter: no built-in "Branded queries" option is offered for this property (Add filter offers Query/Page/Country/Device; Query match types: containing, not containing, exact, custom regex). Regex used: visa\s?prep|prepper|visaper|visaprep -> 0 clicks, 16 impressions, avg pos 4.9 (visa prep 13/3.5; prepper interview 2/14.5; visaper 1/3.0). Note: GSC warns totals may be partial when filters are applied; anonymized queries are excluded from query rows.
+Devices: Mobile 12 clicks/476 impr/2.5%/8.5; Desktop 10/967/1.0%/34.7; Tablet 0/8/0%/6.2.
+URL Inspection (read-only, 2026-11-21; no "Request indexing" or live test was run):
+- https://visaprepper.com/ — URL is on Google; Page is indexed; last crawl Nov 21, 2026 09:55 (Googlebot smartphone); crawl/index allowed; user-declared canonical https://visaprepper.com/ ; Google-selected canonical = inspected URL; Discovery: Sitemaps "Temporary processing error", referring page http://visaprepper.com/ ; an earlier "Indexing requested" state is shown (owner requested before).
+- https://visaprepper.com/document-checks — URL is NOT on Google: "URL is unknown to Google"; no referring sitemaps detected; no referring page; last crawl N/A. (Page indexing report, which lags, lists it as Discovered - currently not indexed.)
+- https://visaprepper.com/visa-types/b1-b2 — URL is on Google; Page is indexed; Breadcrumbs 1 valid (the lagging Page indexing report still lists it as Discovered - not indexed).
+- https://visaprepper.com/blog/f1-visa-mock-interview-online-7-day-plan — URL is on Google; indexed; last crawl Nov 19, 2026 01:04; referring page /blog/f1-visa-interview-who-will-pay; Discovery Sitemaps "Temporary processing error" (Sitemaps report itself says Success).
+Interpretation: the Page indexing report trails URL Inspection by days; treat URL Inspection as current. Sitemap "Temporary processing error" at URL level coexists with a Success sitemap status — monitor; resubmitting an unchanged sitemap does not speed crawling.

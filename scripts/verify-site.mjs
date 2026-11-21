@@ -5,7 +5,7 @@ const sitemapResponse=await fetch(origin+"/sitemap.xml");
 assert.equal(sitemapResponse.status,200);
 const sitemap=await sitemapResponse.text();
 const routes=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>new URL(m[1]).pathname);
-assert.equal(routes.length,44);
+assert.equal(routes.length,51);
 assert.equal(new Set(routes).size,routes.length);
 assert.ok(!routes.includes("/start"));
 assert.ok(routes.includes("/blog/best-ai-visa-interview-tools"));
@@ -56,7 +56,7 @@ for(const[path,html]of pages){
 }
 for(const path of links)assert.equal((await fetch(origin+path)).status,200,"link "+path);
 const home=pages.get("/");
-assert.match(home,/<title>VisaPrepper \| U.S. Visa Interview Practice &amp; Document Checks<\/title>/,"brand-first homepage title");
+assert.match(home,/<title>VisaPrepper \(Visa Prepper\): AI U.S. Visa Interview Practice<\/title>/,"brand-first homepage title");
 assert.ok(!home.includes("Example scenario — not a customer review"));
 assert.equal([...home.matchAll(/data-review-id="review-\d+"/g)].length,60); // 30 + aria-hidden seamless copy
 assert.match(home,/data-review-set="original"/);

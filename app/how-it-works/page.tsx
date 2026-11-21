@@ -8,7 +8,7 @@ import { CTASection } from "@/components/marketing/CTASection";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "How VisaPrepper Interview Practice Works",
+  title: "How AI Visa Interview Practice Works",
   description: "Start with one free document check. Practice an application-based AI video interview, review specific answer feedback and prepare for follow-ups.",
   path: "/how-it-works",
 });

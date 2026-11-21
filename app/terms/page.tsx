@@ -7,7 +7,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Terms of Service",
-  description: "The terms that govern your use of the Visa Prepper website and practice interview platform.",
+  description: "The terms for using the VisaPrepper website and practice interview platform: purchases, free access, refunds, acceptable use, disclaimers and liability.",
   path: "/terms",
 });
 

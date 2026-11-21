@@ -1,0 +1,9 @@
+
+> visaprepper@0.1.0 test:site
+> node scripts/verify-site.mjs http://localhost:3103
+
+{
+  "pages": 51,
+  "internalLinks": 52,
+  "checks": "PASS: GET-only route/metadata/link crawl, app-entry handoffs, illustrative samples, non-autoplay video, WhatsApp contact, unchanged testimonials, live-offer messaging, three linked articles. No forms submitted or checkout sessions created; live payment processing was not tested."
+}
