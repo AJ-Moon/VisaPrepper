@@ -10,7 +10,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact Visa Prepper",
-  description: "Get in touch with the Visa Prepper team with questions about the platform, your account, or press inquiries.",
+  description: "Contact the VisaPrepper team by email or WhatsApp for help choosing a package, using your account or billing. Use the secure app for visa documents.",
   path: "/contact",
 });
 
@@ -30,7 +30,7 @@ export default function ContactPage() {
         />
 
         <div className="mx-auto mt-10 max-w-md rounded-2xl border border-border bg-surface p-6">
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-sage-soft">
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-marigold-soft">
             <Mail className="h-5 w-5 text-primary" aria-hidden="true" />
           </span>
           <p className="mt-4 text-sm font-semibold text-foreground">Email us</p>

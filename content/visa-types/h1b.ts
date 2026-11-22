@@ -4,7 +4,7 @@ export const h1b: VisaTypeContent = {
   slug: "h1b",
   code: "H1B",
   name: "Work Visa",
-  metaTitle: "H1B Visa Interview Practice",
+  metaTitle: "H1B Visa Mock Interview Practice (AI Video)",
   metaDescription: "Practice explaining your employer, job duties, worksite and petition details. Application-based H1B mock interviews with follow-up questions.",
   h1: "Practice your H1B work visa interview around your own role and petition",
   intro:

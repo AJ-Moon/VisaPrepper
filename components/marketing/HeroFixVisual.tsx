@@ -17,7 +17,7 @@ export function HeroFixVisual() {
           <span className="hero-fix-pulse h-2.5 w-2.5 rounded-full bg-[#8dd7aa]" aria-hidden="true" />
           Interview feedback
         </div>
-        <span className="rounded-full border border-white/20 px-3 py-1 text-[11px] font-semibold">SAMPLE</span>
+        <span className="rounded-full border border-marigold/45 px-3 py-1 text-marigold-soft text-[11px] font-semibold">SAMPLE</span>
       </div>
 
       <div className="relative overflow-hidden rounded-[1.4rem] bg-[#fbf7f1] p-5 text-foreground sm:p-7">
@@ -27,13 +27,13 @@ export function HeroFixVisual() {
             <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary">Illustrative sample</p>
             <h2 className="mt-2 max-w-sm font-sans text-2xl font-semibold tracking-tight sm:text-3xl">A clearer answer starts with specific details</h2>
           </div>
-          <Sparkles className="mt-1 h-6 w-6 shrink-0 text-teal" aria-hidden="true" />
+          <Sparkles className="mt-1 h-6 w-6 shrink-0 text-marigold-ink" aria-hidden="true" />
         </div>
 
         <div className="mt-6 space-y-3">
           {fixes.map(({ icon: Icon, label, detail, action }, index) => (
             <article key={label} className="hero-fix-card flex gap-3 rounded-2xl border bg-white p-4" style={{ animationDelay: `${index * 0.75}s` }}>
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sage-soft text-primary">
+              <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-primary ${index === 0 ? "bg-sage-soft" : "bg-marigold-soft"}`}>
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </span>
               <div className="min-w-0 flex-1">
@@ -48,12 +48,12 @@ export function HeroFixVisual() {
           ))}
         </div>
 
-        <div className="mt-5 flex items-center justify-between gap-4 rounded-2xl bg-sage-soft p-4">
+        <div className="mt-5 flex items-center justify-between gap-4 rounded-2xl bg-marigold-soft p-4">
           <div>
             <p className="text-sm font-semibold text-primary">Prepare the missing funding details</p>
             <p className="mt-1 text-xs text-muted-foreground">A framework to prepare, not a script to memorise.</p>
           </div>
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"><Check className="h-5 w-5" aria-hidden="true" /></span>
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-marigold text-primary-hover"><Check className="h-5 w-5" aria-hidden="true" /></span>
         </div>
       </div>
 

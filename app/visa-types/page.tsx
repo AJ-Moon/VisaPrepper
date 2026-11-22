@@ -11,7 +11,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Visa Interview Practice by Visa Type",
   description:
-    "AI video visa interview practice is available for the United States, United Kingdom, France, Italy, Germany and general Schengen routes.",
+    "Practice B1/B2, F1, H1B, H4, J1 and family immigrant visa interviews for the U.S., plus supported UK, France, Italy, Germany and Schengen routes.",
   path: "/visa-types",
 });
 
@@ -27,7 +27,7 @@ export default function VisaTypesIndexPage() {
           titleAs="h1"
           eyebrow="Destinations"
           title="Where will your next chapter take you?"
-          description="Prepare for the United States, United Kingdom, France, Italy, Germany and general Schengen routes. Check the app for currently supported routes and feature access."
+          description="Interview practice and document checking are available for supported United States, United Kingdom, France, Italy, Germany and Schengen routes. Supported U.S. routes welcome applicants worldwide by choosing “Another country” and their actual nationality. UK and European routes have country-specific eligibility."
         />
         <div className="mt-8"><DestinationGrid /></div>
         <h2 className="mt-12 font-display text-2xl font-semibold">Choose your U.S. visa type</h2>

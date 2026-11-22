@@ -1,0 +1,21 @@
+{
+  "pages": 44,
+  "sitemapUnchanged": true,
+  "copyUnchanged": true,
+  "seoUnchanged": true,
+  "linksUnchanged": true,
+  "unrelatedFilesPreserved": 218,
+  "changedFiles": [
+    "app/features/page.tsx",
+    "app/globals.css",
+    "app/how-it-works/page.tsx",
+    "app/page.tsx",
+    "components/layout/CtaButton.tsx",
+    "components/layout/SiteHeader.tsx",
+    "components/marketing/CTASection.tsx",
+    "components/marketing/HeroFixVisual.tsx",
+    "components/marketing/Pricing.tsx",
+    "components/ui/Button.tsx"
+  ],
+  "browserInspection": "Unavailable: local browser access is unavailable for this chat; no new screenshots or rendered viewport checks claimed."
+}

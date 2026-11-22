@@ -11,6 +11,9 @@ const frontmatterSchema = z.object({
   seoTitle: z.string().optional(),
   slug: z.string(),
   description: z.string(),
+  // Search-snippet text only (meta description + social cards). `description`
+  // is rendered visibly on the post and blog cards, so it stays as written.
+  seoDescription: z.string().optional(),
   publishDate: z.string(),
   updatedDate: z.string().optional(),
   author: z.string(),

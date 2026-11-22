@@ -6,7 +6,7 @@ function formatDate(iso: string) {
 
 export function BlogPostHeader({ post }: { post: Post }) {
   return (
-    <header>
+    <header className="article-header">
       <h1 className="font-display text-3xl font-semibold leading-tight text-foreground sm:text-4xl">
         {post.title}
       </h1>

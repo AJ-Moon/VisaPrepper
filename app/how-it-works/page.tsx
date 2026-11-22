@@ -8,7 +8,7 @@ import { CTASection } from "@/components/marketing/CTASection";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "How VisaPrepper Interview Practice Works",
+  title: "How AI Visa Interview Practice Works",
   description: "Start with one free document check. Practice an application-based AI video interview, review specific answer feedback and prepare for follow-ups.",
   path: "/how-it-works",
 });
@@ -22,7 +22,7 @@ export default function HowItWorksPage() {
     <Container className="pt-8"><Breadcrumbs entries={[{ name: "Home", path: "/" }, { name: "How it works", path: "/how-it-works" }]} /></Container>
     <Container className="py-12 sm:py-16">
       <SectionHeading titleAs="h1" eyebrow="Getting started" title="One small step. A clearer way to prepare." description="Start with a free document check. When you choose video practice, bring your real details and answer as best you can. You can learn from the difficult questions." />
-      <ol className="mt-10 grid gap-5 md:grid-cols-3">{steps.map((step, index) => <li key={step.title} className="rounded-2xl border border-border bg-surface p-6"><span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sage-soft font-semibold text-primary">{index + 1}</span><h2 className="mt-5 text-xl font-semibold">{step.title}</h2><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.text}</p></li>)}</ol>
+      <ol className="mt-10 grid gap-5 md:grid-cols-3">{steps.map((step, index) => <li key={step.title} className="rounded-2xl border border-border bg-surface p-6"><span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-marigold font-semibold text-primary-hover">{index + 1}</span><h2 className="mt-5 text-xl font-semibold">{step.title}</h2><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.text}</p></li>)}</ol>
       <p className="mt-8 max-w-3xl leading-relaxed text-muted-foreground">A <Link href="/document-checks" className="text-primary underline">document check</Link> compares selected records and confirmed facts. An <Link href="/#interview-example" className="text-primary underline">interview feedback example</Link> shows what a spoken answer still needs to explain. Both demonstrations are preparation examples, not visa decisions.</p>
       <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">U.S. practice supports English, Urdu and Hindi. Supported UK, France, Italy, Germany and Schengen interviews are in English, with international preparation questions in English and Urdu. <Link href="/languages" className="text-primary underline">Check the language options</Link> and <Link href="/visa-types" className="text-primary underline">visa categories</Link> before choosing your practice.</p>
       <div className="mx-auto mt-12 max-w-2xl"><FAQAccordion items={[

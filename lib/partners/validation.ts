@@ -8,7 +8,7 @@ export const partnerApplicationSchema = z.object({
  requestId:z.uuid(), fullName:text(2,100), email:z.email().trim().toLowerCase().max(254),
  businessName:text(2,150), country:text(2,80), partnerType:z.enum(PARTNER_TYPES),
  profileUrl:publicUrl, phone:z.string().trim().max(30).refine(v=>!v || /^\+[1-9][0-9 ()-]{6,25}$/.test(v),"Include a country code, such as +92."),
- audienceCountries:z.array(z.enum(AUDIENCE_COUNTRIES)).min(1).max(4).transform(v=>[...new Set(v)]),
+ audienceCountries:z.array(z.enum(AUDIENCE_COUNTRIES)).min(1,"Choose at least one applicant or audience country.").max(4).transform(v=>[...new Set(v)]),
  audienceRange:z.enum(AUDIENCE_RANGES), introduction:text(20,1500), experience:text(0,1500),
  privacy:z.literal(true), marketing:z.boolean(), website:z.literal(""),
 }).strict();

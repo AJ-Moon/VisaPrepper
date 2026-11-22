@@ -14,13 +14,17 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Prepare with application-based AI visa interviews and document checks. For Pakistan and India; interview languages depend on the visa route.",
+    "AI-powered U.S. visa interview practice and document checking for applicants worldwide on supported routes. UK and European options have country-specific eligibility.",
   icons: {
     icon: "/icon.jpg",
     apple: "/icon.jpg",
   },
-  alternates: {
-    canonical: "/",
+  // Each page declares its own canonical via buildPageMetadata. No root
+  // canonical, so error pages do not inherit the homepage canonical.
+  robots: {
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
   },
 };
 

@@ -6,7 +6,7 @@ export function RelatedPosts({ posts }: { posts: Post[] }) {
 
   return (
     <div>
-      <p className="text-sm font-semibold uppercase tracking-wide text-teal">Related reading</p>
+      <p className="section-eyebrow text-sm font-semibold uppercase tracking-wide text-teal">Related reading</p>
       <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <BlogCard key={post.slug} post={post} />

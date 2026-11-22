@@ -27,6 +27,13 @@
   --color-teal: var(--vp-teal);
   --color-teal-soft: var(--vp-teal-soft);
 
+  /* Shared with the public VisaPrepper application. */
+  --color-marigold: var(--vp-marigold);
+  --color-marigold-hover: var(--vp-marigold-hover);
+  --color-marigold-soft: var(--vp-marigold-soft);
+  --color-marigold-ink: var(--vp-marigold-ink);
+  --color-marigold-border: var(--vp-marigold-border);
+
   --color-warning: var(--vp-warning);
   --color-warning-soft: var(--vp-warning-soft);
   --color-success: var(--vp-success);
@@ -65,6 +72,12 @@
   --vp-sage-soft: #e5eee7;
   --vp-teal: #2f6e6b;
   --vp-teal-soft: #e1eeec;
+
+  --vp-marigold: #f5b841;
+  --vp-marigold-hover: #edaa2a;
+  --vp-marigold-soft: #fdf0d2;
+  --vp-marigold-ink: #7a4f00;
+  --vp-marigold-border: #dfc58f;
 
   --vp-warning: #875116;
   --vp-warning-soft: #f5ead7;
@@ -358,4 +371,141 @@ input:checked + .destination-choice {
     .home-enter:nth-child(3n + 2) { --home-entry-distance: 10px; }
     .home-enter:nth-child(3n) { --home-entry-distance: 13px; }
   }
+}
+
+/* Marigold is reserved for conversion emphasis and small supporting details;
+   forest remains the primary brand color and reports keep their status colors. */
+.marigold-highlight {
+  text-decoration-line: underline;
+  text-decoration-color: var(--vp-marigold);
+  text-decoration-thickness: .095em;
+  text-underline-offset: .12em;
+  text-decoration-skip-ink: auto;
+}
+
+.cta-marigold {
+  box-shadow: 0 2px 0 rgb(24 75 60 / 10%), 0 6px 16px -12px rgb(122 79 0 / 35%);
+}
+.cta-marigold:focus-visible {
+  outline: 2px solid var(--vp-primary);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 2px var(--vp-background);
+}
+.home-forest .cta-marigold:focus-visible,
+.brand-cta .cta-marigold:focus-visible {
+  outline-color: var(--vp-marigold);
+  box-shadow: 0 0 0 2px var(--vp-primary-hover);
+}
+
+.nav-link {
+  text-decoration-color: var(--vp-marigold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: .45em;
+  transition: color 160ms ease;
+}
+.nav-link:hover { color: var(--vp-primary); }
+.nav-link[aria-current="page"] {
+  text-decoration-line: underline;
+  text-decoration-color: var(--vp-marigold);
+}
+
+.feature-card-accent { border-color: var(--vp-marigold-border); }
+.feature-card-accent:focus-within { border-color: var(--vp-marigold-ink); }
+.pricing-featured {
+  border-color: var(--vp-primary);
+  box-shadow: inset 0 4px 0 var(--vp-marigold), 0 10px 28px -22px rgb(24 75 60 / 30%);
+}
+.pricing-featured-eyebrow {
+  display: inline-flex;
+  align-self: flex-start;
+  border-radius: 999px;
+  background: var(--vp-marigold-soft);
+  padding: .35rem .7rem;
+  color: var(--vp-primary);
+}
+.pricing-check { color: var(--vp-marigold-ink); }
+.hero-fix-shell .hero-fix-pulse { background: var(--vp-marigold); }
+
+/* Editorial accents guide navigation; reading surfaces and semantic statuses
+   retain their existing colours. These treatments do not target the hero. */
+.section-eyebrow,
+.footer-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+.section-eyebrow::before,
+.footer-heading::before {
+  content: "";
+  flex: 0 0 1rem;
+  height: 2px;
+  background: var(--vp-marigold);
+  border-radius: 1rem;
+}
+.article-header::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  margin-bottom: 1.25rem;
+  border-radius: 1rem;
+  background: var(--vp-marigold);
+}
+.toc-link[aria-current="location"] {
+  background: var(--vp-marigold-soft);
+  box-shadow: inset 3px 0 0 var(--vp-marigold);
+}
+.article-prose blockquote {
+  border-inline-start-color: var(--vp-marigold-border);
+}
+.article-prose a:not([data-intent]) {
+  text-decoration-line: underline;
+  text-decoration-color: var(--vp-marigold-border);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.article-prose a:not([data-intent]):hover {
+  text-decoration-color: var(--vp-marigold-ink);
+}
+.faq-item {
+  transition: background-color 160ms ease;
+}
+.faq-item:first-of-type { border-start-start-radius: inherit; border-start-end-radius: inherit; }
+.faq-item:last-of-type { border-end-start-radius: inherit; border-end-end-radius: inherit; }
+.faq-item[open] {
+  background: color-mix(in srgb, var(--vp-marigold-soft) 45%, var(--vp-surface));
+  box-shadow: inset 3px 0 0 var(--vp-marigold);
+}
+.faq-item[open] .faq-indicator {
+  color: var(--vp-marigold-ink);
+  background: var(--vp-marigold-soft);
+}
+.sample-tab[aria-selected="true"] {
+  box-shadow: inset 0 -3px 0 var(--vp-marigold), 0 1px 2px rgb(24 75 60 / 6%);
+}
+.preparation-steps li::marker {
+  color: var(--vp-marigold-ink);
+  font-weight: 600;
+}
+.preparation-callout {
+  border-inline-start: 3px solid var(--vp-marigold);
+}
+footer a:not(:has(img)):hover {
+  color: var(--vp-marigold);
+  text-decoration-line: underline;
+  text-decoration-color: var(--vp-marigold);
+  text-underline-offset: 4px;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .editorial-card { transition: border-color 160ms ease, box-shadow 160ms ease; }
+  .editorial-card:hover { box-shadow: 0 8px 24px -18px rgb(24 75 60 / 28%); }
+  .editorial-card:hover .editorial-arrow { background: var(--vp-marigold); }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .cta-marigold { transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
+  .cta-marigold:hover { transform: translateY(-1px); box-shadow: 0 4px 12px -8px rgb(122 79 0 / 40%); }
+  .feature-card-accent { transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
+  .feature-card-accent:hover { border-color: var(--vp-marigold-ink); }
 }

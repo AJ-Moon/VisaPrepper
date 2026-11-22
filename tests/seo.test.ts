@@ -36,13 +36,12 @@ test("application offers retain the current price and applicant availability", (
   for (const offer of application.offers) {
     assert.equal(offer["@type"], "Offer");
     assert.equal(offer.priceCurrency, "USD");
-    assert.deepEqual(offer.eligibleRegion, [
-      { "@type": "Country", name: "Pakistan" },
-      { "@type": "Country", name: "India" },
-    ]);
+    assert.deepEqual(offer.eligibleRegion, { "@type": "Place", name: "Worldwide" });
+    assert.match(offer.description, /supported U.S. visa routes/);
+    assert.match(offer.description, /UK and European routes retain their applicant-country eligibility rules/);
     assert.ok(offer.url.startsWith(`${SITE_URL}/`));
   }
-  assert.equal(application.offers.find(offer => offer.price === 44)?.availability, "https://schema.org/OutOfStock");
+  assert.equal(application.offers.find(offer => offer.price === 44)?.availability, "https://schema.org/InStock");
   assert.match(application.description, /U.S. interview practice supports English, Urdu and Hindi/);
   assert.match(application.description, /interviews are in English/);
   assert.doesNotMatch(application.description, /confidence scores/);

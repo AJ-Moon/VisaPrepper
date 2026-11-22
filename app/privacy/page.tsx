@@ -6,7 +6,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Privacy Policy",
-  description: "How Visa Prepper collects, uses, and protects your information, including application details and practice interview records.",
+  description: "How VisaPrepper collects, uses, and protects your information, including application details and practice interview records.",
   path: "/privacy",
 });
 
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
       </Container>
       <Container className="py-10 sm:py-14">
         <h1 className="font-display text-3xl font-semibold text-foreground sm:text-4xl">Privacy Policy</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Last updated: November 1, 2026</p>
+        <p className="mt-2 text-sm text-muted-foreground">Last updated: November 17, 2026</p>
 
         <div className="prose-vp mt-8 max-w-3xl">
           <p>
@@ -54,7 +54,7 @@ export default function PrivacyPage() {
 
           <h2>Partner applications</h2>
           <p>If you apply to become a partner, we use your contact, business, audience and application details to review the request and respond. Optional marketing consent is separate. Do not include passports, visa documents, bank details or applicant information.</p>
-          <p>Partner applications are sent through FormSubmit, our email-form delivery provider, and then delivered to the Visa Prepper team by email. FormSubmit may temporarily process and retain submission data to provide that service. Applications are not public testimonials. The same data access and deletion contact below applies.</p>
+          <p>Partner applications are emailed to the VisaPrepper team through Gmail. Google processes the submission to deliver and store the email under its applicable privacy practices. Submitted answers are sent directly to visaprepper@gmail.com and are not saved to a partner application database. To reduce duplicates and abuse, the website temporarily holds submission references, one-way submission fingerprints and delivery status for up to 24 hours, and hashed network identifiers for up to one minute. Your browser also keeps a submission reference, one-way fingerprint and confirmation status for this tab’s session to help avoid repeat submissions; the form does not place your answers in browser storage. Applications are not public testimonials. The same data access and deletion contact below applies.</p>
           <h2>How we use your information</h2>
           <ul>
             <li>To generate and conduct your adaptive practice interviews</li>
@@ -105,8 +105,7 @@ export default function PrivacyPage() {
 
           <h2>International users</h2>
           <p>
-            Visa Prepper currently supports applicants in Pakistan, with
-            India available and Bangladesh coming soon. Our infrastructure may process
+            VisaPrepper supports U.S. visa applicants worldwide on supported routes. UK and European routes have country-specific eligibility. Our infrastructure may process
             information in countries other than your own. We take steps
             intended to protect your information consistent with this
             Privacy Policy wherever it is processed.

@@ -4,7 +4,7 @@ export const j1: VisaTypeContent = {
   slug: "j1",
   code: "J1",
   name: "Exchange Visitor Visa",
-  metaTitle: "J1 Visa Interview Practice",
+  metaTitle: "J1 Visa Mock Interview Practice (AI Video)",
   metaDescription: "Practice your J1 exchange interview around your program, sponsor, funding and plans. Prepare for specific follow-ups using your application details.",
   h1: "Practice your J1 exchange visitor visa interview around your own program",
   intro:

@@ -7,7 +7,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Refund Policy",
-  description: "Visa Prepper refunds apply to verified service or billing failures. Read eligibility, exclusions and how to request help with a purchase.",
+  description: "VisaPrepper refunds apply to verified service or billing failures. Read eligibility, exclusions and how to request help with a purchase.",
   path: "/refund-policy",
 });
 

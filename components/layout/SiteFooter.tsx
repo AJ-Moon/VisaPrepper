@@ -23,7 +23,7 @@ export function SiteFooter() {
             Complete AI video visa interviews built around your own application.
           </p>
           <p className="mt-6 text-sm text-on-charcoal-muted">
-            Available for Pakistan and India. Bangladesh support coming soon.
+            U.S. visa preparation for applicants worldwide. Choose “Another country” in the app, then select your actual nationality. UK and European routes have country-specific eligibility.
           </p>
           <ul className="mt-5 flex flex-wrap gap-2">
             {LOCALES.map((locale) => (
@@ -32,6 +32,7 @@ export function SiteFooter() {
               </li>
             ))}
           </ul>
+          <p className="mt-3 text-xs leading-relaxed text-on-charcoal-muted">English across supported interview routes. Urdu and Hindi for U.S. interviews.</p>
           <nav aria-label="Social media" className="mt-6 flex flex-wrap gap-4">
             {SOCIAL_LINKS.map((link) => <a key={link.label} href={link.href} rel="noopener noreferrer" className="text-sm text-on-charcoal-muted underline-offset-4 hover:text-on-charcoal hover:underline">{link.label}</a>)}
           </nav>
@@ -39,7 +40,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h2 className="text-sm font-semibold text-on-charcoal">Product</h2>
+          <h2 className="footer-heading text-sm font-semibold text-on-charcoal">Product</h2>
           <ul className="mt-4 space-y-3">
             {FOOTER_PRODUCT_LINKS.map((link) => (
               <li key={link.href}>
@@ -55,7 +56,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h2 className="text-sm font-semibold text-on-charcoal">Company</h2>
+          <h2 className="footer-heading text-sm font-semibold text-on-charcoal">Company</h2>
           <ul className="mt-4 space-y-3">
             <li>
               <Link
