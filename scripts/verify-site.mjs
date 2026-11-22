@@ -36,9 +36,11 @@ for(const path of routes){
  assert.ok(!/App access: Pakistan and India|app(?:lication)? (?:access )?currently supports (?:applicants from )?Pakistan and India|Bangladesh support (?:is|are) coming soon|more applicant countries are planned/i.test(text),path+" no obsolete country gate in public copy");
  assert.ok(!/purchas(?:ing|es) (?:is|are) (?:currently )?unavailable|(?:checkout|interview purchasing) is not available yet/i.test(text),path+" no obsolete purchasing notice");
  for(const img of html.matchAll(/<img\b[^>]*>/g))assert.ok(/\balt="[^"]*"/.test(img[0]),path+" image alt attribute");
- for(const tag of html.matchAll(/<a\b[^>]*data-intent="(?:paid|free)"[^>]*>/g)){
+ for(const tag of html.matchAll(/<a\b[^>]*data-intent="(paid|free)"[^>]*>/g)){
   const href=tag[0].match(/href="([^"]+)"/)?.[1];
-  assert.equal(href,"https://app.visaprepper.com",path+" conversion continues to the verified app authentication entry");
+  // Free-start buttons open account creation (release 1656169); package buttons keep the app entry.
+  const expected=tag[1]==="free"?"https://app.visaprepper.com/signup":"https://app.visaprepper.com";
+  assert.equal(href,expected,path+" "+tag[1]+" conversion continues to the verified app entry");
  }
  // Customer stories keep their substance; only the brand-wide spelling style is normalized.
 }

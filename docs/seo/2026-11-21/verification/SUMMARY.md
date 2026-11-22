@@ -22,3 +22,9 @@ Branch `seo/metadata-2026-11-21`, built locally with `next build` and served wit
 - The hosting redirects (www 308, vercel.app alias, `/index`). These are Vercel settings, not code.
 - Rich Results Test and validator.schema.org on one blog post.
 - Visual review: `/blog/us-visa-interview-questions` (desktop) and `/blog/us-visa-interview-in-hindi-urdu` (375 px mobile) were checked on the local build. Both render in the existing blog template with one H1 and no horizontal page overflow. Hindi and Urdu snippets are marked `lang` and `dir="rtl"` (13 each). Wide tables scroll inside their container, as in existing posts. The other five new posts were not screenshot-reviewed.
+
+## After merging production release `1656169` (2026-11-22)
+
+- `npm test` 39/39, lint, `tsc` and `build` pass.
+- `npm run test:site` passes on 51 pages, with the checker updated so free-start buttons expect `/signup`.
+- Visible text on existing pages is unchanged outside the post-card lists, compared with the `99dac01` baseline.

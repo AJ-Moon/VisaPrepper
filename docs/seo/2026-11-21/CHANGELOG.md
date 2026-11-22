@@ -72,3 +72,14 @@ All posts use only the existing `<Disclaimer>` and `<AppCTA>` components.
 ## Docs
 
 - `docs/seo/2026-11-21/` holds all deliverables. See `README.md`.
+
+## Merge with the production release (2026-11-22)
+
+After this branch was cut, production moved to `release/marketing-2026-11-21` @ `1656169` ("Start Free opens the app's sign-up page"). That commit was merged into this branch without conflicts.
+
+- `scripts/verify-site.mjs` now expects free-start buttons (`data-intent="free"`) to link to `https://app.visaprepper.com/signup`, and package buttons to the app root. This matches `1656169`, which changed the buttons but not the checker.
+- Re-verified on the merged code:
+  - 39/39 tests, lint, tsc and build pass.
+  - Site checker passes on 51 pages.
+  - No visible-text change on existing pages outside the auto-generated post-card lists.
+- Evidence written before the merge (for example `evidence/product-facts.md`) describes free buttons as linking to the app root, which was true at `99dac01`.
