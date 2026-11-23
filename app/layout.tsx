@@ -3,6 +3,7 @@ import { figtree, fraunces } from "@/lib/fonts";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import WhatsAppHelp from "@/components/layout/WhatsAppHelp";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { MetaPixel } from "@/components/analytics/MetaPixel";
 import { JsonLd, buildOrganizationJsonLd } from "@/lib/seo/json-ld";
 import { SITE_NAME, SITE_URL } from "@/lib/config/site";
 import "./globals.css";
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <SiteFooter />
         <WhatsAppHelp />
+        <MetaPixel />
       </body>
     </html>
   );

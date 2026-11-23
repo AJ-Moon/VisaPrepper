@@ -85,13 +85,18 @@ export default function PrivacyPage() {
           <p>Document text, OCR evidence and relevant application facts are processed to produce a review. Suggested profile values are saved only when you accept them. Review does not authenticate an issuer or establish visa eligibility.</p>
           <p>The app uses OpenAI for document and interview processing, LiveKit for live audio transport, and AssemblyAI or Soniox for transcription. Storage is turned off on the app’s OpenAI requests; this does not establish a provider retention guarantee. Hosting, account and private file services also process data as needed to operate the app.</p>
           <p>WhatsApp help is an optional external link. Opening it takes you to WhatsApp under its own terms and privacy practices. Do not send passports, bank statements or payment details there; use the secure app for documents.</p>
+          <h2>Advertising measurement</h2>
+          <p>When you visit selected pages of this website from Pakistan or India, we use the Meta Pixel to measure our Facebook and Instagram ads. It records that a page was viewed and whether a sign-up button was tapped, together with standard browser and device information and Meta&rsquo;s own cookies. Meta processes this data under its own privacy policy and may use it to deliver and measure ads.</p>
+          <p>The Meta Pixel does not run inside the Visa Prepper app, and we do not send Meta your documents, application details, interview answers, nationality or visa status. Automatic advanced matching is turned off. If you arrive through a campaign link, its campaign labels (such as utm_source) are passed to the app&rsquo;s sign-up page so that sign-ups can be counted by campaign.</p>
+          <p>You can limit ad personalization in your Facebook or Instagram ad settings, or block third-party cookies in your browser.</p>
+
           <h2>Sharing your information</h2>
           <p>
             We do not sell your personal information. We may share
             information with service providers who help us operate the
             Service (for example, hosting and infrastructure providers),
             under confidentiality and data protection obligations, or where
-            required by law.
+            required by law. Meta receives limited website activity for ad measurement, as described under Advertising measurement.
           </p>
 
           <h2>Your choices and rights</h2>

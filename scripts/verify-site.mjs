@@ -108,5 +108,8 @@ assert.equal((await fetch(origin+"/visa-interview-practice/unsupported-country")
 assert.match(await(await fetch(origin+"/robots.txt")).text(),/Sitemap: https:\/\/visaprepper.com\/sitemap.xml/);
 assert.equal((await fetch(origin+"/opengraph-image")).headers.get("content-type"),"image/png");
 assert.equal((await fetch(origin+"/api/partners")).status,405);
+// Visitor-country lookup that gates the Meta Pixel to the ad markets: never cached, stores nothing.
+const geo=await fetch(origin+"/api/geo");assert.equal(geo.status,200);assert.match(geo.headers.get("cache-control")||"",/no-store/);assert.ok("country" in await geo.json(),"geo returns a country field");
+for(const [path,html]of pages)assert.ok(!html.includes("connect.facebook.net"),path+" has no pixel script in server HTML");
 // This handoff verification is GET-only: no partner/contact submissions, even locally.
 console.log(JSON.stringify({pages:routes.length,internalLinks:links.size,checks:"PASS: GET-only route/metadata/link crawl, app-entry handoffs, illustrative samples, non-autoplay video, WhatsApp contact, unchanged testimonials, live-offer messaging, three linked articles. No forms submitted or checkout sessions created; live payment processing was not tested."},null,2));
